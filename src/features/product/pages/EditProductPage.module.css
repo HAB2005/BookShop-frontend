@@ -1,0 +1,351 @@
+/* ==================== EDIT PAGE ==================== */
+.editPage {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 60vh;
+}
+
+/* ==================== PAGE HEADER ==================== */
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.headerContent h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.headerContent p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.headerActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* ==================== INSTRUCTION BANNER ==================== */
+.instructionBanner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px 0 rgba(59, 130, 246, 0.3);
+}
+
+.bannerIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.bannerContent h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.bannerContent p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.875rem;
+}
+
+/* ==================== PRODUCTS GRID ==================== */
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.selectableCard {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.selectableCard:hover {
+  transform: translateY(-4px);
+}
+
+.selectableCard:hover .editOverlay {
+  opacity: 1;
+}
+
+.editOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(59, 130, 246, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.2s ease;
+  border-radius: 0.75rem;
+}
+
+.editButton {
+  background: white;
+  color: #3b82f6;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(10px);
+  transition: transform 0.2s ease;
+}
+
+.selectableCard:hover .editButton {
+  transform: translateY(0);
+}
+
+/* ==================== EDIT FORM ==================== */
+.editForm {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.formPlaceholder {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #f8fafc;
+}
+
+.placeholderIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.formPlaceholder h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.formPlaceholder p {
+  margin: 0 0 0.5rem 0;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* ==================== LOADING STATE ==================== */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 1rem;
+}
+
+.loadingContainer p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* ==================== ERROR STATE ==================== */
+.errorState {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.errorIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.errorState h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #dc2626;
+}
+
+.errorState p {
+  margin: 0 0 1.5rem 0;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* ==================== EMPTY STATE ==================== */
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.6;
+}
+
+.emptyState h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.emptyState p {
+  margin: 0 0 2rem 0;
+  color: #6b7280;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.emptyActions {
+  margin-top: 1.5rem;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.buttonIcon {
+  font-size: 1rem;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .editPage {
+    padding: 1rem;
+  }
+  
+  .pageHeader {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .headerActions {
+    justify-content: flex-end;
+  }
+  
+  .productsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .editPage {
+    padding: 0.75rem;
+  }
+  
+  .pageHeader {
+    padding: 1rem;
+  }
+  
+  .headerContent h1 {
+    font-size: 1.5rem;
+  }
+  
+  .instructionBanner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  
+  .productsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  
+  .emptyState {
+    padding: 2rem 1rem;
+  }
+  
+  .emptyState h3 {
+    font-size: 1.5rem;
+  }
+  
+  .emptyState p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .editPage {
+    padding: 0.5rem;
+  }
+  
+  .pageHeader {
+    padding: 0.75rem;
+  }
+  
+  .productsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .emptyState {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .emptyIcon {
+    font-size: 3rem;
+  }
+  
+  .ctaButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .headerActions {
+    justify-content: stretch;
+  }
+  
+  .headerActions button {
+    flex: 1;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,278 @@
+.profileInfo {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.infoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.editButton {
+  flex-shrink: 0;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.infoSection {
+  padding: 32px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.infoSection:last-child {
+  border-right: none;
+}
+
+.subsectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.infoIcon {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.infoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.infoLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.infoValue {
+  font-size: 14px;
+  color: #111827;
+  font-weight: 500;
+}
+
+.emptyValue {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Badges */
+.roleBadge,
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.roleBadge {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.roleAdmin {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.roleCustomer {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.statusBadge {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.statusActive {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.statusInactive {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.statusBanned {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+/* Quick Actions */
+.quickActions {
+  padding: 32px;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.actionButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.actionButton:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.actionIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.actionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.actionTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.actionDescription {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.editProfileButton:hover {
+  border-color: #10b981;
+}
+
+.securityButton:hover {
+  border-color: #f59e0b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .infoHeader {
+    padding: 20px 24px;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .infoSection {
+    padding: 24px;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .infoSection:last-child {
+    border-bottom: none;
+  }
+  
+  .quickActions {
+    padding: 24px;
+  }
+  
+  .actionButtons {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .infoHeader {
+    padding: 16px 20px;
+  }
+  
+  .sectionTitle {
+    font-size: 18px;
+  }
+  
+  .infoSection {
+    padding: 20px;
+  }
+  
+  .subsectionTitle {
+    font-size: 14px;
+  }
+  
+  .quickActions {
+    padding: 20px;
+  }
+  
+  .actionButton {
+    padding: 12px;
+  }
+  
+  .actionTitle {
+    font-size: 13px;
+  }
+  
+  .actionDescription {
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,441 @@
+.reviewStep {
+  max-width: 800px;
+}
+
+/* ==================== STEP HEADER ==================== */
+.stepHeader {
+  margin-bottom: 32px;
+}
+
+.stepHeader h2 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.stepHeader p {
+  margin: 0;
+  color: #64748b;
+  font-size: 16px;
+}
+
+/* ==================== REVIEW SECTIONS ==================== */
+.reviewSection {
+  margin-bottom: 32px;
+}
+
+.reviewSection h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a202c;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reviewCard {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* ==================== REVIEW GRID ==================== */
+.reviewGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.reviewItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.reviewItem:last-child {
+  border-bottom: none;
+}
+
+.reviewLabel {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+  flex-shrink: 0;
+  min-width: 120px;
+}
+
+.reviewValue {
+  font-size: 14px;
+  color: #1a202c;
+  font-weight: 600;
+  text-align: right;
+  flex: 1;
+}
+
+.priceValue {
+  color: #059669;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.statusBadge {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.statusBadge.active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.statusBadge.inactive {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* ==================== CATEGORIES LIST ==================== */
+.categoriesList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.categoryItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border-radius: 6px;
+}
+
+.categoryIcon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.categoryName {
+  font-size: 14px;
+  color: #1a202c;
+  font-weight: 500;
+}
+
+.categorySlug {
+  font-size: 12px;
+  color: #6b7280;
+  font-family: monospace;
+  margin-left: auto;
+}
+
+/* ==================== DESCRIPTION SECTION ==================== */
+.descriptionSection {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.descriptionContent {
+  margin-top: 8px;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* ==================== IMAGES GRID ==================== */
+.imagesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.imagePreview {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #e2e8f0;
+  transition: border-color 0.2s ease;
+}
+
+.imagePreview.primaryImage {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.previewImage {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+.primaryBadge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: #3b82f6;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.imageInfo {
+  padding: 8px;
+  background: white;
+}
+
+.imageName {
+  font-size: 11px;
+  color: #374151;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.imageSize {
+  font-size: 10px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* ==================== EMPTY STATE ==================== */
+.emptyState {
+  text-align: center;
+  padding: 32px;
+  color: #6b7280;
+}
+
+.emptyIcon {
+  font-size: 32px;
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+
+.emptyState span {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.emptyState p {
+  margin: 0;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* ==================== SUMMARY STATS ==================== */
+.summaryStats {
+  margin-bottom: 32px;
+  padding: 20px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 16px;
+}
+
+.statItem {
+  text-align: center;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 4px;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==================== CHECKLIST SECTION ==================== */
+.checklistSection {
+  margin-bottom: 32px;
+  padding: 20px;
+  background: #fffbeb;
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+}
+
+.checklistSection h4 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #92400e;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checklistItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.checklistItem.completed {
+  color: #166534;
+  background: #f0fdf4;
+}
+
+.checklistItem.optional {
+  color: #6b7280;
+  background: #f9fafb;
+}
+
+.checkIcon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* ==================== ACTION MESSAGE ==================== */
+.actionMessage {
+  margin-bottom: 16px;
+}
+
+.messageCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+}
+
+.messageIcon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.messageContent h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.messageContent p {
+  margin: 0;
+  font-size: 14px;
+  color: #1e40af;
+  line-height: 1.5;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .reviewStep {
+    max-width: none;
+  }
+  
+  .stepHeader h2 {
+    font-size: 20px;
+  }
+  
+  .stepHeader p {
+    font-size: 14px;
+  }
+  
+  .reviewCard {
+    padding: 20px;
+  }
+  
+  .reviewItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 8px 0;
+  }
+  
+  .reviewLabel {
+    min-width: auto;
+  }
+  
+  .reviewValue {
+    text-align: left;
+  }
+  
+  .imagesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+  }
+  
+  .previewImage {
+    height: 100px;
+  }
+  
+  .statsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 12px;
+  }
+  
+  .statItem {
+    padding: 8px;
+  }
+  
+  .statValue {
+    font-size: 20px;
+  }
+  
+  .messageCard {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviewCard,
+  .summaryStats,
+  .checklistSection,
+  .messageCard {
+    padding: 16px;
+  }
+  
+  .imagesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+  
+  .previewImage {
+    height: 80px;
+  }
+  
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

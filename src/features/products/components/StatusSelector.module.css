@@ -1,0 +1,106 @@
+.statusSelector {
+  padding: 1.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.updating {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.statusOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statusButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: #f9fafb;
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.statusButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.statusButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.statusButton.active {
+  font-weight: 600;
+}
+
+.statusButton.green {
+  border-color: #10b981;
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  color: #065f46;
+}
+
+.statusButton.green.active {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.statusButton.orange {
+  border-color: #f59e0b;
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  color: #92400e;
+}
+
+.statusButton.orange.active {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+
+.statusButton.red {
+  border-color: #ef4444;
+  background: linear-gradient(135deg, #fef2f2, #fecaca);
+  color: #991b1b;
+}
+
+.statusButton.red.active {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .statusSelector {
+    padding: 1rem;
+  }
+}

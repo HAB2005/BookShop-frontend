@@ -1,0 +1,458 @@
+/* Category Management Page Styles - Clean Light Design */
+.categoryManagement {
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 24px;
+}
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+  color: white;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="90" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.titleSection h1 {
+  margin: 0 0 8px 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #ffffff, #e0e7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.titleSection p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.addButton {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.addButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.addButton:hover::before {
+  left: 100%;
+}
+
+.addButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.mainCard {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.cardHeader {
+  padding: 32px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardTitle h2 {
+  margin: 0 0 8px 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.cardTitle p {
+  margin: 0;
+  color: #64748b;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.cardControls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.viewToggle {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 4px;
+  gap: 2px;
+  border: 1px solid #e2e8f0;
+}
+
+.toggleButton {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.toggleButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+}
+
+.toggleButton span {
+  position: relative;
+  z-index: 1;
+}
+
+.toggleButton:hover:not(.active) {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.toggleButton.active {
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.toggleButton.active::before {
+  opacity: 1;
+}
+
+.refreshButton {
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  color: #64748b;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 48px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.refreshButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  transform: translateY(-2px) rotate(180deg);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+}
+
+.refreshButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cardContent {
+  min-height: 600px;
+  background: #ffffff;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 100px 40px;
+  color: #64748b;
+}
+
+.emptyIcon {
+  font-size: 5rem;
+  margin-bottom: 24px;
+  opacity: 0.7;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.emptyState h3 {
+  margin: 0 0 16px 0;
+  color: #1e293b;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.emptyState p {
+  margin: 0 0 40px 0;
+  font-size: 1.2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.createFirstButton {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 16px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.createFirstButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.createFirstButton:hover::before {
+  left: 100%;
+}
+
+.createFirstButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.4);
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  color: #64748b;
+}
+
+.loadingContainer p {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  color: #dc2626;
+  text-align: center;
+  padding: 60px;
+}
+
+.errorIcon {
+  font-size: 4rem;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 4px 8px rgba(220, 38, 38, 0.2));
+}
+
+.errorContainer h3 {
+  margin: 0 0 16px 0;
+  color: #1e293b;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.errorContainer p {
+  margin: 0 0 32px 0;
+  color: #64748b;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.errorContainer button {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3);
+}
+
+.errorContainer button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .categoryManagement {
+    padding: 20px;
+  }
+  
+  .header {
+    padding: 24px;
+  }
+  
+  .cardHeader {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .categoryManagement {
+    padding: 16px;
+  }
+  
+  .header {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .headerContent {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .titleSection h1 {
+    font-size: 2rem;
+  }
+  
+  .addButton {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+  
+  .cardHeader {
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+  
+  .cardTitle {
+    text-align: center;
+  }
+  
+  .cardTitle h2 {
+    font-size: 1.5rem;
+  }
+  
+  .cardControls {
+    justify-content: space-between;
+  }
+  
+  .viewToggle {
+    flex: 1;
+    margin-right: 12px;
+  }
+  
+  .toggleButton {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .emptyState {
+    padding: 60px 20px;
+  }
+  
+  .emptyIcon {
+    font-size: 4rem;
+  }
+  
+  .emptyState h3 {
+    font-size: 1.5rem;
+  }
+  
+  .emptyState p {
+    font-size: 1rem;
+  }
+  
+  .createFirstButton {
+    padding: 16px 32px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .titleSection h1 {
+    font-size: 1.8rem;
+  }
+  
+  .cardTitle h2 {
+    font-size: 1.3rem;
+  }
+  
+  .toggleButton {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+}

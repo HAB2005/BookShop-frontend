@@ -1,0 +1,249 @@
+.addProductPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+/* ==================== HEADER ==================== */
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.headerContent h1 {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.pageDescription {
+  margin: 0;
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+.headerActions {
+  display: flex;
+  gap: 12px;
+}
+
+/* ==================== PROGRESS ==================== */
+.progressSection {
+  margin-bottom: 32px;
+  padding: 20px 24px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+/* ==================== FORM LAYOUT ==================== */
+.formContainer {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.formLayout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 600px;
+}
+
+.wizardSidebar {
+  background: #f8fafc;
+  border-right: 1px solid #e2e8f0;
+  padding: 24px;
+}
+
+.formContent {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==================== FORM ACTIONS ==================== */
+.formActions {
+  margin-top: auto;
+  padding-top: 32px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.rightActions {
+  display: flex;
+  gap: 12px;
+}
+
+.submitError {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #dc2626;
+  font-size: 14px;
+}
+
+.errorIcon {
+  font-size: 16px;
+}
+
+.errorMessage {
+  flex: 1;
+}
+
+/* ==================== HELP SECTION ==================== */
+.helpSection {
+  margin-top: 32px;
+}
+
+.helpCard {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.helpCard h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.helpCard ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.helpCard li {
+  margin-bottom: 8px;
+}
+
+/* ==================== LOADING STATE ==================== */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+}
+
+.loadingContainer p {
+  margin: 0;
+  color: #64748b;
+  font-size: 16px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .addProductPage {
+    padding: 16px;
+  }
+  
+  .formLayout {
+    grid-template-columns: 1fr;
+  }
+  
+  .wizardSidebar {
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 20px;
+  }
+  
+  .formContent {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageHeader {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  
+  .headerActions {
+    justify-content: flex-end;
+  }
+  
+  .actionButtons {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .rightActions {
+    justify-content: stretch;
+  }
+  
+  .rightActions button {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .addProductPage {
+    padding: 12px;
+  }
+  
+  .pageHeader,
+  .progressSection,
+  .formContainer {
+    padding: 16px;
+  }
+  
+  .formContent {
+    padding: 16px;
+  }
+  
+  .wizardSidebar {
+    padding: 16px;
+  }
+}

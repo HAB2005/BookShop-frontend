@@ -1,0 +1,321 @@
+/* SignUpForm.module.css */
+
+.signUpContainer {
+  display: flex;
+  width: 100%;
+  max-width: 850px;
+  gap: 1.25rem;
+  align-items: center;
+  min-height: 350px;
+}
+
+.leftColumn {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.rightColumn {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Vertical Divider */
+.verticalDivider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.75rem;
+  height: 100%;
+  min-height: 280px;
+}
+
+.verticalDivider .dividerLine {
+  width: 1px;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.verticalDivider .dividerText {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem 0;
+}
+
+/* Sign Up Form */
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 0.35rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 0.85rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.input:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Password Input with Toggle */
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordWrapper .input {
+  padding-right: 2.25rem;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transition: color 0.2s ease;
+  font-size: 1rem;
+}
+
+.passwordToggle:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.formOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0.2rem 0;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.checkbox:checked {
+  background: #60a5fa;
+  border-color: #60a5fa;
+}
+
+.checkboxText {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+.link {
+  color: #93c5fd;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #bfdbfe;
+}
+
+.submitButton {
+  width: 100%;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  padding: 0.65rem 0.9rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  transform: translateY(0);
+  cursor: pointer;
+  margin-top: 0.4rem;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.submitButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.5), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: translateY(0);
+}
+
+.loadingSpinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+/* Error Messages */
+.errorMessage {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid;
+}
+
+.networkError {
+  background: rgba(251, 146, 60, 0.2);
+  color: #fed7aa;
+  border-color: rgba(251, 146, 60, 0.3);
+}
+
+.serverError {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fecaca;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.validationError {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fef3c7;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.errorMessage:not(.networkError):not(.serverError):not(.validationError) {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fecaca;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .signUpContainer {
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+  
+  .verticalDivider {
+    flex-direction: row;
+    min-height: auto;
+    padding: 1rem 0;
+  }
+  
+  .verticalDivider .dividerLine {
+    width: auto;
+    height: 1px;
+    flex: 1;
+  }
+  
+  .verticalDivider .dividerText {
+    padding: 0 1rem;
+  }
+  
+  .signUpForm {
+    max-width: 100%;
+  }
+  
+  .formOptions {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .signUpContainer {
+    gap: 1rem;
+  }
+  
+  .signUpForm {
+    gap: 0.8rem;
+  }
+  
+  .input {
+    font-size: 0.85rem;
+    padding: 0.65rem 0.75rem;
+  }
+  
+  .passwordWrapper .input {
+    padding-right: 2.25rem;
+  }
+  
+  .submitButton {
+    font-size: 0.85rem;
+    padding: 0.7rem 0.9rem;
+  }
+  
+  .checkboxText {
+    font-size: 0.75rem;
+  }
+}

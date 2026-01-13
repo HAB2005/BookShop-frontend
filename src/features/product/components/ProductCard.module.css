@@ -1,0 +1,134 @@
+/* ==================== PRODUCT CARD ==================== */
+.productCard {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.productCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* ==================== IMAGE CONTAINER ==================== */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.3s ease;
+  background: white;
+}
+
+.productCard:hover .productImage {
+  transform: scale(1.05);
+}
+
+.placeholderImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.placeholderIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.6;
+}
+
+.placeholderText {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ==================== PRODUCT INFO ==================== */
+.productInfo {
+  padding: 1rem;
+}
+
+.productName {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.8rem;
+}
+
+.productPrice {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #059669;
+  margin-bottom: 0.5rem;
+}
+
+.salesCount {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .imageContainer {
+    height: 160px;
+  }
+  
+  .productInfo {
+    padding: 0.75rem;
+  }
+  
+  .productName {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    min-height: 2.4rem;
+  }
+  
+  .productPrice {
+    font-size: 1rem;
+  }
+  
+  .salesCount {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .imageContainer {
+    height: 140px;
+  }
+  
+  .productInfo {
+    padding: 0.625rem;
+  }
+  
+  .productName {
+    font-size: 0.8125rem;
+    min-height: 2.2rem;
+  }
+  
+  .productPrice {
+    font-size: 0.9375rem;
+  }
+}

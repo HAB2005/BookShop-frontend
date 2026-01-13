@@ -1,0 +1,669 @@
+/* Modern Product Form Styles */
+.productForm {
+  padding: 2rem;
+  background: #ffffff;
+  max-width: 100%;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Section Styles - Clean and unified */
+.basicSection,
+.bookSection {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.basicSection:hover,
+.bookSection:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.toggleSection {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.toggleSection:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Section Headers - Enhanced but unified */
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.sectionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: #3b82f6;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.sectionHeader:hover .sectionIcon {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1e293b;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.sectionDescription {
+  margin: 8px 0 0 0;
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Form Grid - Enhanced spacing */
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+/* Form Groups - Enhanced styling */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+}
+
+.required {
+  color: #ef4444;
+  font-weight: 800;
+  font-size: 1.1rem;
+  animation: requiredPulse 2s infinite;
+}
+
+@keyframes requiredPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Input Wrappers */
+.inputWrapper,
+.textareaWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  padding-right: 3.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #1e293b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 
+    0 0 0 4px rgba(79, 70, 229, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  background: #fefeff;
+}
+
+.input:hover:not(:focus),
+.textarea:hover:not(:focus) {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.input.error,
+.textarea.error {
+  border-color: #ef4444;
+  background: #fef2f2;
+  box-shadow: 
+    0 0 0 4px rgba(239, 68, 68, 0.1),
+    0 4px 12px rgba(239, 68, 68, 0.15);
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.priceInput {
+  padding-right: 5rem;
+}
+
+/* Input Icons - Enhanced */
+.inputIcon,
+.textareaIcon {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  opacity: 0.5;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: #64748b;
+}
+
+.inputWrapper:hover .inputIcon,
+.textareaWrapper:hover .textareaIcon {
+  opacity: 0.8;
+  transform: translateY(-50%) scale(1.1);
+  color: #475569;
+}
+
+.input:focus + .inputIcon,
+.textarea:focus + .textareaIcon {
+  opacity: 1;
+  color: #3b82f6;
+  transform: translateY(-50%) scale(1.2);
+}
+
+.currencyLabel {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  pointer-events: none;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.priceInput:focus + .inputIcon + .currencyLabel {
+  background: #dbeafe;
+  color: #3b82f6;
+  border-color: #3b82f6;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.15);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 140px;
+  padding-right: 1.25rem;
+  line-height: 1.7;
+}
+
+.textareaWrapper .textareaIcon {
+  top: 1.25rem;
+  transform: none;
+}
+
+.textareaWrapper:hover .textareaIcon {
+  transform: scale(1.1);
+}
+
+.textarea:focus + .textareaIcon {
+  transform: scale(1.2);
+}
+
+/* Error Text - Enhanced */
+.errorText {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: #ef4444;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #fee2e2;
+  border-radius: 8px;
+  border-left: 3px solid #ef4444;
+  animation: slideInError 0.3s ease-out;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.errorText::before {
+  content: '⚠️';
+  font-size: 1rem;
+}
+
+@keyframes slideInError {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Toggle Section - Enhanced but unified */
+.toggleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.toggleContent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.toggleIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: #f59e0b;
+  border-radius: 12px;
+  font-size: 1.375rem;
+  color: white;
+  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggleWrapper:hover .toggleIcon {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 8px rgba(245, 158, 11, 0.3);
+}
+
+.toggleTitle {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.025em;
+}
+
+.toggleDescription {
+  margin: 6px 0 0 0;
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Switch Styles - Enhanced */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 32px;
+}
+
+.switchInput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switchSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #cbd5e1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 32px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.switchSlider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.switchInput:checked + .switchSlider {
+  background: #3b82f6;
+  box-shadow: inset 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+.switchInput:checked + .switchSlider:before {
+  transform: translateX(32px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.switchSlider:hover {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.switchInput:checked + .switchSlider:hover {
+  box-shadow: inset 0 2px 4px rgba(59, 130, 246, 0.2), 0 0 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Form Actions - Enhanced */
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 2.5rem 0 0 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  margin-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.cancelButton,
+.submitButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  min-width: 160px;
+  justify-content: center;
+  letter-spacing: 0.025em;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.buttonIcon {
+  font-size: 1.125rem;
+  transition: transform 0.3s ease;
+}
+
+.cancelButton {
+  background: white;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.cancelButton:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #475569;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cancelButton:hover:not(:disabled) .buttonIcon {
+  transform: scale(1.15);
+}
+
+.submitButton {
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+  position: relative;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #2563eb;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+.submitButton:hover:not(:disabled) .buttonIcon {
+  transform: scale(1.2);
+}
+
+.cancelButton:disabled,
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submitButton:disabled {
+  background: #94a3b8;
+  box-shadow: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .productForm {
+    padding: 1.5rem;
+  }
+
+  .basicSection,
+  .bookSection,
+  .toggleSection {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .sectionHeader {
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .sectionIcon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .formActions {
+    flex-direction: column-reverse;
+    padding: 2rem 0 0 0;
+    gap: 0.75rem;
+  }
+
+  .cancelButton,
+  .submitButton {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .toggleWrapper {
+    padding: 1.25rem 0;
+  }
+
+  .toggleContent {
+    gap: 0.75rem;
+  }
+
+  .toggleIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.125rem;
+  }
+
+  .input,
+  .textarea {
+    padding: 0.875rem 1rem;
+    padding-right: 3rem;
+  }
+
+  .priceInput {
+    padding-right: 4.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .productForm {
+    padding: 1rem;
+  }
+
+  .basicSection,
+  .bookSection,
+  .toggleSection {
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .input,
+  .textarea {
+    padding: 0.75rem 0.875rem;
+    padding-right: 2.75rem;
+    font-size: 0.9rem;
+  }
+
+  .priceInput {
+    padding-right: 4rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+
+  .sectionIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.125rem;
+  }
+
+  .formActions {
+    padding: 1.5rem 0 0 0;
+  }
+
+  .cancelButton,
+  .submitButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .toggleIcon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .switch {
+    width: 56px;
+    height: 28px;
+  }
+
+  .switchSlider:before {
+    height: 22px;
+    width: 22px;
+  }
+
+  .switchInput:checked + .switchSlider:before {
+    transform: translateX(28px);
+  }
+}
+
+/* Animation for form sections */
+/* Removed animations for better performance */
+
+/* Focus management for accessibility */
+.input:focus-visible,
+.textarea:focus-visible,
+.switchSlider:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Loading state for form */
+.productForm.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.productForm.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
