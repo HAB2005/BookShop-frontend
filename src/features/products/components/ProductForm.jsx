@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import styles from './ProductForm.module.css';
 
-function ProductForm({ 
-  initialData = null, 
-  onSubmit, 
-  onCancel, 
+function ProductForm({
+  initialData = null,
+  onSubmit,
+  onCancel,
   onChange,
   onFormDataChange,
   loading = false,
@@ -51,12 +51,12 @@ function ProductForm({
       [name]: value
     };
     setFormData(newFormData);
-    
+
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: null }));
     }
-    
+
     // Notify parent of changes
     if (onChange) {
       onChange();
@@ -76,12 +76,12 @@ function ProductForm({
       }
     };
     setFormData(newFormData);
-    
+
     // Clear error when user starts typing
     if (errors[`book.${name}`]) {
       setErrors(prev => ({ ...prev, [`book.${name}`]: null }));
     }
-    
+
     // Notify parent of changes
     if (onChange) {
       onChange();
@@ -94,7 +94,7 @@ function ProductForm({
   const handleBookToggle = (e) => {
     const newIsBookProduct = e.target.checked;
     setIsBookProduct(newIsBookProduct);
-    
+
     // Notify parent of changes
     if (onChange) {
       onChange();
@@ -157,7 +157,7 @@ function ProductForm({
       if (formData.book.publishYear) bookData.publishYear = parseInt(formData.book.publishYear);
       if (formData.book.pageCount) bookData.pageCount = parseInt(formData.book.pageCount);
       if (formData.book.language) bookData.language = formData.book.language.trim();
-      
+
       if (Object.keys(bookData).length > 0) {
         submitData.book = bookData;
       }
@@ -178,7 +178,7 @@ function ProductForm({
               <p className={styles.sectionDescription}>Essential product details</p>
             </div>
           </div>
-          
+
           <div className={styles.formGrid}>
             <div className={styles.formGroup}>
               <label htmlFor="name" className={styles.label}>
@@ -258,7 +258,7 @@ function ProductForm({
                 <p className={styles.sectionDescription}>Additional details for book products</p>
               </div>
             </div>
-            
+
             <div className={styles.formGrid}>
               <div className={styles.formGroup}>
                 <label htmlFor="isbn" className={styles.label}>ISBN</label>

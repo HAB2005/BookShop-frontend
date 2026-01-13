@@ -29,7 +29,7 @@ function CategoryManager({ productId, currentCategories = [], onCategoriesChange
     try {
       setLoading(true);
       setError(null);
-      
+
       const response = await getCategoriesApi();
       setAvailableCategories(response.content || response || []);
     } catch (err) {
@@ -54,16 +54,16 @@ function CategoryManager({ productId, currentCategories = [], onCategoriesChange
     try {
       setSaving(true);
       await assignCategoriesToProductApi(productId, selectedCategories);
-      
+
       // Update the parent component with new categories
-      const updatedCategories = availableCategories.filter(cat => 
+      const updatedCategories = availableCategories.filter(cat =>
         selectedCategories.includes(cat.categoryId)
       );
-      
+
       if (onCategoriesChange) {
         onCategoriesChange(updatedCategories);
       }
-      
+
       success('Product categories updated successfully');
     } catch (err) {
       showError('Failed to update categories');
@@ -119,9 +119,8 @@ function CategoryManager({ productId, currentCategories = [], onCategoriesChange
           availableCategories.map((category) => (
             <div
               key={category.categoryId}
-              className={`${styles.categoryItem} ${
-                selectedCategories.includes(category.categoryId) ? styles.selected : ''
-              }`}
+              className={`${styles.categoryItem} ${selectedCategories.includes(category.categoryId) ? styles.selected : ''
+                }`}
               onClick={() => handleCategoryToggle(category.categoryId)}
             >
               <div className={styles.categoryInfo}>
@@ -132,11 +131,10 @@ function CategoryManager({ productId, currentCategories = [], onCategoriesChange
                   </div>
                 )}
               </div>
-              
+
               <div className={styles.categoryActions}>
-                <div className={`${styles.checkbox} ${
-                  selectedCategories.includes(category.categoryId) ? styles.checked : ''
-                }`}>
+                <div className={`${styles.checkbox} ${selectedCategories.includes(category.categoryId) ? styles.checked : ''
+                  }`}>
                   {selectedCategories.includes(category.categoryId) && (
                     <span className={styles.checkmark}>✓</span>
                   )}
@@ -153,7 +151,7 @@ function CategoryManager({ productId, currentCategories = [], onCategoriesChange
             <span className={styles.changeIcon}>●</span>
             You have unsaved changes
           </div>
-          
+
           <div className={styles.actionButtons}>
             <button
               onClick={() => setSelectedCategories(currentCategories.map(cat => cat.categoryId))}
@@ -162,7 +160,7 @@ function CategoryManager({ productId, currentCategories = [], onCategoriesChange
             >
               Cancel
             </button>
-            
+
             <button
               onClick={handleSaveCategories}
               className={styles.saveButton}

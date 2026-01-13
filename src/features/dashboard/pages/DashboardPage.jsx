@@ -153,43 +153,43 @@ function DashboardPage() {
         <h2 className={styles.sectionTitle}>System Management</h2>
         <div className={styles.modulesGrid}>
           {managementModules.map((module) => (
-              <div 
-                className={`${styles.moduleCard} ${styles[module.color]} ${openDropdown === module.id ? styles.expanded : ''}`}
-                onClick={() => toggleDropdown(module.id)}
-              >
-                <div className={styles.moduleHeader}>
-                  <div className={styles.moduleIcon}>{module.icon}</div>
-                  <div className={styles.moduleInfo}>
-                    <h3 className={styles.moduleTitle}>{module.title}</h3>
-                    <p className={styles.moduleDescription}>{module.description}</p>
-                  </div>
-                  <div className={`${styles.expandIndicator} ${openDropdown === module.id ? styles.rotated : ''}`}>
-                    ▼
+            <div
+              className={`${styles.moduleCard} ${styles[module.color]} ${openDropdown === module.id ? styles.expanded : ''}`}
+              onClick={() => toggleDropdown(module.id)}
+            >
+              <div className={styles.moduleHeader}>
+                <div className={styles.moduleIcon}>{module.icon}</div>
+                <div className={styles.moduleInfo}>
+                  <h3 className={styles.moduleTitle}>{module.title}</h3>
+                  <p className={styles.moduleDescription}>{module.description}</p>
+                </div>
+                <div className={`${styles.expandIndicator} ${openDropdown === module.id ? styles.rotated : ''}`}>
+                  ▼
+                </div>
+              </div>
+
+              {openDropdown === module.id && (
+                <div className={styles.dropdownSection}>
+                  <div className={styles.dropdownItems}>
+                    {module.dropdownItems.map((item, index) => (
+                      <button
+                        key={index}
+                        className={styles.dropdownItem}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(item.path);
+                          setOpenDropdown(null);
+                        }}
+                      >
+                        <span className={styles.itemIcon}>{item.icon}</span>
+                        <span className={styles.itemText}>{item.label}</span>
+                        <span className={styles.itemArrow}>→</span>
+                      </button>
+                    ))}
                   </div>
                 </div>
-                
-                {openDropdown === module.id && (
-                  <div className={styles.dropdownSection}>
-                    <div className={styles.dropdownItems}>
-                      {module.dropdownItems.map((item, index) => (
-                        <button
-                          key={index}
-                          className={styles.dropdownItem}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            navigate(item.path);
-                            setOpenDropdown(null);
-                          }}
-                        >
-                          <span className={styles.itemIcon}>{item.icon}</span>
-                          <span className={styles.itemText}>{item.label}</span>
-                          <span className={styles.itemArrow}>→</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
+              )}
+            </div>
           ))}
         </div>
       </div>
@@ -205,7 +205,7 @@ function DashboardPage() {
               <div className={styles.statLabel}>Total Products</div>
             </div>
           </div>
-          
+
           <div className={styles.statCard}>
             <div className={styles.statIcon}>🛒</div>
             <div className={styles.statInfo}>
@@ -213,7 +213,7 @@ function DashboardPage() {
               <div className={styles.statLabel}>Orders</div>
             </div>
           </div>
-          
+
           <div className={styles.statCard}>
             <div className={styles.statIcon}>👥</div>
             <div className={styles.statInfo}>
@@ -221,7 +221,7 @@ function DashboardPage() {
               <div className={styles.statLabel}>Users</div>
             </div>
           </div>
-          
+
           <div className={styles.statCard}>
             <div className={styles.statIcon}>💰</div>
             <div className={styles.statInfo}>

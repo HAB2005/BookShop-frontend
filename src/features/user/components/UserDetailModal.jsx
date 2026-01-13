@@ -42,7 +42,7 @@ function UserDetailModal({ isOpen, onClose, userId, onUserUpdated, onEditUser })
   const loadUserDetail = async () => {
     setLoading(true);
     setError('');
-    
+
     try {
       const detail = await getUserDetail(userId);
       setUserDetail(detail);
@@ -64,7 +64,7 @@ function UserDetailModal({ isOpen, onClose, userId, onUserUpdated, onEditUser })
 
     try {
       await resetUserPassword(userId);
-      
+
       toast.success(`Password reset to "123456" for ${userDetail.fullName || userDetail.username}`);
       setShowConfirmModal(false);
 
@@ -130,8 +130,8 @@ function UserDetailModal({ isOpen, onClose, userId, onUserUpdated, onEditUser })
             <div className={styles.errorIcon}>⚠️</div>
             <h3>Error Loading User Details</h3>
             <p>{error}</p>
-            <Button 
-              label="Retry" 
+            <Button
+              label="Retry"
               onClick={loadUserDetail}
               variant="outline"
             />
@@ -267,7 +267,7 @@ function UserDetailModal({ isOpen, onClose, userId, onUserUpdated, onEditUser })
           </div>
         )}
       </div>
-      
+
       {/* Confirmation Modal */}
       <ConfirmationModal
         isOpen={showConfirmModal}

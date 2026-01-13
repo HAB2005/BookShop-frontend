@@ -60,24 +60,24 @@
   .errorPage {
     padding: 1rem;
   }
-  
+
   .errorContainer {
     padding: 2rem;
   }
-  
+
   .errorTitle {
     font-size: 1.5rem;
   }
-  
+
   .errorSubtitle {
     font-size: 1.125rem;
   }
-  
+
   .errorActions {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .actionButton {
     width: 100%;
     max-width: 200px;

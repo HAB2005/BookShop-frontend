@@ -219,8 +219,13 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 
@@ -266,27 +271,27 @@
     gap: 1.5rem;
     max-width: 100%;
   }
-  
+
   .verticalDivider {
     flex-direction: row;
     min-height: auto;
     padding: 1rem 0;
   }
-  
+
   .verticalDivider .dividerLine {
     width: auto;
     height: 1px;
     flex: 1;
   }
-  
+
   .verticalDivider .dividerText {
     padding: 0 1rem;
   }
-  
+
   .signUpForm {
     max-width: 100%;
   }
-  
+
   .formOptions {
     align-items: flex-start;
   }
@@ -296,25 +301,25 @@
   .signUpContainer {
     gap: 1rem;
   }
-  
+
   .signUpForm {
     gap: 0.8rem;
   }
-  
+
   .input {
     font-size: 0.85rem;
     padding: 0.65rem 0.75rem;
   }
-  
+
   .passwordWrapper .input {
     padding-right: 2.25rem;
   }
-  
+
   .submitButton {
     font-size: 0.85rem;
     padding: 0.7rem 0.9rem;
   }
-  
+
   .checkboxText {
     font-size: 0.75rem;
   }

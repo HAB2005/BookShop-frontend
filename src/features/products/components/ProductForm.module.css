@@ -123,9 +123,12 @@
 }
 
 @keyframes requiredPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.7;
   }
@@ -164,7 +167,7 @@
 .textarea:focus {
   outline: none;
   border-color: #4f46e5;
-  box-shadow: 
+  box-shadow:
     0 0 0 4px rgba(79, 70, 229, 0.1),
     0 8px 16px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
@@ -182,16 +185,26 @@
 .textarea.error {
   border-color: #ef4444;
   background: #fef2f2;
-  box-shadow: 
+  box-shadow:
     0 0 0 4px rgba(239, 68, 68, 0.1),
     0 4px 12px rgba(239, 68, 68, 0.15);
   animation: shake 0.5s ease-in-out;
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
 }
 
 .priceInput {
@@ -219,8 +232,8 @@
   color: #475569;
 }
 
-.input:focus + .inputIcon,
-.textarea:focus + .textareaIcon {
+.input:focus+.inputIcon,
+.textarea:focus+.textareaIcon {
   opacity: 1;
   color: #3b82f6;
   transform: translateY(-50%) scale(1.2);
@@ -243,7 +256,7 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.priceInput:focus + .inputIcon + .currencyLabel {
+.priceInput:focus+.inputIcon+.currencyLabel {
   background: #dbeafe;
   color: #3b82f6;
   border-color: #3b82f6;
@@ -266,7 +279,7 @@
   transform: scale(1.1);
 }
 
-.textarea:focus + .textareaIcon {
+.textarea:focus+.textareaIcon {
   transform: scale(1.2);
 }
 
@@ -297,6 +310,7 @@
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -397,12 +411,12 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.switchInput:checked + .switchSlider {
+.switchInput:checked+.switchSlider {
   background: #3b82f6;
   box-shadow: inset 0 2px 4px rgba(59, 130, 246, 0.2);
 }
 
-.switchInput:checked + .switchSlider:before {
+.switchInput:checked+.switchSlider:before {
   transform: translateX(32px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
@@ -411,7 +425,7 @@
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
-.switchInput:checked + .switchSlider:hover {
+.switchInput:checked+.switchSlider:hover {
   box-shadow: inset 0 2px 4px rgba(59, 130, 246, 0.2), 0 0 12px rgba(59, 130, 246, 0.3);
 }
 
@@ -632,7 +646,7 @@
     width: 22px;
   }
 
-  .switchInput:checked + .switchSlider:before {
+  .switchInput:checked+.switchSlider:before {
     transform: translateX(28px);
   }
 }

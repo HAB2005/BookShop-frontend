@@ -190,16 +190,16 @@
   .signUpContainer {
     max-width: 100%;
   }
-  
+
   .formCard {
     padding: 1.5rem;
     margin: 0.5rem;
   }
-  
+
   .formTitle {
     font-size: 1.5rem;
   }
-  
+
   .formSubtitle {
     font-size: 0.9rem;
   }
@@ -210,11 +210,11 @@
     padding: 1.25rem;
     margin: 0.25rem;
   }
-  
+
   .formTitle {
     font-size: 1.35rem;
   }
-  
+
   .errorMessage {
     padding: 0.875rem;
     font-size: 0.8rem;
@@ -222,10 +222,13 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.4;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.8;
     transform: scale(1.1);

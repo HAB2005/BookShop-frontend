@@ -17,7 +17,7 @@ export function useCategories() {
   const fetchCategories = useCallback(async (filters = {}) => {
     setLoading(true);
     setError(null);
-    
+
     try {
       const response = await getCategoriesApi(filters);
       setCategories(response.data.content || []);
@@ -49,7 +49,7 @@ export function useCategories() {
   const getCategoryDetail = useCallback(async (categoryId) => {
     setLoading(true);
     setError(null);
-    
+
     try {
       const response = await getCategoryDetailApi(categoryId);
       return {
@@ -72,7 +72,7 @@ export function useCategories() {
   const getCategoryBySlug = useCallback(async (slug) => {
     setLoading(true);
     setError(null);
-    
+
     try {
       const response = await getCategoryBySlugApi(slug);
       return {
@@ -95,13 +95,13 @@ export function useCategories() {
   const createCategory = useCallback(async (categoryData) => {
     setLoading(true);
     setError(null);
-    
+
     try {
       const response = await createCategoryApi(categoryData);
-      
+
       // Add new category to local state
       setCategories(prev => [...prev, response.data]);
-      
+
       return {
         success: true,
         data: response.data,
@@ -120,17 +120,17 @@ export function useCategories() {
   const updateCategory = useCallback(async (categoryId, categoryData) => {
     setLoading(true);
     setError(null);
-    
+
     try {
       const response = await updateCategoryApi(categoryId, categoryData);
-      
+
       // Update category in local state
-      setCategories(prev => 
-        prev.map(cat => 
+      setCategories(prev =>
+        prev.map(cat =>
           cat.categoryId === categoryId ? response.data : cat
         )
       );
-      
+
       return {
         success: true,
         data: response.data,
@@ -149,19 +149,19 @@ export function useCategories() {
   const updateCategoryStatus = useCallback(async (categoryId, statusData) => {
     setLoading(true);
     setError(null);
-    
+
     try {
       await updateCategoryStatusApi(categoryId, statusData);
-      
+
       // Update category status in local state
-      setCategories(prev => 
-        prev.map(cat => 
-          cat.categoryId === categoryId 
+      setCategories(prev =>
+        prev.map(cat =>
+          cat.categoryId === categoryId
             ? { ...cat, status: statusData.status }
             : cat
         )
       );
-      
+
       return {
         success: true,
         message: 'Category status updated successfully'
@@ -228,7 +228,7 @@ export function useCategories() {
     // Build parent-child relationships
     categories.forEach(category => {
       const categoryNode = categoryMap.get(category.categoryId);
-      
+
       if (category.parentId && categoryMap.has(category.parentId)) {
         const parent = categoryMap.get(category.parentId);
         parent.children.push(categoryNode);
@@ -243,14 +243,14 @@ export function useCategories() {
   const getCategoryPath = useCallback((categoryId) => {
     const path = [];
     let currentCategory = getCategoryById(categoryId);
-    
+
     while (currentCategory) {
       path.unshift(currentCategory);
-      currentCategory = currentCategory.parentId 
-        ? getCategoryById(currentCategory.parentId) 
+      currentCategory = currentCategory.parentId
+        ? getCategoryById(currentCategory.parentId)
         : null;
     }
-    
+
     return path;
   }, [categories, getCategoryById]);
 

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { 
-  getProductImagesApi, 
-  uploadProductImageApi, 
-  setPrimaryImageApi, 
-  deleteProductImageApi 
+import {
+  getProductImagesApi,
+  uploadProductImageApi,
+  setPrimaryImageApi,
+  deleteProductImageApi
 } from '../api/products.api.js';
 import { useToastContext } from '../../../app/providers.jsx';
 import LoadingSpinner from '../../../shared/ui/LoadingSpinner.jsx';
@@ -49,7 +49,7 @@ function IntegratedImageManager({ productId, onImagesChange, showTitle = true })
 
     try {
       setUploading(true);
-      
+
       for (const file of files) {
         if (!file.type.startsWith('image/')) {
           showError(`${file.name} is not a valid image file`);
@@ -114,20 +114,20 @@ function IntegratedImageManager({ productId, onImagesChange, showTitle = true })
 
   const getImageUrl = (image) => {
     if (!image) return null;
-    
+
     const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api';
     let filename = image.imageUrl || image.filename || image.url;
-    
+
     if (!filename) return null;
-    
+
     if (filename.startsWith('http')) {
       return filename;
     }
-    
+
     if (filename.startsWith('products/')) {
       return `${baseUrl}/files/${filename}`;
     }
-    
+
     const cleanFilename = filename.startsWith('/') ? filename.substring(1) : filename;
     return `${baseUrl}/files/products/${productId}/${cleanFilename}`;
   };
@@ -185,7 +185,7 @@ function IntegratedImageManager({ productId, onImagesChange, showTitle = true })
               <span className={styles.placeholderText}>No Image</span>
             </div>
           )}
-          
+
           {primaryImage && (
             <div className={styles.primaryBadge}>
               <span className={styles.primaryIcon}>⭐</span>
@@ -205,8 +205,8 @@ function IntegratedImageManager({ productId, onImagesChange, showTitle = true })
             className={styles.fileInput}
             disabled={uploading}
           />
-          <label 
-            htmlFor="imageUpload" 
+          <label
+            htmlFor="imageUpload"
             className={`${styles.uploadButton} ${uploading ? styles.uploading : ''}`}
           >
             {uploading ? (
@@ -240,13 +240,13 @@ function IntegratedImageManager({ productId, onImagesChange, showTitle = true })
                       e.target.src = '/placeholder-image.png';
                     }}
                   />
-                  
+
                   {image.isPrimary && (
                     <div className={styles.primaryBadgeSmall}>
                       <span className={styles.primaryIcon}>⭐</span>
                     </div>
                   )}
-                  
+
                   <div className={styles.imageOverlay}>
                     <div className={styles.imageActions}>
                       {!image.isPrimary && (
@@ -259,7 +259,7 @@ function IntegratedImageManager({ productId, onImagesChange, showTitle = true })
                           ⭐
                         </button>
                       )}
-                      
+
                       <button
                         onClick={() => handleDeleteImage(image)}
                         className={`${styles.actionButton} ${styles.deleteButton}`}
@@ -271,7 +271,7 @@ function IntegratedImageManager({ productId, onImagesChange, showTitle = true })
                     </div>
                   </div>
                 </div>
-                
+
                 <div className={styles.imageInfo}>
                   <div className={styles.imageOrder}>#{image.displayOrder || 'N/A'}</div>
                   <div className={styles.imageSize}>

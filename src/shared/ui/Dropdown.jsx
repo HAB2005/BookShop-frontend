@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from './Dropdown.module.css';
 
-function Dropdown({ 
-  value, 
-  onChange, 
-  options = [], 
+function Dropdown({
+  value,
+  onChange,
+  options = [],
   placeholder = "Select option",
   className = "",
-  disabled = false 
+  disabled = false
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -57,7 +57,7 @@ function Dropdown({
   const displayText = selectedOption ? selectedOption.label : placeholder;
 
   return (
-    <div 
+    <div
       className={`${styles.dropdown} ${className} ${disabled ? styles.disabled : ''}`}
       ref={dropdownRef}
     >
@@ -80,9 +80,8 @@ function Dropdown({
           {options.map((option) => (
             <li
               key={option.value}
-              className={`${styles.dropdownItem} ${
-                option.value === value ? styles.selected : ''
-              }`}
+              className={`${styles.dropdownItem} ${option.value === value ? styles.selected : ''
+                }`}
               onClick={() => handleSelect(option)}
               role="option"
               aria-selected={option.value === value}

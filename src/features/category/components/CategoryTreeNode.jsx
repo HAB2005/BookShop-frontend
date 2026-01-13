@@ -64,7 +64,7 @@ function CategoryTreeNode({
   return (
     <div className={styles.treeNode}>
       {/* Main Node */}
-      <div 
+      <div
         className={`${styles.nodeContent} ${!isActive ? styles.inactive : ''}`}
         style={getIndentStyle()}
         onClick={handleToggleExpand}
@@ -72,7 +72,7 @@ function CategoryTreeNode({
         onMouseLeave={() => setShowActions(false)}
       >
         {/* Expand/Collapse Button */}
-        <button 
+        <button
           className={`${styles.expandButton} ${(!hasChildren || viewMode === 'list') ? styles.disabled : ''}`}
           onClick={handleToggleExpand}
           disabled={!hasChildren || viewMode === 'list'}
@@ -89,7 +89,7 @@ function CategoryTreeNode({
               {category.status}
             </span>
           </div>
-          
+
           <div className={styles.categoryMeta}>
             <span className={styles.categoryId}>ID: {category.categoryId}</span>
             {category.parentId && (
@@ -108,21 +108,21 @@ function CategoryTreeNode({
 
         {/* Action Buttons */}
         <div className={`${styles.nodeActions} ${showActions ? styles.visible : ''}`}>
-          <button 
+          <button
             className={styles.actionButton}
             onClick={handleAddChild}
             title="Add Child Category"
           >
             ➕
           </button>
-          <button 
+          <button
             className={styles.actionButton}
             onClick={handleEdit}
             title="Edit Category"
           >
             ✏️
           </button>
-          <button 
+          <button
             className={`${styles.actionButton} ${styles.statusButton}`}
             onClick={handleToggleStatus}
             title={isActive ? 'Deactivate Category' : 'Activate Category'}

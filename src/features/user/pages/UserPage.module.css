@@ -311,8 +311,13 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loadingState p {
@@ -355,12 +360,12 @@
     align-items: flex-start;
     gap: 1.5rem;
   }
-  
+
   .headerActions {
     width: 100%;
     justify-content: flex-start;
   }
-  
+
   .statsGrid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
@@ -371,33 +376,33 @@
     padding: 1.5rem;
     margin: -1rem -1rem 1.5rem -1rem;
   }
-  
+
   .titleSection h1 {
     font-size: 2rem;
   }
-  
+
   .statsGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .filtersSection {
     flex-direction: column;
     align-items: stretch;
     gap: 1rem;
   }
-  
+
   .searchBox {
     min-width: auto;
   }
-  
+
   .filterGroup {
     justify-content: space-between;
   }
-  
+
   .filterSelect {
     min-width: 120px;
   }
-  
+
   .filterDropdown {
     min-width: 120px;
   }
@@ -408,38 +413,38 @@
     padding: 1rem;
     margin: -0.75rem -0.75rem 1rem -0.75rem;
   }
-  
+
   .titleSection h1 {
     font-size: 1.75rem;
   }
-  
+
   .pageDescription {
     font-size: 1rem;
   }
-  
+
   .headerActions {
     flex-direction: column;
     width: 100%;
   }
-  
+
   .headerActions button {
     width: 100%;
   }
-  
+
   .statCard {
     padding: 1rem;
   }
-  
+
   .statIcon {
     width: 40px;
     height: 40px;
     font-size: 1.25rem;
   }
-  
+
   .statNumber {
     font-size: 1.5rem;
   }
-  
+
   .filtersSection {
     padding: 1rem;
   }

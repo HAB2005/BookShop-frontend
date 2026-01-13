@@ -39,7 +39,7 @@ function ProfileInfo({ user, onEditProfile, onChangePassword }) {
                 </span>
               </div>
             </div>
-            
+
             <div className={styles.infoItem}>
               <span className={styles.infoIcon}>📧</span>
               <div className={styles.infoContent}>
@@ -63,26 +63,22 @@ function ProfileInfo({ user, onEditProfile, onChangePassword }) {
               <div className={styles.infoContent}>
                 <span className={styles.infoLabel}>Role</span>
                 <span className={styles.infoValue}>
-                  <span className={`${styles.roleBadge} ${
-                    user.role === 'admin' ? styles.roleAdmin : styles.roleCustomer
-                  }`}>
+                  <span className={`${styles.roleBadge} ${user.role === 'admin' ? styles.roleAdmin : styles.roleCustomer}`}>
                     {user.role === 'admin' ? '👑' : '👤'} {user.role}
                   </span>
                 </span>
               </div>
             </div>
-            
+
             {user.status && (
               <div className={styles.infoItem}>
                 <span className={styles.infoIcon}>📊</span>
                 <div className={styles.infoContent}>
                   <span className={styles.infoLabel}>Account Status</span>
                   <span className={styles.infoValue}>
-                    <span className={`${styles.statusBadge} ${
-                      user.status === 'active' ? styles.statusActive :
+                    <span className={`${styles.statusBadge} ${user.status === 'active' ? styles.statusActive :
                       user.status === 'inactive' ? styles.statusInactive :
-                      styles.statusBanned
-                    }`}>
+                        styles.statusBanned}`}>
                       <span className={styles.statusDot}></span>
                       {user.status}
                     </span>
@@ -90,7 +86,7 @@ function ProfileInfo({ user, onEditProfile, onChangePassword }) {
                 </div>
               </div>
             )}
-            
+
             <div className={styles.infoItem}>
               <span className={styles.infoIcon}>📅</span>
               <div className={styles.infoContent}>

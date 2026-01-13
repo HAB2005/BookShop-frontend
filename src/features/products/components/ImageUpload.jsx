@@ -126,11 +126,11 @@ function ImageUpload({ productId, onImagesChange }) {
                   e.target.src = '/placeholder-image.png'; // Fallback image
                 }}
               />
-              
+
               {image.isPrimary && (
                 <div className={styles.primaryBadge}>Primary</div>
               )}
-              
+
               <div className={styles.imageActions}>
                 {!image.isPrimary && (
                   <button

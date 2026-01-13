@@ -69,7 +69,7 @@ function ProductListPage() {
       INACTIVE: styles.statusInactive,
       DELETED: styles.statusDeleted
     };
-    
+
     return (
       <span className={`${styles.statusBadge} ${statusClasses[status] || ''}`}>
         {status}
@@ -98,7 +98,7 @@ function ProductListPage() {
             Manage your product catalog and inventory
           </p>
         </div>
-        <button 
+        <button
           onClick={handleAddProduct}
           className={styles.addButton}
         >
@@ -120,7 +120,7 @@ function ProductListPage() {
               className={styles.filterInput}
             />
           </div>
-          
+
           <div className={styles.filterGroup}>
             <label className={styles.filterLabel}>Min Price</label>
             <input
@@ -132,7 +132,7 @@ function ProductListPage() {
               min="0"
             />
           </div>
-          
+
           <div className={styles.filterGroup}>
             <label className={styles.filterLabel}>Max Price</label>
             <input
@@ -144,7 +144,7 @@ function ProductListPage() {
               min="0"
             />
           </div>
-          
+
           <div className={styles.filterGroup}>
             <label className={styles.filterLabel}>Sort By</label>
             <select
@@ -172,7 +172,7 @@ function ProductListPage() {
         <div className={styles.errorContainer}>
           <div className={styles.errorIcon}>⚠️</div>
           <p>{error}</p>
-          <button 
+          <button
             onClick={() => fetchProducts(filters)}
             className={styles.retryButton}
           >
@@ -242,7 +242,7 @@ function ProductListPage() {
             <div className={styles.emptyIcon}>📦</div>
             <h3>No Products Found</h3>
             <p>No products match your current filters.</p>
-            <button 
+            <button
               onClick={handleAddProduct}
               className={styles.addButton}
             >
@@ -262,14 +262,14 @@ function ProductListPage() {
           >
             Previous
           </button>
-          
+
           <div className={styles.pageInfo}>
             Page {pagination.page + 1} of {pagination.totalPages}
             <span className={styles.totalItems}>
               ({pagination.totalElements} total items)
             </span>
           </div>
-          
+
           <button
             onClick={() => handlePageChange(pagination.page + 1)}
             disabled={pagination.last}

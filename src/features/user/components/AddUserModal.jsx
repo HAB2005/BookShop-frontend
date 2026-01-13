@@ -21,7 +21,7 @@ function AddUserModal({ isOpen, onClose, onUserCreated }) {
 
   const validateForm = () => {
     const errors = {};
-    
+
     // Email validation (now required)
     if (!formData.email || formData.email.trim() === '') {
       errors.email = 'Email is required';
@@ -30,7 +30,7 @@ function AddUserModal({ isOpen, onClose, onUserCreated }) {
     } else if (formData.email.length > 100) {
       errors.email = 'Email must not exceed 100 characters';
     }
-    
+
     // Password validation
     if (!formData.password || formData.password.trim() === '') {
       errors.password = 'Password is required';
@@ -39,12 +39,12 @@ function AddUserModal({ isOpen, onClose, onUserCreated }) {
     } else if (formData.password.length > 100) {
       errors.password = 'Password must not exceed 100 characters';
     }
-    
+
     // Full name validation
     if (formData.fullName && formData.fullName.length > 100) {
       errors.fullName = 'Full name must not exceed 100 characters';
     }
-    
+
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -55,7 +55,7 @@ function AddUserModal({ isOpen, onClose, onUserCreated }) {
       ...prev,
       [name]: value
     }));
-    
+
     // Clear field error when user starts typing
     if (formErrors[name]) {
       setFormErrors(prev => ({
@@ -67,23 +67,23 @@ function AddUserModal({ isOpen, onClose, onUserCreated }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setSaving(true);
-    
+
     try {
       const newUser = await createUser(formData);
-      
+
       toast.success(`User "${newUser.fullName || newUser.email}" created successfully!`);
-      
+
       // Notify parent component
       if (onUserCreated) {
         onUserCreated(newUser);
       }
-      
+
       // Reset form and close modal
       handleClose();
     } catch (err) {

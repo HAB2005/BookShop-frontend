@@ -11,7 +11,7 @@ export const useCategories = () => {
       setLoading(true);
       setError(null);
       const response = await getCategoriesApi();
-      
+
       // Ensure response is an array
       const categoriesData = Array.isArray(response) ? response : [];
       setCategories(categoriesData);
@@ -49,12 +49,12 @@ export const useCategories = () => {
       }
       return result;
     };
-    
+
     // Ensure categories is an array before processing
     if (!Array.isArray(categories)) {
       return [];
     }
-    
+
     return flattenCategories(categories);
   };
 

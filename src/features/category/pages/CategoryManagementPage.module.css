@@ -355,11 +355,11 @@
   .categoryManagement {
     padding: 20px;
   }
-  
+
   .header {
     padding: 24px;
   }
-  
+
   .cardHeader {
     padding: 24px;
   }
@@ -369,73 +369,73 @@
   .categoryManagement {
     padding: 16px;
   }
-  
+
   .header {
     padding: 20px;
     margin-bottom: 20px;
   }
-  
+
   .headerContent {
     flex-direction: column;
     gap: 20px;
     text-align: center;
   }
-  
+
   .titleSection h1 {
     font-size: 2rem;
   }
-  
+
   .addButton {
     padding: 14px 28px;
     font-size: 1rem;
   }
-  
+
   .cardHeader {
     padding: 20px;
     flex-direction: column;
     gap: 20px;
     align-items: stretch;
   }
-  
+
   .cardTitle {
     text-align: center;
   }
-  
+
   .cardTitle h2 {
     font-size: 1.5rem;
   }
-  
+
   .cardControls {
     justify-content: space-between;
   }
-  
+
   .viewToggle {
     flex: 1;
     margin-right: 12px;
   }
-  
+
   .toggleButton {
     flex: 1;
     padding: 10px 12px;
     font-size: 0.9rem;
   }
-  
+
   .emptyState {
     padding: 60px 20px;
   }
-  
+
   .emptyIcon {
     font-size: 4rem;
   }
-  
+
   .emptyState h3 {
     font-size: 1.5rem;
   }
-  
+
   .emptyState p {
     font-size: 1rem;
   }
-  
+
   .createFirstButton {
     padding: 16px 32px;
     font-size: 1rem;
@@ -446,11 +446,11 @@
   .titleSection h1 {
     font-size: 1.8rem;
   }
-  
+
   .cardTitle h2 {
     font-size: 1.3rem;
   }
-  
+
   .toggleButton {
     padding: 8px 10px;
     font-size: 0.8rem;

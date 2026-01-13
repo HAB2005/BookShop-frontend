@@ -206,6 +206,7 @@
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -217,26 +218,27 @@
   .nodeContent {
     padding: 10px 12px;
   }
-  
+
   .categoryMain {
     flex-wrap: wrap;
     gap: 6px;
   }
-  
+
   .categoryMeta {
     flex-wrap: wrap;
     gap: 8px;
   }
-  
+
   .nodeActions {
-    opacity: 1; /* Always show on mobile */
+    opacity: 1;
+    /* Always show on mobile */
   }
-  
+
   .actionButton {
     padding: 4px 6px;
     font-size: 0.7rem;
   }
-  
+
   .childrenContainer {
     margin-left: 20px;
   }
@@ -248,7 +250,7 @@
     align-items: flex-start;
     gap: 4px;
   }
-  
+
   .categoryMain {
     flex-direction: column;
     align-items: flex-start;

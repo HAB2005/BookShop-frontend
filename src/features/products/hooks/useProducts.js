@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { 
-  getProductsApi, 
+import {
+  getProductsApi,
   getAllProductsApi,
-  getProductByIdApi, 
-  createProductApi, 
+  getProductByIdApi,
+  createProductApi,
   updateProductApi,
   updateProductStatusApi,
-  assignCategoriesToProductApi 
+  assignCategoriesToProductApi
 } from '../api/products.api.js';
 
 export const useProducts = () => {
@@ -26,7 +26,7 @@ export const useProducts = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = includeAllStatuses 
+      const response = includeAllStatuses
         ? await getAllProductsApi(params)
         : await getProductsApi(params);
       setProducts(response.content || []);
@@ -127,7 +127,7 @@ export const useProduct = (productId) => {
 
   const fetchProduct = async (id = productId) => {
     if (!id) return;
-    
+
     try {
       setLoading(true);
       setError(null);

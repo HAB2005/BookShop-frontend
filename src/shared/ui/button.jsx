@@ -41,7 +41,7 @@ function Button({
       {...props}
     >
       {loading && (
-        <div 
+        <div
           className={`${styles.spinner} ${getSpinnerSizeClass()}`}
         />
       )}

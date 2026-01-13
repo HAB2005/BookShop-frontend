@@ -139,7 +139,7 @@ function Sidebar({ userRole = 'admin', isMobile = false, isOpen = false, onClose
           ✕
         </button>
       )}
-      
+
       {/* Header */}
       <div className={styles.sidebarHeader}>
         <div className={styles.logo}>
@@ -153,9 +153,9 @@ function Sidebar({ userRole = 'admin', isMobile = false, isOpen = false, onClose
             </div>
           )}
         </div>
-        
+
         {!isMobile && (
-          <button 
+          <button
             className={styles.collapseButton}
             onClick={() => setIsCollapsed(!isCollapsed)}
             title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
@@ -186,7 +186,7 @@ function Sidebar({ userRole = 'admin', isMobile = false, isOpen = false, onClose
                 )}
                 {item.active && <div className={styles.activeIndicator}></div>}
               </button>
-              
+
               {/* Submenu */}
               {item.subItems && expandedMenus.has(item.id) && (!isCollapsed || isMobile) && (
                 <ul className={styles.subMenuList}>
@@ -209,7 +209,7 @@ function Sidebar({ userRole = 'admin', isMobile = false, isOpen = false, onClose
 
       {/* Footer - chỉ giữ logout button */}
       <div className={styles.sidebarFooter}>
-        <button 
+        <button
           className={styles.logoutButton}
           onClick={handleLogout}
           title={isCollapsed && !isMobile ? 'Logout' : ''}

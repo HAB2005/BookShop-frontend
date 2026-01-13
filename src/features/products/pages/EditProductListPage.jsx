@@ -7,14 +7,14 @@ import styles from './EditProductListPage.module.css';
 
 function EditProductListPage() {
   const navigate = useNavigate();
-  const { 
-    products, 
-    loading, 
-    error, 
-    pagination, 
+  const {
+    products,
+    loading,
+    error,
+    pagination,
     fetchAllProducts
   } = useProducts();
-  
+
   const [filters, setFilters] = useState({
     page: 0,
     size: 10,
@@ -73,9 +73,9 @@ function EditProductListPage() {
       INACTIVE: { class: styles.statusInactive, label: 'Inactive' },
       DELETED: { class: styles.statusDeleted, label: 'Deleted' }
     };
-    
+
     const config = statusConfig[status] || { class: '', label: status };
-    
+
     return (
       <span className={`${styles.statusBadge} ${config.class}`}>
         {config.label}
@@ -104,7 +104,7 @@ function EditProductListPage() {
             Manage and edit your product catalog (showing all statuses)
           </p>
         </div>
-        <button 
+        <button
           onClick={() => navigate('/products/add')}
           className={styles.addButton}
         >
@@ -126,7 +126,7 @@ function EditProductListPage() {
               className={styles.filterInput}
             />
           </div>
-          
+
           <div className={styles.filterGroup}>
             <label className={styles.filterLabel}>Status</label>
             <select
@@ -140,7 +140,7 @@ function EditProductListPage() {
               <option value="DELETED">Deleted</option>
             </select>
           </div>
-          
+
           <div className={styles.filterGroup}>
             <label className={styles.filterLabel}>Min Price</label>
             <input
@@ -152,7 +152,7 @@ function EditProductListPage() {
               min="0"
             />
           </div>
-          
+
           <div className={styles.filterGroup}>
             <label className={styles.filterLabel}>Max Price</label>
             <input
@@ -164,7 +164,7 @@ function EditProductListPage() {
               min="0"
             />
           </div>
-          
+
           <div className={styles.filterGroup}>
             <label className={styles.filterLabel}>Sort By</label>
             <select
@@ -192,7 +192,7 @@ function EditProductListPage() {
         <div className={styles.errorContainer}>
           <div className={styles.errorIcon}>⚠️</div>
           <p>{error}</p>
-          <button 
+          <button
             onClick={() => fetchAllProducts(filters)}
             className={styles.retryButton}
           >
@@ -266,7 +266,7 @@ function EditProductListPage() {
             <div className={styles.emptyIcon}>📦</div>
             <h3>No Products Found</h3>
             <p>No products match your current filters.</p>
-            <button 
+            <button
               onClick={() => navigate('/products/add')}
               className={styles.addButton}
             >
@@ -286,14 +286,14 @@ function EditProductListPage() {
           >
             Previous
           </button>
-          
+
           <div className={styles.pageInfo}>
             Page {pagination.page + 1} of {pagination.totalPages}
             <span className={styles.totalItems}>
               ({pagination.totalElements} total items)
             </span>
           </div>
-          
+
           <button
             onClick={() => handlePageChange(pagination.page + 1)}
             disabled={pagination.last}

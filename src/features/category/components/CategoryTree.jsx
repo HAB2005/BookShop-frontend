@@ -2,13 +2,13 @@ import { useState, useMemo } from 'react';
 import CategoryTreeNode from './CategoryTreeNode.jsx';
 import styles from './CategoryTree.module.css';
 
-function CategoryTree({ 
-  categories = [], 
-  onAddChild, 
-  onEdit, 
-  onToggleStatus, 
+function CategoryTree({
+  categories = [],
+  onAddChild,
+  onEdit,
+  onToggleStatus,
   viewMode = 'tree',
-  loading = false 
+  loading = false
 }) {
   const [expandedNodes, setExpandedNodes] = useState(new Set());
   const [searchTerm, setSearchTerm] = useState('');
@@ -46,7 +46,7 @@ function CategoryTree({
     // Second pass: build parent-child relationships
     filteredCategories.forEach(category => {
       const categoryNode = categoryMap.get(category.categoryId);
-      
+
       if (category.parentId && categoryMap.has(category.parentId)) {
         // Add to parent's children
         const parent = categoryMap.get(category.parentId);
@@ -72,7 +72,7 @@ function CategoryTree({
 
   const handleExpandAll = () => {
     if (viewMode === 'list') return; // No expand/collapse in list mode
-    
+
     const allIds = new Set();
     const addAllIds = (cats) => {
       cats.forEach(cat => {
@@ -123,14 +123,14 @@ function CategoryTree({
         <div className={styles.controlButtons}>
           {viewMode === 'tree' && (
             <>
-              <button 
+              <button
                 className={styles.controlButton}
                 onClick={handleExpandAll}
                 title="Expand All"
               >
                 📂 Expand All
               </button>
-              <button 
+              <button
                 className={styles.controlButton}
                 onClick={handleCollapseAll}
                 title="Collapse All"
@@ -181,13 +181,13 @@ function CategoryTree({
             <div className={styles.emptyIcon}>📂</div>
             <h3>No Categories Found</h3>
             <p>
-              {searchTerm 
+              {searchTerm
                 ? `No categories match "${searchTerm}"`
                 : 'No categories available'
               }
             </p>
             {searchTerm && (
-              <button 
+              <button
                 className={styles.clearSearchButton}
                 onClick={() => setSearchTerm('')}
               >
@@ -205,7 +205,7 @@ function CategoryTree({
                   category={category}
                   level={0}
                   isExpanded={false}
-                  onToggleExpand={() => {}} // No expand in list mode
+                  onToggleExpand={() => { }} // No expand in list mode
                   onAddChild={onAddChild}
                   onEdit={onEdit}
                   onToggleStatus={onToggleStatus}

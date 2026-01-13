@@ -51,7 +51,7 @@ function FilterSection({ onFiltersChange, initialFilters = {} }) {
 
   const handleSearchChange = useCallback((newSearchTerm) => {
     setSearchTerm(newSearchTerm);
-    
+
     // Debounce API call for search
     const timeoutId = setTimeout(() => {
       updateFilters({
@@ -60,7 +60,7 @@ function FilterSection({ onFiltersChange, initialFilters = {} }) {
         status: filterStatus
       });
     }, 500);
-    
+
     return () => clearTimeout(timeoutId);
   }, [filterRole, filterStatus, updateFilters]);
 

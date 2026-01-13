@@ -38,16 +38,15 @@ function StatusSelector({ productId, currentStatus, onStatusChange }) {
         <label className={styles.label}>Status</label>
         {updating && <span className={styles.updating}>Updating...</span>}
       </div>
-      
+
       <div className={styles.statusOptions}>
         {STATUS_OPTIONS.map((option) => (
           <button
             key={option.value}
             onClick={() => handleStatusChange(option.value)}
             disabled={updating || option.value === currentStatus}
-            className={`${styles.statusButton} ${styles[option.color]} ${
-              option.value === currentStatus ? styles.active : ''
-            }`}
+            className={`${styles.statusButton} ${styles[option.color]} ${option.value === currentStatus ? styles.active : ''
+              }`}
           >
             <span className={styles.statusDot}></span>
             {option.label}

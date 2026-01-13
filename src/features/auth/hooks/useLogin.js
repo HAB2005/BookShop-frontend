@@ -11,15 +11,15 @@ export const useLogin = (navigate) => {
 
         try {
             const result = await emailLoginService(credentials);
-      
+
             // Redirect based on role
             if (result.role === 'admin') {
                 navigate("/dashboard");
             } else {
-                navigate("/products"); 
+                navigate("/products");
             }
-            
-            return true; 
+
+            return true;
         } catch (err) {
             toast.error(err.message || 'Login failed. Please try again.');
             return false; // Failure

@@ -23,8 +23,13 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loadingState p {
@@ -393,8 +398,13 @@
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .resetPasswordButton:hover .resetIcon {
@@ -442,25 +452,25 @@
     text-align: center;
     gap: 1rem;
   }
-  
+
   .userAvatar {
     width: 56px;
     height: 56px;
     font-size: 1.25rem;
   }
-  
+
   .username {
     font-size: 1.25rem;
   }
-  
+
   .infoSection {
     padding: 1rem;
   }
-  
+
   .actionsSection {
     padding: 1rem;
   }
-  
+
   .actionButtons {
     flex-direction: column;
   }
@@ -472,17 +482,17 @@
     height: 48px;
     font-size: 1rem;
   }
-  
+
   .username {
     font-size: 1.125rem;
   }
-  
+
   .infoItem {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
-  
+
   .infoIcon {
     align-self: flex-start;
   }

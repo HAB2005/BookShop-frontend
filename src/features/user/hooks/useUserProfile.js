@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { 
-  getCurrentUserProfileService, 
-  getUserProfileByIdService, 
-  updateUserProfileService 
+import {
+  getCurrentUserProfileService,
+  getUserProfileByIdService,
+  updateUserProfileService
 } from "../services/userService";
 
 export const useUserProfile = (userId = null) => {

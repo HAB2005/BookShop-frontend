@@ -23,7 +23,7 @@ function UpdateProductPage() {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [categoriesChanged, setCategoriesChanged] = useState(false);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
-  
+
   // Add form state management
   const [formData, setFormData] = useState({
     name: '',
@@ -78,15 +78,15 @@ function UpdateProductPage() {
   const handleSubmit = async (submitData) => {
     try {
       setUpdating(true);
-      
+
       // Update product basic info
       await updateProductApi(productId, submitData);
-      
+
       // Update categories if changed
       if (categoriesChanged) {
         await assignCategoriesToProductApi(productId, selectedCategories);
       }
-      
+
       success('Product updated successfully');
       setHasUnsavedChanges(false);
       navigate('/products/edit-list');
@@ -122,7 +122,7 @@ function UpdateProductPage() {
       if (formData.book.publishYear) bookData.publishYear = parseInt(formData.book.publishYear);
       if (formData.book.pageCount) bookData.pageCount = parseInt(formData.book.pageCount);
       if (formData.book.language) bookData.language = formData.book.language.trim();
-      
+
       if (Object.keys(bookData).length > 0) {
         submitData.book = bookData;
       }
@@ -167,20 +167,20 @@ function UpdateProductPage() {
 
   const getImageUrl = (image) => {
     if (!image) return null;
-    
+
     const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api';
     let filename = image.imageUrl || image.filename || image.url;
-    
+
     if (!filename) return null;
-    
+
     if (filename.startsWith('http')) {
       return filename;
     }
-    
+
     if (filename.startsWith('products/')) {
       return `${baseUrl}/files/${filename}`;
     }
-    
+
     const cleanFilename = filename.startsWith('/') ? filename.substring(1) : filename;
     return `${baseUrl}/files/products/${productId}/${cleanFilename}`;
   };
@@ -207,13 +207,13 @@ function UpdateProductPage() {
           <h2>Error Loading Product</h2>
           <p>{productError}</p>
           <div className={styles.errorActions}>
-            <button 
+            <button
               onClick={() => fetchProduct(productId)}
               className={styles.retryButton}
             >
               Try Again
             </button>
-            <button 
+            <button
               onClick={handleCancel}
               className={styles.backButton}
             >
@@ -232,7 +232,7 @@ function UpdateProductPage() {
           <div className={styles.errorIcon}>📦</div>
           <h2>Product Not Found</h2>
           <p>The product you're looking for doesn't exist or has been deleted.</p>
-          <button 
+          <button
             onClick={handleCancel}
             className={styles.backButton}
           >
@@ -368,7 +368,7 @@ function UpdateProductPage() {
                         onStatusChange={handleStatusChange}
                       />
                     </div>
-                    
+
                     <div className={styles.settingsSection}>
                       <h3 className={styles.settingsTitle}>Advanced Settings</h3>
                       <p className={styles.settingsDescription}>
@@ -382,7 +382,7 @@ function UpdateProductPage() {
                           </label>
                           <p className={styles.settingHelp}>Display this product prominently on the homepage</p>
                         </div>
-                        
+
                         <div className={styles.settingItem}>
                           <label className={styles.settingLabel}>
                             <input type="checkbox" className={styles.settingCheckbox} />
@@ -390,7 +390,7 @@ function UpdateProductPage() {
                           </label>
                           <p className={styles.settingHelp}>Enable customer reviews for this product</p>
                         </div>
-                        
+
                         <div className={styles.settingItem}>
                           <label className={styles.settingLabel}>
                             <input type="checkbox" className={styles.settingCheckbox} />

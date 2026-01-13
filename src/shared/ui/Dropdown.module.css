@@ -78,6 +78,7 @@
     opacity: 0;
     transform: translateY(-4px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -128,12 +129,12 @@
   .dropdown {
     min-width: 120px;
   }
-  
+
   .dropdownButton {
     padding: 0.625rem 0.75rem;
     font-size: 0.8125rem;
   }
-  
+
   .dropdownItem {
     padding: 0.625rem 0.75rem;
     font-size: 0.8125rem;

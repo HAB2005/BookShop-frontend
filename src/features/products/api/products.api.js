@@ -9,7 +9,7 @@ export const getProductsApi = async (params = {}) => {
 
 // Get all products including all statuses (for admin management)
 export const getAllProductsApi = async (params = {}) => {
-  const response = await client.get(PRODUCT.LIST, { 
+  const response = await client.get(PRODUCT.LIST, {
     params: {
       ...params,
       includeAllStatuses: true // Backend should handle this parameter
@@ -54,7 +54,7 @@ export const uploadProductImageApi = async (productId, imageFile, isPrimary = fa
   formData.append('file', imageFile);
   formData.append('productId', productId);
   formData.append('isPrimary', isPrimary);
-  
+
   const response = await client.post(PRODUCT_IMAGE.UPLOAD, formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
@@ -91,8 +91,8 @@ export const searchProductsApi = async (params = {}) => {
 
 // Get product suggestions
 export const getProductSuggestionsApi = async (keyword, limit = 10) => {
-  const response = await client.get(PRODUCT.SUGGESTIONS, { 
-    params: { keyword, limit } 
+  const response = await client.get(PRODUCT.SUGGESTIONS, {
+    params: { keyword, limit }
   });
   return response.data;
 };

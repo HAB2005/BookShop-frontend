@@ -45,10 +45,10 @@ export const useOptimisticUpdate = () => {
       // Revert on error
       revertFn();
       setError(key, true);
-      
+
       // Auto-clear error after 3 seconds
       setTimeout(() => clearError(key), 3000);
-      
+
       throw error;
     } finally {
       setLoading(key, false);

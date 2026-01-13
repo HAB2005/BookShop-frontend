@@ -11,7 +11,7 @@ function CategorySelector({ productId, currentCategories = [], onCategoriesUpdat
   const [updating, setUpdating] = useState(false);
 
   const handleCategoryToggle = (categoryId) => {
-    setSelectedCategoryIds(prev => 
+    setSelectedCategoryIds(prev =>
       prev.includes(categoryId)
         ? prev.filter(id => id !== categoryId)
         : [...prev, categoryId]
@@ -22,14 +22,14 @@ function CategorySelector({ productId, currentCategories = [], onCategoriesUpdat
     try {
       setUpdating(true);
       await assignCategoriesToProductApi(productId, selectedCategoryIds);
-      
+
       if (onCategoriesUpdated) {
-        const updatedCategories = flatCategories.filter(cat => 
+        const updatedCategories = flatCategories.filter(cat =>
           selectedCategoryIds.includes(cat.categoryId)
         );
         onCategoriesUpdated(updatedCategories);
       }
-      
+
       alert('Categories updated successfully!');
     } catch (error) {
       console.error('Failed to update categories:', error);

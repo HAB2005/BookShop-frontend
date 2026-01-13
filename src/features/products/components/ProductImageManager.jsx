@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { 
-  getProductImagesApi, 
-  uploadProductImageApi, 
-  setPrimaryImageApi, 
-  deleteProductImageApi 
+import {
+  getProductImagesApi,
+  uploadProductImageApi,
+  setPrimaryImageApi,
+  deleteProductImageApi
 } from '../api/products.api.js';
 import { useToastContext } from '../../../app/providers.jsx';
 import LoadingSpinner from '../../../shared/ui/LoadingSpinner.jsx';
@@ -49,7 +49,7 @@ function ProductImageManager({ productId, onImagesChange }) {
 
     try {
       setUploading(true);
-      
+
       for (const file of files) {
         // Validate file type
         if (!file.type.startsWith('image/')) {
@@ -68,7 +68,7 @@ function ProductImageManager({ productId, onImagesChange }) {
 
       success(`${files.length} image(s) uploaded successfully`);
       await fetchImages();
-      
+
       // Clear the input
       event.target.value = '';
     } catch (err) {
@@ -118,27 +118,27 @@ function ProductImageManager({ productId, onImagesChange }) {
 
   const getImageUrl = (image) => {
     if (!image) return null;
-    
+
     const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api';
-    
+
     // Handle different possible image data structures
     let filename = image.imageUrl || image.filename || image.url;
-    
+
     if (!filename) return null;
-    
+
     // If filename already contains full URL, return as is
     if (filename.startsWith('http')) {
       return filename;
     }
-    
+
     // If filename already starts with 'products/', it's already a relative path from files root
     if (filename.startsWith('products/')) {
       return `${baseUrl}/files/${filename}`;
     }
-    
+
     // Remove leading slash if present
     const cleanFilename = filename.startsWith('/') ? filename.substring(1) : filename;
-    
+
     // Build the full URL with products path
     return `${baseUrl}/files/products/${productId}/${cleanFilename}`;
   };
@@ -168,8 +168,8 @@ function ProductImageManager({ productId, onImagesChange }) {
             className={styles.fileInput}
             disabled={uploading}
           />
-          <label 
-            htmlFor="imageUpload" 
+          <label
+            htmlFor="imageUpload"
             className={`${styles.uploadButton} ${uploading ? styles.uploading : ''}`}
           >
             {uploading ? (
@@ -216,14 +216,14 @@ function ProductImageManager({ productId, onImagesChange }) {
                     e.target.src = '/placeholder-image.png';
                   }}
                 />
-                
+
                 {image.isPrimary && (
                   <div className={styles.primaryBadge}>
                     <span className={styles.primaryIcon}>⭐</span>
                     Primary
                   </div>
                 )}
-                
+
                 <div className={styles.imageOverlay}>
                   <div className={styles.imageActions}>
                     {!image.isPrimary && (
@@ -236,7 +236,7 @@ function ProductImageManager({ productId, onImagesChange }) {
                         ⭐
                       </button>
                     )}
-                    
+
                     <button
                       onClick={() => handleDeleteImage(image)}
                       className={`${styles.actionButton} ${styles.deleteButton}`}
@@ -248,7 +248,7 @@ function ProductImageManager({ productId, onImagesChange }) {
                   </div>
                 </div>
               </div>
-              
+
               <div className={styles.imageInfo}>
                 <div className={styles.imageOrder}>
                   Order: {image.displayOrder || 'N/A'}

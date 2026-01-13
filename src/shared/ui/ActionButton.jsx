@@ -59,16 +59,16 @@ const ACTION_CONFIGS = {
   }
 };
 
-function ActionButton({ 
-  action, 
-  children, 
+function ActionButton({
+  action,
+  children,
   text,
   variant,
   icon,
-  ...props 
+  ...props
 }) {
   const config = ACTION_CONFIGS[action];
-  
+
   if (!config) {
     console.warn(`Unknown action: ${action}. Available actions:`, Object.keys(ACTION_CONFIGS));
     return (

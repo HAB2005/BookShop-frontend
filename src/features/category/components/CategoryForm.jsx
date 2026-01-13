@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import styles from './CategoryForm.module.css';
 
-function CategoryForm({ 
-  category = null, 
-  parentCategory = null, 
-  categories = [], 
-  onSubmit, 
-  onClose 
+function CategoryForm({
+  category = null,
+  parentCategory = null,
+  categories = [],
+  onSubmit,
+  onClose
 }) {
   const [formData, setFormData] = useState({
     name: '',
@@ -60,7 +60,7 @@ function CategoryForm({
       name,
       slug: generateSlug(name)
     }));
-    
+
     // Clear name error when user starts typing
     if (errors.name) {
       setErrors(prev => ({ ...prev, name: '' }));
@@ -70,7 +70,7 @@ function CategoryForm({
   const handleSlugChange = (e) => {
     const slug = generateSlug(e.target.value);
     setFormData(prev => ({ ...prev, slug }));
-    
+
     // Clear slug error when user starts typing
     if (errors.slug) {
       setErrors(prev => ({ ...prev, slug: '' }));
@@ -80,7 +80,7 @@ function CategoryForm({
   const handleParentChange = (e) => {
     const parentId = e.target.value ? parseInt(e.target.value) : null;
     setFormData(prev => ({ ...prev, parentId }));
-    
+
     // Clear parent error when user changes selection
     if (errors.parentId) {
       setErrors(prev => ({ ...prev, parentId: '' }));
@@ -107,8 +107,8 @@ function CategoryForm({
     }
 
     // Check for duplicate slug (excluding current category if editing)
-    const existingCategory = categories.find(cat => 
-      cat.slug === formData.slug && 
+    const existingCategory = categories.find(cat =>
+      cat.slug === formData.slug &&
       (!isEditing || cat.categoryId !== category.categoryId)
     );
     if (existingCategory) {
@@ -134,7 +134,7 @@ function CategoryForm({
 
   const checkCircularReference = (potentialParentId, currentCategoryId) => {
     if (!potentialParentId || !currentCategoryId) return false;
-    
+
     // Check if potentialParent is a descendant of currentCategory
     const isDescendant = (parentId, targetId) => {
       const parent = categories.find(cat => cat.categoryId === parentId);
@@ -149,7 +149,7 @@ function CategoryForm({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -178,7 +178,7 @@ function CategoryForm({
 
     // When editing, exclude self and descendants
     const excludeIds = new Set([category.categoryId]);
-    
+
     // Add all descendants to exclude list
     const addDescendants = (parentId) => {
       categories.forEach(cat => {
@@ -190,7 +190,7 @@ function CategoryForm({
     };
     addDescendants(category.categoryId);
 
-    return categories.filter(cat => 
+    return categories.filter(cat =>
       cat.status === 'ACTIVE' && !excludeIds.has(cat.categoryId)
     );
   };
@@ -204,7 +204,7 @@ function CategoryForm({
           <h2>
             {isEditing ? '✏️ Edit Category' : '➕ Add Category'}
           </h2>
-          <button 
+          <button
             className={styles.closeButton}
             onClick={handleClose}
             disabled={isSubmitting}

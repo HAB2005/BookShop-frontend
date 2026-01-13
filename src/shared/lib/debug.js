@@ -3,11 +3,11 @@
 export const debugAuthState = () => {
   const token = localStorage.getItem('token');
   const userStr = localStorage.getItem('user');
-  
+
   console.log('=== AUTH DEBUG ===');
   console.log('Token:', token ? 'EXISTS' : 'NULL');
   console.log('User string:', userStr);
-  
+
   if (userStr) {
     try {
       const user = JSON.parse(userStr);
@@ -16,7 +16,7 @@ export const debugAuthState = () => {
       console.log('Error parsing user:', error);
     }
   }
-  
+
   console.log('==================');
 };
 

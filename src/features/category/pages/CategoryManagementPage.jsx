@@ -106,7 +106,7 @@ function CategoryManagementPage() {
             <h1>📁 Category Management</h1>
             <p>Create and manage product categories</p>
           </div>
-          <button 
+          <button
             className={styles.addButton}
             onClick={() => handleAddCategory()}
           >
@@ -123,7 +123,7 @@ function CategoryManagementPage() {
               <h2>📋 Categories</h2>
               <p>Manage your product categories</p>
             </div>
-            
+
             <div className={styles.cardControls}>
               {/* View Mode Toggle */}
               <div className={styles.viewToggle}>
@@ -140,9 +140,9 @@ function CategoryManagementPage() {
                   <span>📋 List View</span>
                 </button>
               </div>
-              
+
               {/* Refresh Button */}
-              <button 
+              <button
                 className={styles.refreshButton}
                 onClick={refreshCategories}
                 disabled={loading}
@@ -160,7 +160,7 @@ function CategoryManagementPage() {
                 <div className={styles.emptyIcon}>📂</div>
                 <h3>No Categories Found</h3>
                 <p>Start by creating your first category to organize your products</p>
-                <button 
+                <button
                   className={styles.createFirstButton}
                   onClick={() => handleAddCategory()}
                 >

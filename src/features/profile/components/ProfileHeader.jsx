@@ -64,13 +64,13 @@ function ProfileHeader({ user, onEditProfile, onChangePassword }) {
 
         {/* Actions */}
         <div className={styles.headerActions}>
-          <ActionButton 
+          <ActionButton
             action="edit"
             text="Edit Profile"
             onClick={onEditProfile}
             className={styles.editButton}
           />
-          <ActionButton 
+          <ActionButton
             action="security"
             text="Change Password"
             onClick={onChangePassword}

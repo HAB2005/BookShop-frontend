@@ -11,7 +11,7 @@ function Layout({ children }) {
   const [isMobile, setIsMobile] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  
+
   const isAdmin = user?.role === 'admin';
 
   useEffect(() => {
@@ -30,7 +30,7 @@ function Layout({ children }) {
   const toggleSidebar = () => {
     setIsTransitioning(true);
     setSidebarOpen(!sidebarOpen);
-    
+
     // Remove transition class after animation completes
     setTimeout(() => {
       setIsTransitioning(false);
@@ -40,7 +40,7 @@ function Layout({ children }) {
   const closeSidebar = () => {
     setIsTransitioning(true);
     setSidebarOpen(false);
-    
+
     // Remove transition class after animation completes
     setTimeout(() => {
       setIsTransitioning(false);
@@ -53,19 +53,19 @@ function Layout({ children }) {
       {isMobile && sidebarOpen && isAdmin && (
         <div className={styles.overlay} onClick={closeSidebar}></div>
       )}
-      
+
       {/* Sidebar - Only for Admin */}
       {isAdmin && (
-        <Sidebar 
+        <Sidebar
           isMobile={isMobile}
           isOpen={sidebarOpen}
           onClose={closeSidebar}
         />
       )}
-      
+
       <main className={`${styles.mainContent} ${isMobile && sidebarOpen && isAdmin ? styles.shifted : ''} ${isTransitioning ? styles.transitioning : ''}`}>
-        <TopBar 
-          title={pageTitle} 
+        <TopBar
+          title={pageTitle}
           breadcrumbs={breadcrumbs}
           onMenuClick={isAdmin ? toggleSidebar : null}
           isMobile={isMobile}

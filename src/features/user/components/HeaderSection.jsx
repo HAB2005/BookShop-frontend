@@ -23,13 +23,13 @@ function HeaderSection({ onAddUser, onExportUsers }) {
           </p>
         </div>
         <div className={styles.headerActions}>
-          <ActionButton 
+          <ActionButton
             action="export"
             text="Export Users"
             onClick={handleExportUsers}
             className={styles.exportButton}
           />
-          <ActionButton 
+          <ActionButton
             action="add"
             text="Add New User"
             onClick={handleAddUser}

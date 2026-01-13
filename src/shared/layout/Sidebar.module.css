@@ -337,7 +337,7 @@
   .sidebar {
     width: 260px;
   }
-  
+
   .sidebar.collapsed {
     width: 70px;
   }
@@ -349,22 +349,25 @@
     transform: translateX(-100%);
     box-shadow: none;
   }
-  
+
   .sidebar.open {
     transform: translateX(0);
     box-shadow: 8px 0 32px rgba(0, 0, 0, 0.3);
   }
-  
+
   .sidebar.collapsed {
-    width: 280px; /* Full width on mobile */
+    width: 280px;
+    /* Full width on mobile */
   }
-  
+
   .collapseButton {
-    display: none; /* Hide collapse button on mobile */
+    display: none;
+    /* Hide collapse button on mobile */
   }
-  
+
   .sidebarHeader {
-    padding-top: 4rem; /* Make room for close button */
+    padding-top: 4rem;
+    /* Make room for close button */
   }
 }
 
@@ -372,15 +375,15 @@
   .sidebar {
     width: 100vw;
   }
-  
+
   .logoText h3 {
     font-size: 1.1rem;
   }
-  
+
   .logoText p {
     font-size: 0.7rem;
   }
-  
+
   .menuLabel {
     font-size: 0.85rem;
   }

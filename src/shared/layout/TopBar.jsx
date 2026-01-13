@@ -9,7 +9,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
   const [showNotifications, setShowNotifications] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
   const [showNavigationDropdown, setShowNavigationDropdown] = useState(false);
-  
+
   const notificationRef = useRef(null);
   const userDropdownRef = useRef(null);
   const navigationDropdownRef = useRef(null);
@@ -23,7 +23,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
       if (showNotifications && notificationRef.current && !notificationRef.current.contains(event.target)) {
         setShowNotifications(false);
       }
-      
+
       if (showUserDropdown && userDropdownRef.current && !userDropdownRef.current.contains(event.target)) {
         setShowUserDropdown(false);
       }
@@ -62,7 +62,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
 
   const handleProfileAction = (action) => {
     setShowUserDropdown(false);
-    switch(action) {
+    switch (action) {
       case 'profile':
         navigate('/profile');
         break;
@@ -101,7 +101,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
         {/* Customer Navigation Dropdown */}
         {isCustomer && (
           <div className={styles.navigationWrapper} ref={navigationDropdownRef}>
-            <button 
+            <button
               className={styles.navigationButton}
               onClick={(e) => {
                 e.stopPropagation();
@@ -112,7 +112,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
               <span className={styles.navigationText}>Menu</span>
               <span className={`${styles.dropdownArrow} ${showNavigationDropdown ? styles.rotated : ''}`}>▼</span>
             </button>
-            
+
             {showNavigationDropdown && (
               <div className={styles.navigationDropdown} onClick={(e) => e.stopPropagation()}>
                 <div className={styles.navigationHeader}>
@@ -120,7 +120,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
                 </div>
                 <div className={styles.navigationList}>
                   {customerNavItems.map((item, index) => (
-                    <button 
+                    <button
                       key={index}
                       className={styles.navigationItem}
                       onClick={() => handleNavigationClick(item.path)}
@@ -134,7 +134,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
             )}
           </div>
         )}
-        
+
         {/* Breadcrumbs or Title */}
         {breadcrumbs.length > 0 ? (
           <nav className={styles.breadcrumb}>
@@ -156,7 +156,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
         {/* Quick Actions for Customers */}
         {isCustomer && (
           <div className={styles.quickActions}>
-            <button 
+            <button
               className={styles.quickActionButton}
               onClick={() => navigate('/cart')}
               title="Shopping Cart"
@@ -164,7 +164,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
               <span className={styles.quickActionIcon}>🛍️</span>
               <span className={styles.cartBadge}>3</span>
             </button>
-            <button 
+            <button
               className={styles.quickActionButton}
               onClick={() => navigate('/favorites')}
               title="Favorites"
@@ -176,7 +176,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
 
         {/* Notifications */}
         <div className={styles.notificationWrapper} ref={notificationRef}>
-          <button 
+          <button
             className={styles.notificationButton}
             onClick={(e) => {
               e.stopPropagation();
@@ -188,7 +188,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
               <span className={styles.notificationBadge}>{notifications.length}</span>
             )}
           </button>
-          
+
           {showNotifications && (
             <div className={styles.notificationDropdown} onClick={(e) => e.stopPropagation()}>
               <div className={styles.notificationHeader}>
@@ -197,8 +197,8 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
               </div>
               <div className={styles.notificationList}>
                 {notifications.map((notif) => (
-                  <div 
-                    key={notif.id} 
+                  <div
+                    key={notif.id}
                     className={styles.notificationItem}
                     onClick={handleNotificationClick}
                   >
@@ -220,7 +220,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
 
         {/* User Profile */}
         <div className={styles.userProfileWrapper} ref={userDropdownRef}>
-          <button 
+          <button
             className={styles.userProfileButton}
             onClick={(e) => {
               e.stopPropagation();
@@ -235,7 +235,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
             </div>
             <span className={`${styles.dropdownArrow} ${showUserDropdown ? styles.rotated : ''}`}>▼</span>
           </button>
-          
+
           {showUserDropdown && (
             <div className={styles.userDropdown} onClick={(e) => e.stopPropagation()}>
               <div className={styles.userDropdownHeader}>
@@ -250,16 +250,16 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
                   </span>
                 </div>
               </div>
-              
+
               <div className={styles.userDropdownMenu}>
-                <button 
+                <button
                   className={styles.userMenuItem}
                   onClick={() => handleProfileAction('profile')}
                 >
                   <span className={styles.menuItemIcon}>👤</span>
                   <span>View Profile</span>
                 </button>
-                <button 
+                <button
                   className={styles.userMenuItem}
                   onClick={() => handleProfileAction('settings')}
                 >
@@ -267,7 +267,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
                   <span>Account Settings</span>
                 </button>
                 <div className={styles.menuDivider}></div>
-                <button 
+                <button
                   className={`${styles.userMenuItem} ${styles.logoutMenuItem}`}
                   onClick={() => handleProfileAction('logout')}
                 >

@@ -26,7 +26,7 @@ function EditUserModal({ isOpen, onClose, userId, onUserUpdated }) {
   const loadUserDetail = async () => {
     setLoading(true);
     setError('');
-    
+
     try {
       const user = await getUserDetailAdminService(userId);
       setUserDetail(user);
@@ -43,7 +43,7 @@ function EditUserModal({ isOpen, onClose, userId, onUserUpdated }) {
 
   const validateForm = () => {
     const errors = {};
-    
+
     // Email validation
     if (!formData.email || formData.email.trim() === '') {
       errors.email = 'Email is required';
@@ -52,12 +52,12 @@ function EditUserModal({ isOpen, onClose, userId, onUserUpdated }) {
     } else if (formData.email.length > 100) {
       errors.email = 'Email must not exceed 100 characters';
     }
-    
+
     // Full name validation
     if (formData.fullName && formData.fullName.length > 100) {
       errors.fullName = 'Full name must not exceed 100 characters';
     }
-    
+
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -68,7 +68,7 @@ function EditUserModal({ isOpen, onClose, userId, onUserUpdated }) {
       ...prev,
       [name]: value
     }));
-    
+
     // Clear field error when user starts typing
     if (formErrors[name]) {
       setFormErrors(prev => ({
@@ -80,22 +80,22 @@ function EditUserModal({ isOpen, onClose, userId, onUserUpdated }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setSaving(true);
     setError('');
-    
+
     try {
       const updatedUser = await updateUserProfileAdminService(userId, formData);
-      
+
       // Update user in parent component
       if (onUserUpdated) {
         onUserUpdated(userId, updatedUser);
       }
-      
+
       // Close modal
       onClose();
     } catch (err) {
@@ -129,14 +129,14 @@ function EditUserModal({ isOpen, onClose, userId, onUserUpdated }) {
             <p>Loading user details...</p>
           </div>
         )}
-        
+
         {error && !loading && (
           <div className={styles.errorState}>
             <div className={styles.errorIcon}>⚠️</div>
             <h3>Error Loading User</h3>
             <p>{error}</p>
-            <Button 
-              label="Retry" 
+            <Button
+              label="Retry"
               onClick={loadUserDetail}
               variant="outline"
             />

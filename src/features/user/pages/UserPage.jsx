@@ -11,20 +11,20 @@ import styles from './UserPage.module.css';
 
 function UserPage() {
   const [isAddUserModalOpen, setIsAddUserModalOpen] = useState(false);
-  
+
   // Set page layout
   usePageLayout({
     title: "User Management",
     breadcrumbs: ['Dashboard', 'Administration', 'User Management']
   });
-  
-  const { 
-    users, 
-    loading, 
-    error, 
+
+  const {
+    users,
+    loading,
+    error,
     pagination,
     filters,
-    loadUsers, 
+    loadUsers,
     updateFilters,
     changePage,
     updateUserInList
@@ -63,7 +63,7 @@ function UserPage() {
 
     return (
       <div className={styles.pagination}>
-        <Button 
+        <Button
           label="Previous"
           onClick={() => handlePageChange(pagination.page - 1)}
           disabled={pagination.first}
@@ -72,7 +72,7 @@ function UserPage() {
         <span className={styles.pageInfo}>
           Page {pagination.page + 1} of {pagination.totalPages}
         </span>
-        <Button 
+        <Button
           label="Next"
           onClick={() => handlePageChange(pagination.page + 1)}
           disabled={pagination.last}
@@ -85,73 +85,73 @@ function UserPage() {
   return (
     <div className={styles.userPage}>
       {/* Header Section - Memoized */}
-      <HeaderSection 
+      <HeaderSection
         onAddUser={handleAddUser}
         onExportUsers={handleExportUsers}
       />
 
       {/* Stats Cards - Memoized */}
-      <StatsSection 
+      <StatsSection
         users={users}
         pagination={pagination}
       />
 
       {/* Filters Section - Isolated state */}
-      <FilterSection 
+      <FilterSection
         onFiltersChange={handleFiltersChange}
         initialFilters={filters}
       />
 
       {/* Content Section */}
       <div className={styles.contentSection}>
-          {loading && (
-            <div className={styles.loadingState}>
-              <div className={styles.spinner}></div>
-              <p>Loading users...</p>
-            </div>
-          )}
-          
-          {error && (
-            <div className={styles.errorState}>
-              <div className={styles.errorIcon}>⚠️</div>
-              <h3>Error Loading Users</h3>
-              <p>{error}</p>
-              <Button 
-                label="Retry" 
-                onClick={() => loadUsers()}
-                variant="outline"
-              />
-            </div>
-          )}
+        {loading && (
+          <div className={styles.loadingState}>
+            <div className={styles.spinner}></div>
+            <p>Loading users...</p>
+          </div>
+        )}
 
-          {!loading && !error && (
-            <>
-              <div className={styles.resultsHeader}>
-                <p className={styles.resultsCount}>
-                  Showing {users.length} of {pagination.totalElements} users
-                  {pagination.totalPages > 1 && (
-                    <span> (Page {pagination.page + 1} of {pagination.totalPages})</span>
-                  )}
-                </p>
-              </div>
-              <UserList 
-                users={users} 
-                onUserUpdated={updateUserInList}
-              />
-              
-              {/* Pagination - Memoized */}
-              {PaginationSection}
-            </>
-          )}
-        </div>
-        
-        {/* Add User Modal */}
-        <AddUserModal
-          isOpen={isAddUserModalOpen}
-          onClose={handleCloseAddUserModal}
-          onUserCreated={handleUserCreated}
-        />
+        {error && (
+          <div className={styles.errorState}>
+            <div className={styles.errorIcon}>⚠️</div>
+            <h3>Error Loading Users</h3>
+            <p>{error}</p>
+            <Button
+              label="Retry"
+              onClick={() => loadUsers()}
+              variant="outline"
+            />
+          </div>
+        )}
+
+        {!loading && !error && (
+          <>
+            <div className={styles.resultsHeader}>
+              <p className={styles.resultsCount}>
+                Showing {users.length} of {pagination.totalElements} users
+                {pagination.totalPages > 1 && (
+                  <span> (Page {pagination.page + 1} of {pagination.totalPages})</span>
+                )}
+              </p>
+            </div>
+            <UserList
+              users={users}
+              onUserUpdated={updateUserInList}
+            />
+
+            {/* Pagination - Memoized */}
+            {PaginationSection}
+          </>
+        )}
       </div>
+
+      {/* Add User Modal */}
+      <AddUserModal
+        isOpen={isAddUserModalOpen}
+        onClose={handleCloseAddUserModal}
+        onUserCreated={handleUserCreated}
+      />
+    </div>
   );
 }
 

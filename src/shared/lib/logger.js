@@ -30,7 +30,7 @@ const blockedPatterns = [
 
 // Check if message should be blocked
 const shouldBlock = (message) => {
-  return blockedPatterns.some(pattern => 
+  return blockedPatterns.some(pattern =>
     message.toLowerCase().includes(pattern.toLowerCase())
   );
 };
@@ -46,7 +46,7 @@ const filterSensitiveData = (data) => {
     filtered = filtered.replace(/ya29\.[A-Za-z0-9\-_\.]+/gi, '[TOKEN_REDACTED]');
     return filtered;
   }
-  
+
   if (typeof data === 'object' && data !== null) {
     const filtered = { ...data };
     const sensitiveFields = ['access_token', 'token', 'jwt', 'password', 'idToken', 'accessToken'];
@@ -57,57 +57,57 @@ const filterSensitiveData = (data) => {
     });
     return filtered;
   }
-  
+
   return data;
 };
 
 // Override console methods immediately
 console.log = (...args) => {
   if (!isDevelopment) return;
-  
+
   const message = args.join(' ');
   if (shouldBlock(message)) return;
-  
+
   const filteredArgs = args.map(arg => filterSensitiveData(arg));
   originalConsole.log.apply(console, filteredArgs);
 };
 
 console.error = (...args) => {
   if (!isDevelopment) return;
-  
+
   const message = args.join(' ');
   if (shouldBlock(message)) return;
-  
+
   const filteredArgs = args.map(arg => filterSensitiveData(arg));
   originalConsole.error.apply(console, filteredArgs);
 };
 
 console.warn = (...args) => {
   if (!isDevelopment) return;
-  
+
   const message = args.join(' ');
   if (shouldBlock(message)) return;
-  
+
   const filteredArgs = args.map(arg => filterSensitiveData(arg));
   originalConsole.warn.apply(console, filteredArgs);
 };
 
 console.info = (...args) => {
   if (!isDevelopment) return;
-  
+
   const message = args.join(' ');
   if (shouldBlock(message)) return;
-  
+
   const filteredArgs = args.map(arg => filterSensitiveData(arg));
   originalConsole.info.apply(console, filteredArgs);
 };
 
 console.debug = (...args) => {
   if (!isDevelopment) return;
-  
+
   const message = args.join(' ');
   if (shouldBlock(message)) return;
-  
+
   const filteredArgs = args.map(arg => filterSensitiveData(arg));
   originalConsole.debug.apply(console, filteredArgs);
 };

@@ -5,7 +5,7 @@ import { useAuth } from '../../../shared/hooks/useAuth';
 export const useSignUp = () => {
   const navigate = useNavigate();
   const { emailRegister } = useAuth();
-  
+
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -13,7 +13,7 @@ export const useSignUp = () => {
     confirmPassword: '',
     agreeToTerms: false
   });
-  
+
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -74,7 +74,7 @@ export const useSignUp = () => {
       };
 
       const result = await emailRegister(signUpData);
-      
+
       if (result) {
         // Tự động đăng nhập thành công, chuyển hướng dựa trên role
         if (result.role === 'admin') {
@@ -82,16 +82,16 @@ export const useSignUp = () => {
         } else {
           navigate('/products');
         }
-        
+
         return { success: true };
       } else {
         throw new Error('Registration failed - no result returned');
       }
     } catch (error) {
       console.error('Sign up error:', error);
-      
+
       let errorMessage = 'Failed to create account. Please try again.';
-      
+
       if (error.message) {
         if (error.message.includes('email')) {
           errorMessage = 'This email is already registered. Please use a different email or try signing in.';
@@ -101,7 +101,7 @@ export const useSignUp = () => {
           errorMessage = error.message;
         }
       }
-      
+
       setErrors({ general: errorMessage });
     } finally {
       setLoading(false);
@@ -110,7 +110,7 @@ export const useSignUp = () => {
 
   const handleSocialSignUp = async (provider) => {
     setLoading(true);
-    
+
     try {
       // TODO: Implement social sign up logic
     } catch (error) {

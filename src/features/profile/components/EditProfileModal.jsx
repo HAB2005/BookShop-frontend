@@ -29,7 +29,7 @@ function EditProfileModal({ isOpen, onClose, user, onProfileUpdated }) {
 
   const validateForm = () => {
     const errors = {};
-    
+
     // Email validation
     if (!formData.email || formData.email.trim() === '') {
       errors.email = 'Email is required';
@@ -38,12 +38,12 @@ function EditProfileModal({ isOpen, onClose, user, onProfileUpdated }) {
     } else if (formData.email.length > 100) {
       errors.email = 'Email must not exceed 100 characters';
     }
-    
+
     // Full name validation
     if (formData.fullName && formData.fullName.length > 100) {
       errors.fullName = 'Full name must not exceed 100 characters';
     }
-    
+
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -54,7 +54,7 @@ function EditProfileModal({ isOpen, onClose, user, onProfileUpdated }) {
       ...prev,
       [name]: value
     }));
-    
+
     // Clear field error when user starts typing
     if (formErrors[name]) {
       setFormErrors(prev => ({
@@ -66,23 +66,23 @@ function EditProfileModal({ isOpen, onClose, user, onProfileUpdated }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setSaving(true);
-    
+
     try {
       const updatedUser = await updateUserProfile(formData);
-      
+
       toast.success('Profile updated successfully!');
-      
+
       // Notify parent component
       if (onProfileUpdated) {
         onProfileUpdated(updatedUser);
       }
-      
+
       // Close modal
       onClose();
     } catch (err) {

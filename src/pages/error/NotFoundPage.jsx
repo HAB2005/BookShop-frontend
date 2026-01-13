@@ -19,7 +19,7 @@ function NotFoundPage() {
         <div className={styles.errorIcon}>
           <span>🔍</span>
         </div>
-        
+
         <div className={styles.errorContent}>
           <h1 className={styles.errorTitle}>Page Not Found</h1>
           <h2 className={styles.errorSubtitle}>404 - Not Found</h2>
@@ -27,17 +27,17 @@ function NotFoundPage() {
             The page you're looking for doesn't exist or has been moved.
             Please check the URL or navigate back to a valid page.
           </p>
-          
+
           <div className={styles.errorActions}>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               onClick={handleGoBack}
               className={styles.actionButton}
             >
               Go Back
             </Button>
-            <Button 
-              variant="primary" 
+            <Button
+              variant="primary"
               onClick={handleGoHome}
               className={styles.actionButton}
             >

@@ -14,7 +14,7 @@ function SignUpPage() {
         handleSignUp,
         handleSocialSignUp
     } = useSignUp();
-    
+
     const { handleGoogleLogin, loading: googleLoading, error: googleError } = useGoogleAuth();
 
     const handleFormDataChange = (newFormData) => {
@@ -39,7 +39,7 @@ function SignUpPage() {
                 <div className={styles.floatingDot}></div>
                 <div className={styles.floatingDot}></div>
             </div>
-            
+
             <div className={styles.signUpContainer}>
                 <div className={styles.formCard}>
                     <h2 className={styles.formTitle}>Create Account</h2>
@@ -62,7 +62,7 @@ function SignUpPage() {
                             </ul>
                         </div>
                     )}
-                
+
                     <SignUpForm
                         formData={formData}
                         loading={loading}
@@ -70,11 +70,11 @@ function SignUpPage() {
                         onSubmit={handleSignUp}
                         onSocialLogin={handleSocialLogin}
                     />
-                
+
                     <div className={styles.loginLink}>
                         <p>
                             Already have an account? {" "}
-                            <button 
+                            <button
                                 type="button"
                                 className={styles.linkButton}
                                 onClick={() => navigate('/login')}
@@ -83,7 +83,7 @@ function SignUpPage() {
                             </button>
                         </p>
                     </div>
-                
+
                     <div className={styles.footerDecoration}>
                         <div className={styles.decorationDots}>
                             <div className={styles.decorationDot}></div>

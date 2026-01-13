@@ -26,7 +26,7 @@ function LoginPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         if (!formData.email || !formData.password) {
             return;
         }
@@ -60,19 +60,19 @@ function LoginPage() {
                 <div className={styles.floatingDot}></div>
                 <div className={styles.floatingDot}></div>
             </div>
-            
+
             <div className={styles.loginContainer}>
                 <div className={styles.formCard}>
                     <h2 className={styles.formTitle}>Login</h2>
                     <p className={styles.formSubtitle}>
                         Choose your preferred sign-in method
                     </p>
-                
+
                     <div className={styles.loginFormContainer}>
                         {/* Left Column - Social Login */}
                         <div className={styles.leftColumn}>
                             <SocialLoginSection onSocialLogin={handleSocialLogin} />
-                            
+
                             {/* Display Google login error if any */}
                             {googleError && (
                                 <div className={styles.errorMessage}>
@@ -129,7 +129,7 @@ function LoginPage() {
                                             <input type="checkbox" className={styles.checkbox} />
                                             <span className={styles.checkboxText}>Remember me</span>
                                         </label>
-                                        <button 
+                                        <button
                                             type="button"
                                             className={styles.forgotPassword}
                                             onClick={handleForgotPassword}
@@ -155,11 +155,11 @@ function LoginPage() {
                             </form>
                         </div>
                     </div>
-                
+
                     <div className={styles.signupLink}>
                         <p>
                             Don't have an account? {" "}
-                            <button 
+                            <button
                                 type="button"
                                 className={styles.linkButton}
                                 onClick={() => navigate('/login/signup')}
@@ -168,7 +168,7 @@ function LoginPage() {
                             </button>
                         </p>
                     </div>
-                
+
                     <div className={styles.footerDecoration}>
                         <div className={styles.decorationDots}>
                             <div className={styles.decorationDot}></div>

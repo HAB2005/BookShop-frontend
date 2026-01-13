@@ -11,7 +11,7 @@ function UserList({ users = [], onUserUpdated }) {
   const [selectedUserId, setSelectedUserId] = useState(null);
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  
+
   const { updateUserStatus } = useAdminUsers();
 
   if (!users || users.length === 0) {
@@ -26,29 +26,29 @@ function UserList({ users = [], onUserUpdated }) {
 
   const handleToggleStatus = async (userId, currentStatus) => {
     const newStatus = currentStatus?.toLowerCase() === 'active' ? 'inactive' : 'active';
-    
+
     // Set loading state
     setLoadingAction(`status-${userId}`);
     setErrorAction(null);
-    
+
     // Optimistic update - Update UI immediately
     if (onUserUpdated) {
       onUserUpdated(userId, { status: newStatus });
     }
-    
+
     try {
       // Call API to update status
       await updateUserStatus(userId, newStatus);
     } catch (error) {
-      
+
       // Revert optimistic update on error
       if (onUserUpdated) {
         onUserUpdated(userId, { status: currentStatus });
       }
-      
+
       // Show error state
       setErrorAction(`status-${userId}`);
-      
+
       // Auto-clear error after 3 seconds
       setTimeout(() => {
         setErrorAction(null);
@@ -130,7 +130,7 @@ function UserList({ users = [], onUserUpdated }) {
                     <p className={styles.userId}>ID: {user.userId}</p>
                   </div>
                 </div>
-                
+
                 {/* Contact Info: Email */}
                 <div className={styles.userContactInfo}>
                   <span className={styles.contactIcon}>📧</span>
@@ -155,16 +155,15 @@ function UserList({ users = [], onUserUpdated }) {
                   onClick={() => handleToggleStatus(user.userId, user.status)}
                   disabled={loadingAction === `status-${user.userId}`}
                   title={
-                    errorAction === `status-${user.userId}` 
+                    errorAction === `status-${user.userId}`
                       ? 'Failed to update status - Click to retry'
-                      : user.status?.toLowerCase() === 'active' 
-                        ? 'Deactivate user' 
+                      : user.status?.toLowerCase() === 'active'
+                        ? 'Deactivate user'
                         : 'Activate user'
                   }
                   variant={errorAction === `status-${user.userId}` ? 'danger' : 'ghost'}
-                  className={`${styles.actionButton} ${styles.toggleButton} ${
-                    user.status?.toLowerCase() === 'active' ? styles.deactivateButton : styles.activateButton
-                  } ${errorAction === `status-${user.userId}` ? styles.errorButton : ''}`}
+                  className={`${styles.actionButton} ${styles.toggleButton} ${user.status?.toLowerCase() === 'active' ? styles.deactivateButton : styles.activateButton
+                    } ${errorAction === `status-${user.userId}` ? styles.errorButton : ''}`}
                 />
                 <IconButton
                   icon="✏️"
@@ -195,7 +194,7 @@ function UserList({ users = [], onUserUpdated }) {
                     {user.status || 'Unknown'}
                   </span>
                 </div>
-                
+
                 <div className={styles.dateInfo}>
                   <div className={styles.dateItem}>
                     <span className={styles.dateLabel}>Created:</span>
@@ -213,7 +212,7 @@ function UserList({ users = [], onUserUpdated }) {
           </div>
         ))}
       </div>
-      
+
       {/* User Detail Modal */}
       <UserDetailModal
         isOpen={isDetailModalOpen}
@@ -222,7 +221,7 @@ function UserList({ users = [], onUserUpdated }) {
         onUserUpdated={onUserUpdated}
         onEditUser={handleEditUser}
       />
-      
+
       {/* User Edit Modal */}
       <EditUserModal
         isOpen={isEditModalOpen}

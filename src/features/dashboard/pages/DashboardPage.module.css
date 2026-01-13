@@ -79,12 +79,29 @@
 }
 
 /* Module Color Variants */
-.moduleCard.blue { border-left-color: #3b82f6; }
-.moduleCard.green { border-left-color: #10b981; }
-.moduleCard.orange { border-left-color: #f59e0b; }
-.moduleCard.purple { border-left-color: #8b5cf6; }
-.moduleCard.indigo { border-left-color: #6366f1; }
-.moduleCard.gray { border-left-color: #6b7280; }
+.moduleCard.blue {
+  border-left-color: #3b82f6;
+}
+
+.moduleCard.green {
+  border-left-color: #10b981;
+}
+
+.moduleCard.orange {
+  border-left-color: #f59e0b;
+}
+
+.moduleCard.purple {
+  border-left-color: #8b5cf6;
+}
+
+.moduleCard.indigo {
+  border-left-color: #6366f1;
+}
+
+.moduleCard.gray {
+  border-left-color: #6b7280;
+}
 
 .moduleHeader {
   display: flex;
@@ -453,59 +470,59 @@
   .dashboardPage {
     padding: 1rem;
   }
-  
+
   .welcomeSection {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
   }
-  
+
   .welcomeTitle {
     font-size: 1.5rem;
   }
-  
+
   .welcomeSubtitle {
     font-size: 1rem;
   }
-  
+
   .modulesGrid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .moduleHeader {
     padding: 1rem;
   }
-  
+
   .moduleActions {
     padding: 0.75rem 1rem;
   }
-  
+
   .quickStats {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
   }
-  
+
   .statCard {
     padding: 1rem;
   }
-  
+
   .statNumber {
     font-size: 1.25rem;
   }
-  
+
   .actionsGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .actionCard {
     padding: 1rem;
   }
-  
+
   .statsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .recommendationsGrid {
     grid-template-columns: 1fr;
   }
@@ -515,31 +532,31 @@
   .dashboardPage {
     padding: 0.5rem;
   }
-  
+
   .moduleHeader {
     flex-direction: column;
     text-align: center;
     gap: 0.75rem;
   }
-  
+
   .quickStats {
     grid-template-columns: 1fr;
   }
-  
+
   .statsGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .statCard {
     padding: 1rem;
   }
-  
+
   .activityItem {
     flex-direction: column;
     text-align: center;
     gap: 0.5rem;
   }
-  
+
   .activityContent {
     text-align: center;
   }
@@ -567,12 +584,29 @@
 }
 
 /* Module Color Variants */
-.moduleCard.blue { border-left-color: #3b82f6; }
-.moduleCard.green { border-left-color: #10b981; }
-.moduleCard.orange { border-left-color: #f59e0b; }
-.moduleCard.purple { border-left-color: #8b5cf6; }
-.moduleCard.indigo { border-left-color: #6366f1; }
-.moduleCard.gray { border-left-color: #6b7280; }
+.moduleCard.blue {
+  border-left-color: #3b82f6;
+}
+
+.moduleCard.green {
+  border-left-color: #10b981;
+}
+
+.moduleCard.orange {
+  border-left-color: #f59e0b;
+}
+
+.moduleCard.purple {
+  border-left-color: #8b5cf6;
+}
+
+.moduleCard.indigo {
+  border-left-color: #6366f1;
+}
+
+.moduleCard.gray {
+  border-left-color: #6b7280;
+}
 
 .moduleHeader {
   display: flex;
@@ -641,6 +675,7 @@
     opacity: 0;
     max-height: 0;
   }
+
   to {
     opacity: 1;
     max-height: 300px;

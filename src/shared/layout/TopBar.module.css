@@ -539,6 +539,7 @@
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -550,7 +551,7 @@
   .quickActions {
     display: none;
   }
-  
+
   .userInfo {
     display: none;
   }
@@ -560,24 +561,24 @@
   .topBar {
     padding: 0 1rem;
   }
-  
+
   .hamburgerButton {
     display: flex;
   }
-  
+
   .userProfileWrapper {
     margin-left: 0.5rem;
     padding-left: 0.5rem;
   }
-  
+
   .pageTitle {
     font-size: 1.25rem;
   }
-  
+
   .breadcrumbItem {
     font-size: 0.8rem;
   }
-  
+
   .navigationDropdown {
     width: 260px;
     left: -10px;
@@ -588,21 +589,21 @@
   .dropdownArrow {
     display: none;
   }
-  
+
   .pageTitle {
     font-size: 1.1rem;
   }
-  
+
   .userDropdown {
     width: 300px;
     right: -10px;
   }
-  
+
   .notificationDropdown {
     width: 280px;
     right: -10px;
   }
-  
+
   .navigationDropdown {
     width: calc(100vw - 2rem);
     left: -1rem;
@@ -613,25 +614,25 @@
   .topBar {
     padding: 0 0.75rem;
   }
-  
+
   .pageTitle {
     font-size: 1rem;
   }
-  
+
   .breadcrumb {
     display: none;
   }
-  
+
   .userDropdown {
     width: calc(100vw - 2rem);
     right: -1rem;
   }
-  
+
   .notificationDropdown {
     width: calc(100vw - 2rem);
     right: -1rem;
   }
-  
+
   .navigationDropdown {
     width: calc(100vw - 1.5rem);
     left: -0.75rem;

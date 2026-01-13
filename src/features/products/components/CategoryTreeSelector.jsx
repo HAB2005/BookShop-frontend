@@ -19,11 +19,11 @@ function CategoryTreeSelector({ selectedCategories = [], onSelectionChange, disa
       setError(null);
       const response = await getCategoriesApi();
       const categoryList = response.content || response || [];
-      
+
       // Build tree structure
       const tree = buildCategoryTree(categoryList);
       setCategories(tree);
-      
+
       // Auto-expand nodes that have selected children
       const toExpand = new Set();
       categoryList.forEach(cat => {
@@ -84,30 +84,30 @@ function CategoryTreeSelector({ selectedCategories = [], onSelectionChange, disa
   const getAllParentIds = (categoryId, categoryList) => {
     const parentIds = [];
     const category = categoryList.find(cat => cat.categoryId === categoryId);
-    
+
     if (category && category.parentId) {
       parentIds.push(category.parentId);
       parentIds.push(...getAllParentIds(category.parentId, categoryList));
     }
-    
+
     return parentIds;
   };
 
   const getAllChildIds = (categoryId, categoryList) => {
     const childIds = [];
     const children = categoryList.filter(cat => cat.parentId === categoryId);
-    
+
     children.forEach(child => {
       childIds.push(child.categoryId);
       childIds.push(...getAllChildIds(child.categoryId, categoryList));
     });
-    
+
     return childIds;
   };
 
   const handleCategoryToggle = (categoryId) => {
     if (disabled) return;
-    
+
     // Get flat list of all categories for easier traversal
     const flatCategories = [];
     const flattenCategories = (cats) => {
@@ -119,10 +119,10 @@ function CategoryTreeSelector({ selectedCategories = [], onSelectionChange, disa
       });
     };
     flattenCategories(categories);
-    
+
     const newSelection = [...selectedCategories];
     const index = newSelection.indexOf(categoryId);
-    
+
     if (index > -1) {
       // Deselecting: remove this category and all its children
       newSelection.splice(index, 1);
@@ -143,7 +143,7 @@ function CategoryTreeSelector({ selectedCategories = [], onSelectionChange, disa
         }
       });
     }
-    
+
     onSelectionChange(newSelection);
   };
 
@@ -154,7 +154,7 @@ function CategoryTreeSelector({ selectedCategories = [], onSelectionChange, disa
 
     return (
       <div key={category.categoryId} className={styles.categoryNode}>
-        <div 
+        <div
           className={`${styles.categoryItem} ${isSelected ? styles.selected : ''}`}
           style={{ paddingLeft: `${level * 20 + 12}px` }}
         >
@@ -167,17 +167,17 @@ function CategoryTreeSelector({ selectedCategories = [], onSelectionChange, disa
               ▶
             </button>
           )}
-          
+
           {!hasChildren && <div className={styles.expandSpacer} />}
-          
+
           <div
             className={`${styles.checkbox} ${isSelected ? styles.checked : ''}`}
             onClick={() => handleCategoryToggle(category.categoryId)}
           >
             {isSelected && <span className={styles.checkmark}>✓</span>}
           </div>
-          
-          <div 
+
+          <div
             className={styles.categoryInfo}
             onClick={() => handleCategoryToggle(category.categoryId)}
           >
@@ -187,7 +187,7 @@ function CategoryTreeSelector({ selectedCategories = [], onSelectionChange, disa
             )}
           </div>
         </div>
-        
+
         {hasChildren && isExpanded && (
           <div className={styles.children}>
             {category.children.map(child => renderCategoryNode(child, level + 1))}

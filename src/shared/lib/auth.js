@@ -10,25 +10,25 @@ export const saveAuthData = (authResponse) => {
   if (authResponse.token) {
     localStorage.setItem('token', authResponse.token);
   }
-  
+
   const userData = {
     userId: authResponse.userId,
     username: authResponse.username,
     fullName: authResponse.fullName,
     role: authResponse.role,
   };
-  
+
   localStorage.setItem('user', JSON.stringify(userData));
 };
 
 export const getAuthData = () => {
   const token = localStorage.getItem('token');
   const userStr = localStorage.getItem('user');
-  
+
   if (!token || !userStr) {
     return null;
   }
-  
+
   try {
     const user = JSON.parse(userStr);
     return { token, user };
@@ -84,15 +84,15 @@ export const getErrorMessage = (error) => {
   if (error.response?.data?.message) {
     return error.response.data.message;
   }
-  
+
   if (error.response?.data?.error) {
     return error.response.data.error;
   }
-  
+
   if (error.message) {
     return error.message;
   }
-  
+
   return 'An unexpected error occurred';
 };
 

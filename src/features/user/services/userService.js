@@ -1,7 +1,7 @@
-import { 
-  getAllUsersApi, 
-  createUserApi, 
-  getAdminUserDetailApi, 
+import {
+  getAllUsersApi,
+  createUserApi,
+  getAdminUserDetailApi,
   updateUserStatusApi,
   adminUpdateUserProfileApi,
   resetUserPasswordApi
@@ -9,8 +9,8 @@ import {
 
 // Admin Services
 export const fetchUsersService = async ({ page, size, sortBy, sortDir, username, email, role, status }) => {
-  const response = await getAllUsersApi({ page, size, sortBy, sortDir, username, email, role, status }); 
-  const data = response.data; 
+  const response = await getAllUsersApi({ page, size, sortBy, sortDir, username, email, role, status });
+  const data = response.data;
 
   if (!data?.content) {
     throw new Error("Invalid user list response");
@@ -35,10 +35,10 @@ export const createUserService = async (userData) => {
   } catch (error) {
     if (error.response) {
       const { status, data } = error.response;
-      
+
       if (status === 400) {
         if (data?.validationErrors && data.validationErrors.length > 0) {
-          const validationMessages = data.validationErrors.map(err => 
+          const validationMessages = data.validationErrors.map(err =>
             `${err.field}: ${err.message}`
           );
           throw new Error(validationMessages.join('. '));
@@ -74,7 +74,7 @@ export const resetUserPasswordService = async (userId) => {
   } catch (error) {
     if (error.response) {
       const { status, data } = error.response;
-      
+
       if (status === 404) {
         throw new Error("User not found");
       } else {
@@ -92,7 +92,7 @@ export const updateUserStatusService = async (userId, status) => {
   } catch (error) {
     if (error.response) {
       const { status: httpStatus, data } = error.response;
-      
+
       if (httpStatus === 400) {
         throw new Error(data?.message || "Invalid status value");
       } else if (httpStatus === 404) {
@@ -112,10 +112,10 @@ export const updateUserProfileAdminService = async (userId, profileData) => {
   } catch (error) {
     if (error.response) {
       const { status, data } = error.response;
-      
+
       if (status === 400) {
         if (data?.validationErrors && data.validationErrors.length > 0) {
-          const validationMessages = data.validationErrors.map(err => 
+          const validationMessages = data.validationErrors.map(err =>
             `${err.field}: ${err.message}`
           );
           throw new Error(validationMessages.join('. '));

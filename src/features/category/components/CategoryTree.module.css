@@ -165,8 +165,13 @@
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .emptyTree {
@@ -268,36 +273,36 @@
   .categoryTree {
     padding: 16px;
   }
-  
+
   .treeControls {
     flex-direction: column;
     gap: 16px;
     align-items: stretch;
     padding: 16px;
   }
-  
+
   .searchSection {
     max-width: none;
   }
-  
+
   .controlButtons {
     justify-content: center;
   }
-  
+
   .categoryStats {
     flex-wrap: wrap;
     gap: 12px;
   }
-  
+
   .legendItems {
     flex-direction: column;
     gap: 12px;
   }
-  
+
   .emptyTree {
     padding: 60px 20px;
   }
-  
+
   .emptyIcon {
     font-size: 3rem;
   }

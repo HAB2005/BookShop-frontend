@@ -21,7 +21,7 @@ export const emailLoginService = async (credentials) => {
         // Xử lý các loại error khác nhau
         if (error.response) {
             const { status, data } = error.response;
-            
+
             // Lỗi từ server (4xx, 5xx)
             if (status === 401) {
                 // Check for specific error codes
@@ -86,10 +86,10 @@ export const registerService = async (userData) => {
     } catch (error) {
         if (error.response) {
             const { status, data } = error.response;
-            
+
             if (status === 400) {
                 if (data?.validationErrors && data.validationErrors.length > 0) {
-                    const validationMessages = data.validationErrors.map(err => 
+                    const validationMessages = data.validationErrors.map(err =>
                         `${err.field}: ${err.message}`
                     );
                     throw new Error(validationMessages.join('. '));
@@ -112,12 +112,12 @@ export const registerService = async (userData) => {
 };
 
 export const logoutService = async () => {
-  try {
-    await logoutApi();
-  } catch (e) {
-    console.warn("Logout API failed, force logout");
-  } finally {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-  }
+    try {
+        await logoutApi();
+    } catch (e) {
+        console.warn("Logout API failed, force logout");
+    } finally {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+    }
 };

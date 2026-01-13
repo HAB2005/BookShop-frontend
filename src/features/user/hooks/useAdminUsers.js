@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { 
-  createUserService, 
-  getUserDetailAdminService, 
+import {
+  createUserService,
+  getUserDetailAdminService,
   resetUserPasswordService,
   updateUserStatusService
 } from "../services/userService";

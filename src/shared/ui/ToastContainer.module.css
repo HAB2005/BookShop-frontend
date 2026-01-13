@@ -2,11 +2,12 @@
   position: fixed;
   top: 1rem;
   right: 1rem;
-  z-index: 99999; /* Increased z-index to ensure it's above everything */
+  z-index: 99999;
+  /* Increased z-index to ensure it's above everything */
   pointer-events: none;
 }
 
-.toastContainer > * {
+.toastContainer>* {
   pointer-events: auto;
 }
 

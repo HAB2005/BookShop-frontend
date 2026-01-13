@@ -1,10 +1,10 @@
 import Modal from './Modal';
 import styles from './ConfirmationModal.module.css';
 
-function ConfirmationModal({ 
-  isOpen, 
-  onClose, 
-  onConfirm, 
+function ConfirmationModal({
+  isOpen,
+  onClose,
+  onConfirm,
   title = "Confirm Action",
   message,
   confirmText = "Confirm",
@@ -56,11 +56,11 @@ function ConfirmationModal({
             {getIconByType()}
           </span>
         </div>
-        
+
         <div className={styles.messageContainer}>
           <p className={styles.message}>{message}</p>
         </div>
-        
+
         <div className={styles.buttonContainer}>
           <button
             className={styles.cancelButton}

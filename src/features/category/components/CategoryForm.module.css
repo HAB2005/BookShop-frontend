@@ -32,6 +32,7 @@
     opacity: 0;
     transform: translateY(-20px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -277,8 +278,13 @@
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Responsive Design */
@@ -286,25 +292,25 @@
   .modalOverlay {
     padding: 12px;
   }
-  
+
   .modal {
     max-width: none;
     width: 100%;
   }
-  
+
   .modalHeader {
     padding: 16px 20px;
   }
-  
+
   .formBody {
     padding: 20px;
   }
-  
+
   .formFooter {
     padding: 16px 20px;
     flex-direction: column-reverse;
   }
-  
+
   .cancelButton,
   .submitButton {
     width: 100%;
@@ -316,11 +322,11 @@
   .modalHeader h2 {
     font-size: 1.1rem;
   }
-  
+
   .formBody {
     padding: 16px;
   }
-  
+
   .formGroup {
     margin-bottom: 16px;
   }

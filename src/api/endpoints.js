@@ -20,7 +20,7 @@ const USER = {
   PROFILE_BY_ID: (id) => `/user/profile/${id}`,
   UPDATE_PROFILE: "/user/profile",
   CHANGE_PASSWORD: "/user/change-password",
-  
+
   // Admin user management endpoints
   ADMIN: {
     LIST: "/admin/users",

@@ -146,17 +146,17 @@
     padding-right: 4px;
     margin-right: -4px;
   }
-  
+
   .formGroup.fullWidth {
     grid-column: 1;
   }
-  
+
   .formActions {
     flex-direction: column-reverse;
     gap: 8px;
     padding: 16px 0;
   }
-  
+
   .formActions button {
     width: 100%;
   }

@@ -23,7 +23,7 @@ function LoginForm({
 
   const handleSubmit = () => {
     console.log('LoginForm handleSubmit called');
-    
+
     // Use setTimeout to ensure this runs after any potential form submission
     setTimeout(() => {
       try {
@@ -105,8 +105,8 @@ function LoginForm({
               <input type="checkbox" className={styles.checkbox} />
               <span className={styles.checkboxText}>Remember me</span>
             </label>
-            <Button 
-              type="button" 
+            <Button
+              type="button"
               variant="ghost"
               size="small"
               onClick={handleForgotPassword}

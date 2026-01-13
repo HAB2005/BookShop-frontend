@@ -31,11 +31,11 @@ export default function AppRoutes() {
       {/* Public routes */}
       <Route path="/" element={<Navigate to="/products" replace />} />
       <Route path="/login/*" element={<AuthRoutes />} />
-      
+
       {/* Error pages - without layout */}
       <Route path="/unauthorized" element={<UnauthorizedPage />} />
       <Route path="/404" element={<NotFoundPage />} />
-      
+
       {/* Protected routes with shared layout */}
       <Route path="/products" element={
         <ProtectedRoute allowedRoles={['admin', 'customer']}>
@@ -44,7 +44,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       {/* Admin product list management */}
       <Route path="/products/manage" element={
         <ProtectedRoute requiredRole="admin">
@@ -53,7 +53,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       {/* Admin edit products page - shows all products regardless of status */}
       <Route path="/products/edit-list" element={
         <ProtectedRoute requiredRole="admin">
@@ -62,7 +62,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       {/* Admin-only product management routes */}
       <Route path="/products/add" element={
         <ProtectedRoute requiredRole="admin">
@@ -71,7 +71,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       <Route path="/products/edit" element={
         <ProtectedRoute requiredRole="admin">
           <ProtectedLayout>
@@ -79,7 +79,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       <Route path="/products/edit/:productId" element={
         <ProtectedRoute requiredRole="admin">
           <ProtectedLayout>
@@ -87,7 +87,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       {/* New update product route */}
       <Route path="/products/update/:productId" element={
         <ProtectedRoute requiredRole="admin">
@@ -96,7 +96,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       {/* Fallback route for update without productId */}
       <Route path="/products/update" element={
         <ProtectedRoute requiredRole="admin">
@@ -105,7 +105,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       {/* Admin-only category management route */}
       <Route path="/categories" element={
         <ProtectedRoute requiredRole="admin">
@@ -114,7 +114,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       <Route path="/orders" element={
         <ProtectedRoute allowedRoles={['admin', 'customer']}>
           <ProtectedLayout>
@@ -122,7 +122,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       <Route path="/cart" element={
         <ProtectedRoute requiredRole="customer">
           <ProtectedLayout>
@@ -130,7 +130,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       <Route path="/favorites" element={
         <ProtectedRoute requiredRole="customer">
           <ProtectedLayout>
@@ -138,7 +138,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       <Route path="/profile" element={
         <ProtectedRoute allowedRoles={['admin', 'customer']}>
           <ProtectedLayout>
@@ -146,7 +146,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       {/* Admin-only routes */}
       <Route path="/dashboard" element={
         <ProtectedRoute requiredRole="admin">
@@ -155,7 +155,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       <Route path="/user" element={
         <ProtectedRoute requiredRole="admin">
           <ProtectedLayout>
@@ -163,7 +163,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       <Route path="/admin/*" element={
         <ProtectedRoute requiredRole="admin">
           <ProtectedLayout>
@@ -171,7 +171,7 @@ export default function AppRoutes() {
           </ProtectedLayout>
         </ProtectedRoute>
       } />
-      
+
       {/* Catch all - redirect to 404 */}
       <Route path="*" element={<Navigate to="/404" replace />} />
     </Routes>

@@ -1,4 +1,4 @@
-import { 
+import {
   getUserProfileApi,
   updateUserProfileApi,
   changePasswordApi
@@ -23,10 +23,10 @@ export const updateUserProfileService = async (profileData) => {
   } catch (error) {
     if (error.response) {
       const { status, data } = error.response;
-      
+
       if (status === 400) {
         if (data?.validationErrors && data.validationErrors.length > 0) {
-          const validationMessages = data.validationErrors.map(err => 
+          const validationMessages = data.validationErrors.map(err =>
             `${err.field}: ${err.message}`
           );
           throw new Error(validationMessages.join('. '));
@@ -50,10 +50,10 @@ export const changePasswordService = async (passwordData) => {
   } catch (error) {
     if (error.response) {
       const { status, data } = error.response;
-      
+
       if (status === 400) {
         if (data?.validationErrors && data.validationErrors.length > 0) {
-          const validationMessages = data.validationErrors.map(err => 
+          const validationMessages = data.validationErrors.map(err =>
             `${err.field}: ${err.message}`
           );
           throw new Error(validationMessages.join('. '));

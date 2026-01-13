@@ -39,7 +39,7 @@ function SocialLoginSection({ onSocialLogin }) {
     } else {
       // Default behavior - placeholder
       console.log(`${providerId} login clicked`);
-      
+
       // TODO: Implement actual social login
       switch (providerId) {
         case 'phone':

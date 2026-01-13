@@ -15,8 +15,8 @@ export const getAdminUserDetailApi = (userId) => {
 };
 
 export const updateUserStatusApi = (userId, status) => {
-  return client.put(USER.ADMIN.UPDATE_STATUS(userId), null, { 
-    params: { status } 
+  return client.put(USER.ADMIN.UPDATE_STATUS(userId), null, {
+    params: { status }
   });
 };
 

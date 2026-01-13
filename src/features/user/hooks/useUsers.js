@@ -97,7 +97,7 @@ export function useUsers(filters = {}) {
   }, []);
 
   const updateUserInList = useCallback((userId, updates) => {
-    setUsers(prev => prev.map(user => 
+    setUsers(prev => prev.map(user =>
       user.userId === userId ? { ...user, ...updates } : user
     ));
   }, []);

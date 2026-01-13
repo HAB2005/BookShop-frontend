@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { 
+import {
   getCurrentUserProfileService,
   updateUserProfileService,
-  changePasswordService 
+  changePasswordService
 } from '../services/profileService';
 
 export const useCurrentUser = () => {

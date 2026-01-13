@@ -27,7 +27,7 @@ export const useGoogleAuth = () => {
       // Send access token directly to backend
       // Backend will handle getting user info from Google
       const authResponse = await googleLogin({ idToken: accessToken });
-      
+
       // Navigate based on user role after successful login
       if (authResponse && authResponse.role) {
         if (authResponse.role === 'admin') {
@@ -39,7 +39,7 @@ export const useGoogleAuth = () => {
         // Default navigation if no role specified
         navigate('/dashboard');
       }
-      
+
       return authResponse;
     } catch (error) {
       // Only log actual errors, not successful operations

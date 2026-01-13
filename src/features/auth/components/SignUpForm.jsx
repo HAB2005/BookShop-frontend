@@ -139,8 +139,8 @@ function SignUpForm({
           {/* Terms and Conditions */}
           <div className={styles.formOptions}>
             <label className={styles.checkboxLabel}>
-              <input 
-                type="checkbox" 
+              <input
+                type="checkbox"
                 className={styles.checkbox}
                 checked={formData.agreeToTerms || false}
                 onChange={(e) => handleInputChange('agreeToTerms', e.target.checked)}

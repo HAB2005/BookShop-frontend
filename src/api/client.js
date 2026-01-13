@@ -23,7 +23,7 @@ client.interceptors.request.use((config) => {
   if (publicEndpoints.some(endpoint => config.url === endpoint)) {
     return config;
   }
-  
+
   const token = localStorage.getItem('token');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
@@ -39,10 +39,10 @@ client.interceptors.response.use(
       // Only redirect if not already on login/auth pages and not a login attempt
       const currentPath = window.location.pathname;
       const isAuthPage = currentPath === '/login' || currentPath.startsWith('/auth');
-      const isLoginAttempt = publicEndpoints.some(endpoint => 
+      const isLoginAttempt = publicEndpoints.some(endpoint =>
         error.config?.url === endpoint
       );
-      
+
       if (!isAuthPage && !isLoginAttempt) {
         // Token expired or invalid - redirect to login
         localStorage.removeItem('token');

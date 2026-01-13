@@ -39,9 +39,12 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.05);
   }
@@ -154,29 +157,29 @@
   .confirmationContent {
     padding: 0.5rem 0;
   }
-  
+
   .icon {
     font-size: 2.5rem;
     padding: 0.75rem;
   }
-  
+
   .iconContainer {
     margin-bottom: 1rem;
   }
-  
+
   .messageContainer {
     margin-bottom: 1.5rem;
   }
-  
+
   .message {
     font-size: 0.875rem;
   }
-  
+
   .buttonContainer {
     flex-direction: column;
     max-width: 100%;
   }
-  
+
   .cancelButton,
   .confirmButton {
     width: 100%;

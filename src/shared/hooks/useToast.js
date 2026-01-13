@@ -8,9 +8,9 @@ export const useToast = () => {
   const addToast = useCallback((message, type = 'info', duration = 4000) => {
     const id = ++toastId;
     const toast = { id, message, type, duration };
-    
+
     setToasts(prev => [...prev, toast]);
-    
+
     return id;
   }, []);
 

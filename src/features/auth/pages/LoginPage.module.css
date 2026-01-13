@@ -75,7 +75,8 @@
   position: relative;
   z-index: 3;
   width: 100%;
-  max-width: 800px; /* Tăng từ 750px lên 800px */
+  max-width: 800px;
+  /* Tăng từ 750px lên 800px */
 }
 
 .brandSection {
@@ -120,7 +121,8 @@
   border-radius: 1rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 1.5rem; /* Giảm từ 2rem xuống 1.5rem */
+  padding: 1.5rem;
+  /* Giảm từ 2rem xuống 1.5rem */
 }
 
 .formTitle {
@@ -134,13 +136,15 @@
 .formSubtitle {
   color: rgba(255, 255, 255, 0.8);
   text-align: center;
-  margin-bottom: 1.25rem; /* Giảm từ 1.5rem xuống 1.25rem */
+  margin-bottom: 1.25rem;
+  /* Giảm từ 1.5rem xuống 1.25rem */
   font-size: 0.9rem;
 }
 
 .signupLink {
   text-align: center;
-  margin-top: 1.25rem; /* Giảm từ 1.5rem xuống 1.25rem */
+  margin-top: 1.25rem;
+  /* Giảm từ 1.5rem xuống 1.25rem */
 }
 
 .signupLink p {
@@ -174,7 +178,8 @@
 }
 
 .footerDecoration {
-  margin-top: 1.25rem; /* Giảm từ 1.5rem xuống 1.25rem */
+  margin-top: 1.25rem;
+  /* Giảm từ 1.5rem xuống 1.25rem */
   text-align: center;
 }
 
@@ -206,11 +211,13 @@
   background: #f472b6;
   animation-delay: 0.6s;
 }
+
 /* New Login Form Layout - Wider for better spacing */
 .loginFormContainer {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  gap: 2.5rem; /* Tăng từ 2.25rem lên 2.5rem */
+  gap: 2.5rem;
+  /* Tăng từ 2.25rem lên 2.5rem */
   align-items: center;
   min-height: 280px;
 }
@@ -218,7 +225,8 @@
 .leftColumn {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Giảm từ 1rem xuống 0.75rem */
+  gap: 0.75rem;
+  /* Giảm từ 1rem xuống 0.75rem */
   height: 100%;
   justify-content: center;
 }
@@ -234,7 +242,8 @@
 .socialMainButtons {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem; /* Match với gap giữa email và password */
+  gap: 1.25rem;
+  /* Match với gap giữa email và password */
 }
 
 .divider {
@@ -250,13 +259,12 @@
 .dividerLine {
   width: 1px;
   flex: 1;
-  background: linear-gradient(to bottom, 
-    transparent 0%, 
-    rgba(255, 255, 255, 0.3) 20%, 
-    rgba(255, 255, 255, 0.5) 50%, 
-    rgba(255, 255, 255, 0.3) 80%, 
-    transparent 100%
-  );
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 20%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.3) 80%,
+      transparent 100%);
   min-height: 3rem;
 }
 
@@ -287,7 +295,8 @@
 /* Social Login Buttons - Compact */
 .socialButton {
   width: 100%;
-  padding: 0.875rem 1rem; /* Giảm từ 1rem 1.25rem xuống 0.875rem 1rem */
+  padding: 0.875rem 1rem;
+  /* Giảm từ 1rem 1.25rem xuống 0.875rem 1rem */
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.75rem;
@@ -322,7 +331,8 @@
 }
 
 .socialButtonSmall {
-  padding: 0.75rem 0.875rem; /* Giảm từ 0.875rem 1rem xuống 0.75rem 0.875rem */
+  padding: 0.75rem 0.875rem;
+  /* Giảm từ 0.875rem 1rem xuống 0.75rem 0.875rem */
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.75rem;
@@ -354,13 +364,15 @@
 .loginForm {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Giảm từ 1rem xuống 0.75rem */
+  gap: 0.75rem;
+  /* Giảm từ 1rem xuống 0.75rem */
 }
 
 .formInputsGroup {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem; /* Match với socialMainButtons gap */
+  gap: 1.25rem;
+  /* Match với socialMainButtons gap */
 }
 
 .formGroup {
@@ -378,7 +390,8 @@
 
 .input {
   width: 100%;
-  padding: 0.875rem 1rem; /* Giảm từ 1rem 1.25rem xuống 0.875rem 1rem */
+  padding: 0.875rem 1rem;
+  /* Giảm từ 1rem 1.25rem xuống 0.875rem 1rem */
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.75rem;
@@ -407,8 +420,10 @@
   justify-content: space-between;
   gap: 1rem;
   margin: 0.5rem 0;
-  width: 100%; /* Đảm bảo chiếm full width */
-  flex-wrap: nowrap; /* Không cho phép wrap xuống dòng */
+  width: 100%;
+  /* Đảm bảo chiếm full width */
+  flex-wrap: nowrap;
+  /* Không cho phép wrap xuống dòng */
 }
 
 .checkboxLabel {
@@ -456,7 +471,8 @@
 
 .submitButton {
   width: 100%;
-  margin-top: 0.25rem; /* Giảm từ 0.5rem xuống 0.25rem */
+  margin-top: 0.25rem;
+  /* Giảm từ 0.5rem xuống 0.25rem */
   padding: 0.875rem 1rem;
   border-radius: 0.75rem;
   font-weight: 600;
@@ -476,40 +492,39 @@
     gap: 2rem;
     min-height: auto;
   }
-  
+
   .divider {
     flex-direction: row;
     padding: 1rem 0;
     height: auto;
   }
-  
+
   .dividerLine {
     width: 3rem;
     height: 1px;
     min-height: 1px;
-    background: linear-gradient(to right, 
-      transparent 0%, 
-      rgba(255, 255, 255, 0.3) 20%, 
-      rgba(255, 255, 255, 0.5) 50%, 
-      rgba(255, 255, 255, 0.3) 80%, 
-      transparent 100%
-    );
+    background: linear-gradient(to right,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 20%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.3) 80%,
+        transparent 100%);
   }
-  
+
   .dividerText {
     width: 2rem;
     height: 2rem;
     margin: 0 1rem;
   }
-  
+
   .loginContainer {
     max-width: 400px;
   }
-  
+
   .formCard {
     padding: 1.5rem;
   }
-  
+
   .leftColumn,
   .rightColumn {
     height: auto;
@@ -520,16 +535,16 @@
   .formCard {
     padding: 1.25rem;
   }
-  
+
   .loginFormContainer {
     gap: 1.5rem;
   }
-  
+
   .socialButton,
   .input {
     padding: 0.875rem 1rem;
   }
-  
+
   .socialButtonSmall {
     padding: 0.75rem 0.875rem;
     font-size: 0.75rem;
@@ -537,60 +552,74 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.4;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.8;
     transform: scale(1.1);
   }
 }
+
 /* Structured groups for tighter layout */
 .socialMainButtons {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Giảm từ 1rem xuống 0.75rem */
+  gap: 0.75rem;
+  /* Giảm từ 1rem xuống 0.75rem */
 }
 
 .socialSecondaryButtons {
-  margin-top: 0.75rem; /* Giảm từ 1rem xuống 0.75rem */
+  margin-top: 0.75rem;
+  /* Giảm từ 1rem xuống 0.75rem */
 }
 
 .formInputsGroup {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Giảm từ 1rem xuống 0.75rem */
+  gap: 0.75rem;
+  /* Giảm từ 1rem xuống 0.75rem */
 }
 
 .formOptionsGroup {
-  margin: 0.75rem 0 0.25rem 0; /* Giảm margin top từ 1rem xuống 0.75rem và bottom từ 0.5rem xuống 0.25rem */
+  margin: 0.75rem 0 0.25rem 0;
+  /* Giảm margin top từ 1rem xuống 0.75rem và bottom từ 0.5rem xuống 0.25rem */
 }
 
 .formSubmitGroup {
-  margin-top: 0.25rem; /* Giảm từ 0.5rem xuống 0.25rem */
+  margin-top: 0.25rem;
+  /* Giảm từ 0.5rem xuống 0.25rem */
 }
 
 /* Balanced spacing and alignment */
 .formGroup {
   display: flex;
   flex-direction: column;
-  gap: 0.375rem; /* Giảm từ 0.5rem xuống 0.375rem */
+  gap: 0.375rem;
+  /* Giảm từ 0.5rem xuống 0.375rem */
 }
 
 /* Compact heights for visual balance */
 .socialButton,
 .input {
-  height: 3rem; /* Giảm từ 3.5rem xuống 3rem */
+  height: 3rem;
+  /* Giảm từ 3.5rem xuống 3rem */
 }
 
 .socialButtonSmall {
-  height: 2.75rem; /* Giảm từ 3rem xuống 2.75rem */
+  height: 2.75rem;
+  /* Giảm từ 3rem xuống 2.75rem */
 }
 
 .submitButton {
-  height: 3rem; /* Giảm từ 3.5rem xuống 3rem */
+  height: 3rem;
+  /* Giảm từ 3.5rem xuống 3rem */
 }
+
 .submitButton {
   width: 100%;
   margin-top: 0.25rem;

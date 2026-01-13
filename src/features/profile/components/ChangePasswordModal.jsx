@@ -19,12 +19,12 @@ function ChangePasswordModal({ isOpen, onClose, onPasswordChanged }) {
 
   const validateForm = () => {
     const errors = {};
-    
+
     // Current password validation
     if (!formData.currentPassword || formData.currentPassword.trim() === '') {
       errors.currentPassword = 'Current password is required';
     }
-    
+
     // New password validation
     if (!formData.newPassword || formData.newPassword.trim() === '') {
       errors.newPassword = 'New password is required';
@@ -33,20 +33,20 @@ function ChangePasswordModal({ isOpen, onClose, onPasswordChanged }) {
     } else if (formData.newPassword.length > 100) {
       errors.newPassword = 'New password must not exceed 100 characters';
     }
-    
+
     // Confirm password validation
     if (!formData.confirmPassword || formData.confirmPassword.trim() === '') {
       errors.confirmPassword = 'Confirm password is required';
     } else if (formData.newPassword !== formData.confirmPassword) {
       errors.confirmPassword = 'Passwords do not match';
     }
-    
+
     // Check if new password is same as current
-    if (formData.currentPassword && formData.newPassword && 
-        formData.currentPassword === formData.newPassword) {
+    if (formData.currentPassword && formData.newPassword &&
+      formData.currentPassword === formData.newPassword) {
       errors.newPassword = 'New password must be different from current password';
     }
-    
+
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -57,7 +57,7 @@ function ChangePasswordModal({ isOpen, onClose, onPasswordChanged }) {
       ...prev,
       [name]: value
     }));
-    
+
     // Clear field error when user starts typing
     if (formErrors[name]) {
       setFormErrors(prev => ({
@@ -65,7 +65,7 @@ function ChangePasswordModal({ isOpen, onClose, onPasswordChanged }) {
         [name]: ''
       }));
     }
-    
+
     // Clear success message when user starts typing
     if (success) {
       setSuccess(false);
@@ -74,25 +74,25 @@ function ChangePasswordModal({ isOpen, onClose, onPasswordChanged }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setSaving(true);
     setError('');
     setSuccess(false);
-    
+
     try {
       await changePassword(formData);
-      
+
       setSuccess(true);
       setFormData({
         currentPassword: '',
         newPassword: '',
         confirmPassword: ''
       });
-      
+
       // Auto close after 2 seconds
       setTimeout(() => {
         if (onPasswordChanged) {
@@ -100,7 +100,7 @@ function ChangePasswordModal({ isOpen, onClose, onPasswordChanged }) {
         }
         handleClose();
       }, 2000);
-      
+
     } catch (err) {
       setError(err.message);
     } finally {
