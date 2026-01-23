@@ -99,7 +99,9 @@ function ImagesStep({
     <div className={styles.imagesStep}>
       <div className={styles.stepHeader}>
         <h2>Product Images</h2>
-        <p>Upload high-quality images to showcase your product</p>
+        {formData.images.length > 0 && (
+          <span className={styles.imageCount}>{formData.images.length} image(s)</span>
+        )}
       </div>
 
       {/* Upload Area */}
@@ -122,20 +124,11 @@ function ImagesStep({
           
           <div className={styles.uploadContent}>
             <div className={styles.uploadIcon}>📸</div>
-            <h3>Upload Product Images</h3>
-            <p>Drag and drop images here, or click to browse</p>
+            <h3>Upload Images</h3>
+            <p>Drag & drop or click to browse</p>
             <div className={styles.uploadSpecs}>
-              <span>• Max 5MB per image</span>
-              <span>• JPEG, PNG, GIF, WebP supported</span>
-              <span>• Multiple images allowed</span>
+              Max 5MB • JPEG, PNG, GIF, WebP
             </div>
-            <Button
-              variant="outline"
-              onClick={handleBrowseClick}
-              className={styles.browseButton}
-            >
-              Browse Files
-            </Button>
           </div>
         </div>
 
@@ -152,8 +145,8 @@ function ImagesStep({
       {formData.images.length > 0 && (
         <div className={styles.imagesSection}>
           <div className={styles.sectionHeader}>
-            <h3>Uploaded Images ({formData.images.length})</h3>
-            <p>Click on an image to set it as the primary image</p>
+            <h3>Uploaded Images</h3>
+            <p>Click on an image to set it as primary. Primary image will be shown first.</p>
           </div>
 
           <div className={styles.imagesGrid}>
@@ -182,18 +175,24 @@ function ImagesStep({
                     {!image.isPrimary && (
                       <button
                         type="button"
-                        onClick={() => handleSetPrimary(image.id)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleSetPrimary(image.id);
+                        }}
                         className={styles.setPrimaryButton}
-                        title="Set as primary image"
+                        title="Set as primary"
                       >
                         ⭐
                       </button>
                     )}
                     <button
                       type="button"
-                      onClick={() => handleRemoveImage(image.id)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleRemoveImage(image.id);
+                      }}
                       className={styles.removeButton}
-                      title="Remove image"
+                      title="Remove"
                     >
                       🗑️
                     </button>
@@ -208,6 +207,9 @@ function ImagesStep({
                   <div className={styles.imageSize}>
                     {formatFileSize(image.file.size)}
                   </div>
+                  {image.isPrimary && (
+                    <div className={styles.primaryLabel}>Primary Image</div>
+                  )}
                 </div>
               </div>
             ))}
@@ -219,11 +221,8 @@ function ImagesStep({
       {formData.images.length === 0 && (
         <div className={styles.noImagesState}>
           <div className={styles.noImagesIcon}>🖼️</div>
-          <h3>No Images Added Yet</h3>
-          <p>
-            Images help customers understand your product better. 
-            While optional, we recommend adding at least one high-quality image.
-          </p>
+          <h3>No images added</h3>
+          <p>Images help customers understand your product better. Add some high-quality photos!</p>
         </div>
       )}
 
@@ -235,55 +234,17 @@ function ImagesStep({
         </div>
       )}
 
-      {/* Image Guidelines */}
-      <div className={styles.guidelinesSection}>
-        <h4>📋 Image Guidelines</h4>
-        <div className={styles.guidelinesGrid}>
-          <div className={styles.guidelineItem}>
-            <div className={styles.guidelineIcon}>✅</div>
-            <div className={styles.guidelineContent}>
-              <h5>High Quality</h5>
-              <p>Use clear, well-lit photos with good resolution</p>
-            </div>
-          </div>
-          
-          <div className={styles.guidelineItem}>
-            <div className={styles.guidelineIcon}>📐</div>
-            <div className={styles.guidelineContent}>
-              <h5>Square Format</h5>
-              <p>Square images (1:1 ratio) work best for product listings</p>
-            </div>
-          </div>
-          
-          <div className={styles.guidelineItem}>
-            <div className={styles.guidelineIcon}>🎯</div>
-            <div className={styles.guidelineContent}>
-              <h5>Multiple Angles</h5>
-              <p>Show different views and important details</p>
-            </div>
-          </div>
-          
-          <div className={styles.guidelineItem}>
-            <div className={styles.guidelineIcon}>🏷️</div>
-            <div className={styles.guidelineContent}>
-              <h5>Primary Image</h5>
-              <p>Choose your best image as the primary (main) image</p>
-            </div>
-          </div>
+      {/* Quick Tips */}
+      {formData.images.length > 0 && (
+        <div className={styles.tipsSection}>
+          <h4>💡 Tips</h4>
+          <ul>
+            <li>The primary image will be displayed first in product listings</li>
+            <li>You can reorder images by setting different ones as primary</li>
+            <li>Use high-quality, well-lit photos for best results</li>
+          </ul>
         </div>
-      </div>
-
-      {/* Tips */}
-      <div className={styles.tipsSection}>
-        <h4>💡 Image Upload Tips</h4>
-        <ul className={styles.tipsList}>
-          <li>The first image you upload will automatically be set as primary</li>
-          <li>Click on any image to make it the primary image</li>
-          <li>You can upload multiple images at once</li>
-          <li>Images are processed and optimized automatically</li>
-          <li>Remove unwanted images by clicking the trash icon</li>
-        </ul>
-      </div>
+      )}
     </div>
   );
 }

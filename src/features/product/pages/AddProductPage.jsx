@@ -47,130 +47,85 @@ function AddProductPage() {
 
   return (
     <div className={styles.addProductPage}>
-      {/* Header */}
+      {/* Compact Header */}
       <div className={styles.pageHeader}>
-        <div className={styles.headerContent}>
-          <h1 className={styles.pageTitle}>Add New Product</h1>
-          <p className={styles.pageDescription}>
-            Create a new product by filling out the information below. 
-            You can add basic details, categorize the product, and upload images.
-          </p>
-        </div>
-        
+        <h1>Add Product</h1>
         <div className={styles.headerActions}>
-          <Button
-            variant="outline"
-            onClick={handleCancel}
-            disabled={productForm.loading}
-          >
+          <span className={styles.stepIndicator}>
+            {productForm.currentStep + 1}/{productForm.totalSteps}
+          </span>
+          <Button variant="outline" onClick={handleCancel} disabled={productForm.loading}>
             Cancel
           </Button>
         </div>
       </div>
 
-      {/* Progress Indicator */}
-      <div className={styles.progressSection}>
-        <div className={styles.progressBar}>
-          <div 
-            className={styles.progressFill}
-            style={{ width: `${productForm.progress}%` }}
+      {/* Main Content */}
+      <div className={styles.mainContent}>
+        {/* Compact Wizard */}
+        <div className={styles.wizardNav}>
+          <ProductFormWizard
+            currentStep={productForm.currentStep}
+            onStepClick={productForm.goToStep}
+            formData={productForm.formData}
+            errors={productForm.errors}
           />
         </div>
-        <div className={styles.progressText}>
-          Step {productForm.currentStep + 1} of {productForm.totalSteps}
+
+        {/* Form Content */}
+        <div className={styles.formContent}>
+          <ProductFormSteps
+            currentStep={productForm.currentStep}
+            formData={productForm.formData}
+            errors={productForm.errors}
+            categories={productForm.categories}
+            loadingCategories={productForm.loadingCategories}
+            onUpdateFormData={productForm.updateFormData}
+            onUpdateBookData={productForm.updateBookData}
+            onToggleCategory={productForm.toggleCategory}
+            onAddImage={productForm.addImage}
+            onRemoveImage={productForm.removeImage}
+            onSetPrimaryImage={productForm.setPrimaryImage}
+            onReorderImages={productForm.reorderImages}
+          />
         </div>
       </div>
 
-      {/* Form Content */}
-      <div className={styles.formContainer}>
-        <div className={styles.formLayout}>
-          {/* Wizard Navigation */}
-          <div className={styles.wizardSidebar}>
-            <ProductFormWizard
-              currentStep={productForm.currentStep}
-              onStepClick={productForm.goToStep}
-              formData={productForm.formData}
-              errors={productForm.errors}
-            />
+      {/* Bottom Actions */}
+      <div className={styles.bottomActions}>
+        {productForm.errors.submit && (
+          <div className={styles.errorAlert}>
+            ⚠️ {productForm.errors.submit}
           </div>
-
-          {/* Form Steps */}
-          <div className={styles.formContent}>
-            <ProductFormSteps
-              currentStep={productForm.currentStep}
-              formData={productForm.formData}
-              errors={productForm.errors}
-              categories={productForm.categories}
-              loadingCategories={productForm.loadingCategories}
-              onUpdateFormData={productForm.updateFormData}
-              onUpdateBookData={productForm.updateBookData}
-              onToggleCategory={productForm.toggleCategory}
-              onAddImage={productForm.addImage}
-              onRemoveImage={productForm.removeImage}
-              onSetPrimaryImage={productForm.setPrimaryImage}
-              onReorderImages={productForm.reorderImages}
-            />
-
-            {/* Form Actions */}
-            <div className={styles.formActions}>
-              <div className={styles.actionButtons}>
-                {!productForm.isFirstStep && (
-                  <Button
-                    variant="outline"
-                    onClick={productForm.prevStep}
-                    disabled={productForm.loading}
-                  >
-                    Previous
-                  </Button>
-                )}
-
-                <div className={styles.rightActions}>
-                  {!productForm.isLastStep ? (
-                    <Button
-                      variant="primary"
-                      onClick={productForm.nextStep}
-                      disabled={!productForm.canProceed || productForm.loading}
-                    >
-                      Next
-                    </Button>
-                  ) : (
-                    <Button
-                      variant="primary"
-                      onClick={handleSubmit}
-                      disabled={!productForm.canProceed || productForm.loading}
-                      loading={productForm.loading}
-                    >
-                      Create Product
-                    </Button>
-                  )}
-                </div>
-              </div>
-
-              {/* Error Display */}
-              {productForm.errors.submit && (
-                <div className={styles.submitError}>
-                  <span className={styles.errorIcon}>⚠️</span>
-                  <span className={styles.errorMessage}>
-                    {productForm.errors.submit}
-                  </span>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Help Section */}
-      <div className={styles.helpSection}>
-        <div className={styles.helpCard}>
-          <h3>Need Help?</h3>
-          <ul>
-            <li>Product name should be descriptive and unique</li>
-            <li>Price must be a positive number</li>
-            <li>Select relevant categories to help customers find your product</li>
-            <li>Upload high-quality images (max 5MB each)</li>
-            <li>For books, provide ISBN and publication details when available</li>
-          </ul>
+        )}
+        
+        <div className={styles.actionButtons}>
+          {!productForm.isFirstStep && (
+            <Button variant="outline" onClick={productForm.prevStep} disabled={productForm.loading}>
+              ← Back
+            </Button>
+          )}
+          
+          <div className={styles.spacer} />
+          
+          {!productForm.isLastStep ? (
+            <Button 
+              variant="primary" 
+              onClick={productForm.nextStep} 
+              disabled={!productForm.canProceed || productForm.loading}
+            >
+              Next →
+            </Button>
+          ) : (
+            <Button 
+              variant="primary" 
+              onClick={handleSubmit} 
+              disabled={!productForm.canProceed || productForm.loading}
+              loading={productForm.loading}
+            >
+              Create Product
+            </Button>
+          )}
         </div>
       </div>
     </div>

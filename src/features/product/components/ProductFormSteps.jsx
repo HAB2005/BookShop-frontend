@@ -1,15 +1,11 @@
-import BasicInfoStep from './steps/BasicInfoStep.jsx';
-import CategoriesStep from './steps/CategoriesStep.jsx';
-import ProductDetailsStep from './steps/ProductDetailsStep.jsx';
+import ProductInfoStep from './steps/ProductInfoStep.jsx';
 import ImagesStep from './steps/ImagesStep.jsx';
 import ReviewStep from './steps/ReviewStep.jsx';
 
 const FORM_STEPS = {
-  BASIC_INFO: 0,
-  CATEGORIES: 1,
-  PRODUCT_DETAILS: 2,
-  IMAGES: 3,
-  REVIEW: 4
+  PRODUCT_INFO: 0,
+  IMAGES: 1,
+  REVIEW: 2
 };
 
 function ProductFormSteps({
@@ -29,33 +25,16 @@ function ProductFormSteps({
 
   const renderCurrentStep = () => {
     switch (currentStep) {
-      case FORM_STEPS.BASIC_INFO:
+      case FORM_STEPS.PRODUCT_INFO:
         return (
-          <BasicInfoStep
-            formData={formData}
-            errors={errors}
-            onUpdateFormData={onUpdateFormData}
-          />
-        );
-
-      case FORM_STEPS.CATEGORIES:
-        return (
-          <CategoriesStep
+          <ProductInfoStep
             formData={formData}
             errors={errors}
             categories={categories}
             loadingCategories={loadingCategories}
-            onToggleCategory={onToggleCategory}
-          />
-        );
-
-      case FORM_STEPS.PRODUCT_DETAILS:
-        return (
-          <ProductDetailsStep
-            formData={formData}
-            errors={errors}
             onUpdateFormData={onUpdateFormData}
             onUpdateBookData={onUpdateBookData}
+            onToggleCategory={onToggleCategory}
           />
         );
 

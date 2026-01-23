@@ -4,20 +4,26 @@
 
 /* ==================== STEP HEADER ==================== */
 .stepHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 32px;
 }
 
 .stepHeader h2 {
-  margin: 0 0 8px 0;
+  margin: 0;
   font-size: 24px;
   font-weight: 600;
   color: #1a202c;
 }
 
-.stepHeader p {
-  margin: 0;
-  color: #64748b;
-  font-size: 16px;
+.imageCount {
+  font-size: 15px;
+  font-weight: 500;
+  color: #059669;
+  background: #f0fdf4;
+  padding: 6px 16px;
+  border-radius: 20px;
 }
 
 /* ==================== UPLOAD SECTION ==================== */
@@ -27,23 +33,25 @@
 
 .uploadArea {
   border: 2px dashed #cbd5e1;
-  border-radius: 12px;
-  padding: 48px 24px;
+  border-radius: 16px;
+  padding: 60px 32px;
   text-align: center;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   background: #fafafa;
 }
 
 .uploadArea:hover {
   border-color: #94a3b8;
   background: #f1f5f9;
+  transform: translateY(-2px);
 }
 
 .uploadArea.dragOver {
   border-color: #3b82f6;
   background: #eff6ff;
   box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
 }
 
 .hiddenInput {
@@ -54,17 +62,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 }
 
 .uploadIcon {
-  font-size: 48px;
+  font-size: 64px;
   opacity: 0.6;
 }
 
 .uploadContent h3 {
   margin: 0;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
   color: #1a202c;
 }
@@ -72,13 +80,10 @@
 .uploadContent > p {
   margin: 0;
   color: #64748b;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .uploadSpecs {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
   font-size: 14px;
   color: #6b7280;
 }
@@ -130,26 +135,31 @@
 
 .imagesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
 }
 
 .imageCard {
   border: 2px solid #e2e8f0;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   background: white;
 }
 
 .imageCard:hover {
   border-color: #cbd5e1;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
 }
 
 .imageCard.primary {
   border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.imageCard.primary:hover {
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
 }
 
 .imageContainer {
@@ -158,38 +168,40 @@
 
 .imagePreview {
   width: 100%;
-  height: 160px;
+  height: 180px;
   object-fit: cover;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .imagePreview:hover {
   opacity: 0.9;
+  transform: scale(1.02);
 }
 
 .primaryBadge {
   position: absolute;
-  top: 8px;
-  left: 8px;
-  background: #3b82f6;
+  top: 12px;
+  left: 12px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 11px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
 }
 
 .imageActions {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 12px;
+  right: 12px;
   display: flex;
-  gap: 4px;
+  gap: 6px;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.3s ease;
 }
 
 .imageCard:hover .imageActions {
@@ -198,16 +210,17 @@
 
 .setPrimaryButton,
 .removeButton {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  transition: all 0.2s ease;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .setPrimaryButton {
@@ -217,7 +230,7 @@
 
 .setPrimaryButton:hover {
   background: #3b82f6;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .removeButton {
@@ -227,57 +240,66 @@
 
 .removeButton:hover {
   background: #ef4444;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .imageInfo {
-  padding: 12px;
+  padding: 16px;
 }
 
 .imageName {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   color: #374151;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .imageSize {
-  font-size: 11px;
+  font-size: 12px;
   color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.primaryLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: #3b82f6;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* ==================== NO IMAGES STATE ==================== */
 .noImagesState {
   text-align: center;
-  padding: 48px 24px;
+  padding: 60px 32px;
   color: #6b7280;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
   margin-bottom: 32px;
 }
 
 .noImagesIcon {
-  font-size: 48px;
-  margin-bottom: 16px;
+  font-size: 64px;
+  margin-bottom: 20px;
   opacity: 0.6;
 }
 
 .noImagesState h3 {
-  margin: 0 0 8px 0;
-  font-size: 18px;
+  margin: 0 0 12px 0;
+  font-size: 20px;
   font-weight: 600;
   color: #374151;
 }
 
 .noImagesState p {
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -387,10 +409,37 @@
     font-size: 20px;
   }
   
-  .stepHeader p {
-    font-size: 14px;
+  .uploadArea {
+    padding: 40px 20px;
   }
   
+  .uploadIcon {
+    font-size: 48px;
+  }
+  
+  .uploadContent h3 {
+    font-size: 20px;
+  }
+  
+  .uploadContent > p {
+    font-size: 16px;
+  }
+  
+  .imagesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  
+  .imagePreview {
+    height: 140px;
+  }
+  
+  .imageInfo {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
   .uploadArea {
     padding: 32px 16px;
   }
@@ -407,65 +456,43 @@
     font-size: 14px;
   }
   
-  .uploadSpecs {
-    font-size: 12px;
-  }
-  
   .imagesGrid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
   }
   
   .imagePreview {
     height: 120px;
   }
   
-  .guidelinesGrid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  
-  .guidelineItem {
+  .imageInfo {
     padding: 10px;
   }
-}
-
-@media (max-width: 480px) {
-  .uploadArea {
-    padding: 24px 12px;
-  }
   
-  .uploadIcon {
-    font-size: 32px;
-  }
-  
-  .uploadContent h3 {
-    font-size: 16px;
-  }
-  
-  .imagesGrid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 12px;
-  }
-  
-  .imagePreview {
-    height: 100px;
-  }
-  
-  .imageInfo {
-    padding: 8px;
-  }
-  
-  .guidelinesSection,
   .tipsSection {
     padding: 16px;
   }
   
   .noImagesState {
-    padding: 32px 16px;
+    padding: 40px 20px;
   }
   
   .noImagesIcon {
-    font-size: 40px;
+    font-size: 48px;
+  }
+  
+  .noImagesState h3 {
+    font-size: 18px;
+  }
+  
+  .noImagesState p {
+    font-size: 14px;
+  }
+  
+  .setPrimaryButton,
+  .removeButton {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
   }
 }

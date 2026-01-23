@@ -229,15 +229,11 @@ function ProductDetailsStep({
                 onChange={(e) => handleBookFieldChange('description', e.target.value)}
                 onBlur={() => handleBlur('description')}
                 rows={4}
-                maxLength={1000}
               />
               <div className={styles.fieldFooter}>
                 {getFieldError('description') && (
                   <span className={styles.errorMessage}>{getFieldError('description')}</span>
                 )}
-                <span className={styles.charCount}>
-                  {formData.book.description.length}/1000
-                </span>
               </div>
               <div className={styles.fieldHint}>
                 Provide a compelling description that highlights key features, plot, or content

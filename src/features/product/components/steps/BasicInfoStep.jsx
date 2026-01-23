@@ -24,8 +24,7 @@ function BasicInfoStep({ formData, errors, onUpdateFormData }) {
   return (
     <div className={styles.basicInfoStep}>
       <div className={styles.stepHeader}>
-        <h2>Basic Product Information</h2>
-        <p>Enter the essential details about your product</p>
+        <h2>Basic Information</h2>
       </div>
 
       <div className={styles.formGrid}>
@@ -52,9 +51,6 @@ function BasicInfoStep({ formData, errors, onUpdateFormData }) {
               {formData.name.length}/100
             </span>
           </div>
-          <div className={styles.fieldHint}>
-            Choose a descriptive and unique name for your product
-          </div>
         </div>
 
         {/* Product Price */}
@@ -79,9 +75,6 @@ function BasicInfoStep({ formData, errors, onUpdateFormData }) {
           {getFieldError('price') && (
             <span className={styles.errorMessage}>{getFieldError('price')}</span>
           )}
-          <div className={styles.fieldHint}>
-            Enter the selling price in Vietnamese Dong
-          </div>
         </div>
 
         {/* Product Status */}
@@ -98,9 +91,6 @@ function BasicInfoStep({ formData, errors, onUpdateFormData }) {
             <option value="ACTIVE">Active</option>
             <option value="INACTIVE">Inactive</option>
           </select>
-          <div className={styles.fieldHint}>
-            Active products will be visible to customers
-          </div>
         </div>
       </div>
 
@@ -108,7 +98,7 @@ function BasicInfoStep({ formData, errors, onUpdateFormData }) {
       {formData.price && !isNaN(formData.price) && parseFloat(formData.price) > 0 && (
         <div className={styles.pricePreview}>
           <div className={styles.previewCard}>
-            <h4>Price Preview</h4>
+            <h4>Preview</h4>
             <div className={styles.priceDisplay}>
               <span className={styles.priceAmount}>
                 {new Intl.NumberFormat('vi-VN', {
@@ -120,48 +110,6 @@ function BasicInfoStep({ formData, errors, onUpdateFormData }) {
           </div>
         </div>
       )}
-
-      {/* Form Summary */}
-      <div className={styles.stepSummary}>
-        <h4>Summary</h4>
-        <div className={styles.summaryGrid}>
-          <div className={styles.summaryItem}>
-            <span className={styles.summaryLabel}>Product Name:</span>
-            <span className={styles.summaryValue}>
-              {formData.name || 'Not specified'}
-            </span>
-          </div>
-          <div className={styles.summaryItem}>
-            <span className={styles.summaryLabel}>Price:</span>
-            <span className={styles.summaryValue}>
-              {formData.price && !isNaN(formData.price) && parseFloat(formData.price) > 0
-                ? new Intl.NumberFormat('vi-VN', {
-                    style: 'currency',
-                    currency: 'VND'
-                  }).format(parseFloat(formData.price))
-                : 'Not specified'
-              }
-            </span>
-          </div>
-          <div className={styles.summaryItem}>
-            <span className={styles.summaryLabel}>Status:</span>
-            <span className={`${styles.summaryValue} ${styles.statusBadge} ${styles[formData.status.toLowerCase()]}`}>
-              {formData.status}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Tips */}
-      <div className={styles.tipsSection}>
-        <h4>💡 Tips for Better Product Listing</h4>
-        <ul className={styles.tipsList}>
-          <li>Use clear, descriptive names that customers will search for</li>
-          <li>Research competitor pricing to set competitive prices</li>
-          <li>Start with "Active" status if you're ready to sell immediately</li>
-          <li>Consider seasonal pricing strategies</li>
-        </ul>
-      </div>
     </div>
   );
 }

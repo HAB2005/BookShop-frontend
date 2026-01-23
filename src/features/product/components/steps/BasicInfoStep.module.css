@@ -4,20 +4,14 @@
 
 /* ==================== STEP HEADER ==================== */
 .stepHeader {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .stepHeader h2 {
-  margin: 0 0 8px 0;
-  font-size: 24px;
+  margin: 0;
+  font-size: 20px;
   font-weight: 600;
   color: #1a202c;
-}
-
-.stepHeader p {
-  margin: 0;
-  color: #64748b;
-  font-size: 16px;
 }
 
 /* ==================== FORM GRID ==================== */

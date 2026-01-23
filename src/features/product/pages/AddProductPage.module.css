@@ -1,169 +1,112 @@
 .addProductPage {
-  max-width: 1200px;
+  max-width: none;
   margin: 0 auto;
-  padding: 24px;
-  background: #f8fafc;
+  padding: 20px;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f8fafc;
 }
 
-/* ==================== HEADER ==================== */
+/* ==================== COMPACT HEADER ==================== */
 .pageHeader {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 32px;
-  padding: 24px;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 20px 24px;
   background: white;
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
-.headerContent h1 {
-  margin: 0 0 8px 0;
+.pageHeader h1 {
+  margin: 0;
   font-size: 28px;
   font-weight: 600;
   color: #1a202c;
 }
 
-.pageDescription {
-  margin: 0;
-  color: #64748b;
-  font-size: 16px;
-  line-height: 1.5;
-  max-width: 600px;
-}
-
 .headerActions {
   display: flex;
-  gap: 12px;
+  align-items: center;
+  gap: 16px;
 }
 
-/* ==================== PROGRESS ==================== */
-.progressSection {
-  margin-bottom: 32px;
-  padding: 20px 24px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.progressBar {
-  width: 100%;
-  height: 8px;
-  background: #e2e8f0;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 12px;
-}
-
-.progressFill {
-  height: 100%;
-  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
-  border-radius: 4px;
-  transition: width 0.3s ease;
-}
-
-.progressText {
-  text-align: center;
-  font-size: 14px;
+.stepIndicator {
+  font-size: 15px;
   font-weight: 500;
   color: #64748b;
+  background: #f1f5f9;
+  padding: 6px 16px;
+  border-radius: 20px;
 }
 
-/* ==================== FORM LAYOUT ==================== */
-.formContainer {
+/* ==================== MAIN CONTENT ==================== */
+.mainContent {
+  flex: 1;
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wizardNav {
+  width: 220px;
   background: white;
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  margin-bottom: 32px;
-}
-
-.formLayout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  min-height: 600px;
-}
-
-.wizardSidebar {
-  background: #f8fafc;
-  border-right: 1px solid #e2e8f0;
-  padding: 24px;
+  padding: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
 }
 
 .formContent {
+  flex: 1;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   padding: 32px;
-  display: flex;
-  flex-direction: column;
+  min-height: 500px;
 }
 
-/* ==================== FORM ACTIONS ==================== */
-.formActions {
-  margin-top: auto;
-  padding-top: 32px;
-  border-top: 1px solid #e2e8f0;
+/* ==================== BOTTOM ACTIONS ==================== */
+.bottomActions {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px 24px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.errorAlert {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 15px;
 }
 
 .actionButtons {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  gap: 16px;
 }
 
-.rightActions {
-  display: flex;
-  gap: 12px;
-}
-
-.submitError {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  border-radius: 8px;
-  color: #dc2626;
-  font-size: 14px;
-}
-
-.errorIcon {
-  font-size: 16px;
-}
-
-.errorMessage {
+.spacer {
   flex: 1;
-}
-
-/* ==================== HELP SECTION ==================== */
-.helpSection {
-  margin-top: 32px;
-}
-
-.helpCard {
-  background: white;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.helpCard h3 {
-  margin: 0 0 16px 0;
-  font-size: 18px;
-  font-weight: 600;
-  color: #1a202c;
-}
-
-.helpCard ul {
-  margin: 0;
-  padding-left: 20px;
-  color: #64748b;
-  line-height: 1.6;
-}
-
-.helpCard li {
-  margin-bottom: 8px;
 }
 
 /* ==================== LOADING STATE ==================== */
@@ -183,67 +126,56 @@
 }
 
 /* ==================== RESPONSIVE ==================== */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .addProductPage {
-    padding: 16px;
+    padding: 12px;
   }
   
-  .formLayout {
-    grid-template-columns: 1fr;
+  .mainContent {
+    flex-direction: column;
+    gap: 16px;
   }
   
-  .wizardSidebar {
-    border-right: none;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 20px;
+  .wizardNav {
+    position: static;
+    order: 2;
+    width: auto;
   }
   
   .formContent {
-    padding: 24px;
+    order: 1;
+    padding: 20px;
   }
-}
-
-@media (max-width: 768px) {
+  
   .pageHeader {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     align-items: stretch;
   }
   
   .headerActions {
-    justify-content: flex-end;
-  }
-  
-  .actionButtons {
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .rightActions {
-    justify-content: stretch;
-  }
-  
-  .rightActions button {
-    flex: 1;
+    justify-content: space-between;
   }
 }
 
 @media (max-width: 480px) {
   .addProductPage {
-    padding: 12px;
+    padding: 8px;
   }
   
   .pageHeader,
-  .progressSection,
-  .formContainer {
+  .wizardNav,
+  .formContent,
+  .bottomActions {
     padding: 16px;
   }
   
-  .formContent {
-    padding: 16px;
+  .actionButtons {
+    flex-direction: column;
+    gap: 8px;
   }
   
-  .wizardSidebar {
-    padding: 16px;
+  .actionButtons button {
+    width: 100%;
   }
 }

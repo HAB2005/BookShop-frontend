@@ -347,6 +347,21 @@ class ProductService {
 
   // ==================== UTILITY METHODS ====================
 
+  sortImagesByPrimary(images) {
+    if (!images || !Array.isArray(images)) return [];
+    
+    return images.sort((a, b) => {
+      // Primary images come first
+      if (a.isPrimary && !b.isPrimary) return -1;
+      if (!a.isPrimary && b.isPrimary) return 1;
+      
+      // If both are primary or both are not primary, sort by sortOrder
+      const sortOrderA = a.sortOrder !== undefined ? a.sortOrder : 999;
+      const sortOrderB = b.sortOrder !== undefined ? b.sortOrder : 999;
+      return sortOrderA - sortOrderB;
+    });
+  }
+
   formatPrice(price) {
     return new Intl.NumberFormat('vi-VN', {
       style: 'currency',

@@ -67,8 +67,10 @@ function CategoriesStep({
   return (
     <div className={styles.categoriesStep}>
       <div className={styles.stepHeader}>
-        <h2>Product Categories</h2>
-        <p>Select one or more categories that best describe your product</p>
+        <h2>Categories</h2>
+        {selectedCount > 0 && (
+          <span className={styles.selectedCount}>{selectedCount} selected</span>
+        )}
       </div>
 
       {/* Search and Filter Controls */}
@@ -92,32 +94,29 @@ function CategoriesStep({
               onChange={(e) => setShowOnlySelected(e.target.checked)}
               className={styles.filterCheckbox}
             />
-            <span>Show only selected ({selectedCount})</span>
+            <span>Selected only</span>
           </label>
         </div>
       </div>
 
-      {/* Selection Summary */}
+      {/* Selected Categories */}
       {selectedCount > 0 && (
-        <div className={styles.selectionSummary}>
-          <h4>Selected Categories ({selectedCount})</h4>
-          <div className={styles.selectedTags}>
-            {formData.categoryIds.map(categoryId => {
-              const category = categories.find(cat => cat.categoryId === categoryId);
-              return category ? (
-                <span key={categoryId} className={styles.selectedTag}>
-                  {category.name}
-                  <button
-                    type="button"
-                    onClick={() => handleCategoryToggle(categoryId)}
-                    className={styles.removeTag}
-                  >
-                    ×
-                  </button>
-                </span>
-              ) : null;
-            })}
-          </div>
+        <div className={styles.selectedTags}>
+          {formData.categoryIds.map(categoryId => {
+            const category = categories.find(cat => cat.categoryId === categoryId);
+            return category ? (
+              <span key={categoryId} className={styles.selectedTag}>
+                {category.name}
+                <button
+                  type="button"
+                  onClick={() => handleCategoryToggle(categoryId)}
+                  className={styles.removeTag}
+                >
+                  ×
+                </button>
+              </span>
+            ) : null;
+          })}
         </div>
       )}
 
@@ -149,9 +148,6 @@ function CategoriesStep({
                     <div className={styles.categoryInfo}>
                       <span className={styles.categoryIcon}>📁</span>
                       <span className={styles.categoryName}>{category.name}</span>
-                      {category.slug && (
-                        <span className={styles.categorySlug}>/{category.slug}</span>
-                      )}
                     </div>
                     <div className={styles.categoryActions}>
                       {isCategorySelected(category.categoryId) && (
@@ -174,9 +170,6 @@ function CategoriesStep({
                       <div className={styles.categoryInfo}>
                         <span className={styles.categoryIcon}>📄</span>
                         <span className={styles.categoryName}>{childCategory.name}</span>
-                        {childCategory.slug && (
-                          <span className={styles.categorySlug}>/{childCategory.slug}</span>
-                        )}
                       </div>
                       <div className={styles.categoryActions}>
                         {isCategorySelected(childCategory.categoryId) && (
@@ -189,7 +182,7 @@ function CategoriesStep({
               </div>
             ))}
 
-            {/* Orphaned Child Categories (no parent in filtered results) */}
+            {/* Orphaned Child Categories */}
             {filteredCategories.children
               .filter(child => !filteredCategories.parents.some(parent => parent.categoryId === child.parentId))
               .map(category => (
@@ -204,9 +197,6 @@ function CategoriesStep({
                     <div className={styles.categoryInfo}>
                       <span className={styles.categoryIcon}>📄</span>
                       <span className={styles.categoryName}>{category.name}</span>
-                      {category.slug && (
-                        <span className={styles.categorySlug}>/{category.slug}</span>
-                      )}
                     </div>
                     <div className={styles.categoryActions}>
                       {isCategorySelected(category.categoryId) && (
@@ -227,17 +217,6 @@ function CategoriesStep({
           <span>{errors.categories}</span>
         </div>
       )}
-
-      {/* Tips */}
-      <div className={styles.tipsSection}>
-        <h4>💡 Category Selection Tips</h4>
-        <ul className={styles.tipsList}>
-          <li>Select the most specific categories that apply to your product</li>
-          <li>Choose 2-4 categories for better discoverability</li>
-          <li>Parent categories automatically include their subcategories</li>
-          <li>You can search for categories using the search box above</li>
-        </ul>
-      </div>
     </div>
   );
 }

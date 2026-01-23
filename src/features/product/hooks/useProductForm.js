@@ -28,16 +28,14 @@ const INITIAL_FORM_DATA = {
 };
 
 const FORM_STEPS = {
-  BASIC_INFO: 0,
-  CATEGORIES: 1,
-  BOOK_DETAILS: 2,
-  IMAGES: 3,
-  REVIEW: 4
+  PRODUCT_INFO: 0,
+  IMAGES: 1,
+  REVIEW: 2
 };
 
 export const useProductForm = () => {
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
-  const [currentStep, setCurrentStep] = useState(FORM_STEPS.BASIC_INFO);
+  const [currentStep, setCurrentStep] = useState(FORM_STEPS.PRODUCT_INFO);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [categories, setCategories] = useState([]);
@@ -115,49 +113,101 @@ export const useProductForm = () => {
   // Image management
   const addImage = useCallback((imageFile, isPrimary = false) => {
     const imageData = {
-      id: Date.now(), // Temporary ID
+      id: Date.now() + Math.random(), // More unique ID
       file: imageFile,
       preview: URL.createObjectURL(imageFile),
       isPrimary,
       sortOrder: formData.images.length
     };
 
-    setFormData(prev => ({
-      ...prev,
-      images: [...prev.images, imageData]
-    }));
-  }, [formData.images.length]);
-
-  const removeImage = useCallback((imageId) => {
     setFormData(prev => {
-      const updatedImages = prev.images.filter(img => img.id !== imageId);
+      const newImages = [...prev.images, imageData];
       
-      // Clean up object URL
-      const removedImage = prev.images.find(img => img.id === imageId);
-      if (removedImage && removedImage.preview) {
-        URL.revokeObjectURL(removedImage.preview);
-      }
-      
-      // If removed image was primary, set first image as primary
-      if (removedImage && removedImage.isPrimary && updatedImages.length > 0) {
-        updatedImages[0].isPrimary = true;
+      // If this is set as primary or it's the first image, make it primary
+      if (isPrimary || prev.images.length === 0) {
+        // Set all others as non-primary
+        const updatedImages = newImages.map(img => ({
+          ...img,
+          isPrimary: img.id === imageData.id
+        }));
+        
+        // Sort images: primary first, then by original order
+        const sortedImages = updatedImages.sort((a, b) => {
+          if (a.isPrimary && !b.isPrimary) return -1;
+          if (!a.isPrimary && b.isPrimary) return 1;
+          return a.sortOrder - b.sortOrder;
+        });
+        
+        // Update sort orders after sorting
+        return {
+          ...prev,
+          images: sortedImages.map((img, index) => ({
+            ...img,
+            sortOrder: index
+          }))
+        };
       }
       
       return {
         ...prev,
-        images: updatedImages
+        images: newImages
+      };
+    });
+  }, [formData.images.length]);
+
+  const removeImage = useCallback((imageId) => {
+    setFormData(prev => {
+      const imageToRemove = prev.images.find(img => img.id === imageId);
+      const updatedImages = prev.images.filter(img => img.id !== imageId);
+      
+      // Clean up object URL
+      if (imageToRemove && imageToRemove.preview) {
+        URL.revokeObjectURL(imageToRemove.preview);
+      }
+      
+      // If removed image was primary and there are other images, set first image as primary
+      if (imageToRemove && imageToRemove.isPrimary && updatedImages.length > 0) {
+        updatedImages[0].isPrimary = true;
+      }
+      
+      // Update sort orders
+      const reorderedImages = updatedImages.map((img, index) => ({
+        ...img,
+        sortOrder: index
+      }));
+      
+      return {
+        ...prev,
+        images: reorderedImages
       };
     });
   }, []);
 
   const setPrimaryImage = useCallback((imageId) => {
-    setFormData(prev => ({
-      ...prev,
-      images: prev.images.map(img => ({
+    setFormData(prev => {
+      const updatedImages = prev.images.map(img => ({
         ...img,
         isPrimary: img.id === imageId
-      }))
-    }));
+      }));
+      
+      // Sort images: primary first, then by original order
+      const sortedImages = updatedImages.sort((a, b) => {
+        if (a.isPrimary && !b.isPrimary) return -1;
+        if (!a.isPrimary && b.isPrimary) return 1;
+        return a.sortOrder - b.sortOrder;
+      });
+      
+      // Update sort orders after sorting
+      const reorderedImages = sortedImages.map((img, index) => ({
+        ...img,
+        sortOrder: index
+      }));
+      
+      return {
+        ...prev,
+        images: reorderedImages
+      };
+    });
   }, []);
 
   const reorderImages = useCallback((dragIndex, hoverIndex) => {
@@ -192,7 +242,7 @@ export const useProductForm = () => {
   }, [currentStep, formData, toast]);
 
   const prevStep = useCallback(() => {
-    setCurrentStep(prev => Math.max(prev - 1, FORM_STEPS.BASIC_INFO));
+    setCurrentStep(prev => Math.max(prev - 1, FORM_STEPS.PRODUCT_INFO));
     setErrors({});
   }, []);
 
@@ -206,7 +256,8 @@ export const useProductForm = () => {
     const stepErrors = {};
 
     switch (currentStep) {
-      case FORM_STEPS.BASIC_INFO:
+      case FORM_STEPS.PRODUCT_INFO:
+        // Basic info validation
         if (!formData.name.trim()) {
           stepErrors.name = 'Product name is required';
         } else if (formData.name.length > 100) {
@@ -218,34 +269,30 @@ export const useProductForm = () => {
         } else if (isNaN(formData.price) || parseFloat(formData.price) <= 0) {
           stepErrors.price = 'Price must be a positive number';
         }
-        break;
 
-      case FORM_STEPS.CATEGORIES:
+        // Categories validation
         if (!formData.categoryIds || formData.categoryIds.length === 0) {
           stepErrors.categories = 'Please select at least one category';
         }
-        break;
 
-      case FORM_STEPS.BOOK_DETAILS:
-        if (formData.productType === 'book') {
-          if (formData.book.isbn && formData.book.isbn.length > 20) {
-            stepErrors.isbn = 'ISBN must not exceed 20 characters';
-          }
+        // Book details validation (always validate since we removed product type selection)
+        if (formData.book.isbn && formData.book.isbn.length > 20) {
+          stepErrors.isbn = 'ISBN must not exceed 20 characters';
+        }
 
-          if (formData.book.publishYear) {
-            const year = parseInt(formData.book.publishYear);
-            if (year < 1) {
-              stepErrors.publishYear = 'Publish year must be positive';
-            }
+        if (formData.book.publishYear) {
+          const year = parseInt(formData.book.publishYear);
+          if (year < 1) {
+            stepErrors.publishYear = 'Publish year must be positive';
           }
+        }
 
-          if (formData.book.pageCount && parseInt(formData.book.pageCount) < 1) {
-            stepErrors.pageCount = 'Page count must be positive';
-          }
+        if (formData.book.pageCount && parseInt(formData.book.pageCount) < 1) {
+          stepErrors.pageCount = 'Page count must be positive';
+        }
 
-          if (formData.book.language && formData.book.language.length > 50) {
-            stepErrors.language = 'Language must not exceed 50 characters';
-          }
+        if (formData.book.language && formData.book.language.length > 50) {
+          stepErrors.language = 'Language must not exceed 50 characters';
         }
         break;
 
@@ -285,31 +332,29 @@ export const useProductForm = () => {
         categoryIds: formData.categoryIds
       };
 
-      // Add book data if product type is book
-      if (formData.productType === 'book') {
-        const bookData = {};
-        
-        // Only include non-empty book fields
-        if (formData.book.isbn && formData.book.isbn.trim()) {
-          bookData.isbn = formData.book.isbn.trim();
-        }
-        if (formData.book.description && formData.book.description.trim()) {
-          bookData.description = formData.book.description.trim();
-        }
-        if (formData.book.publishYear) {
-          bookData.publishYear = parseInt(formData.book.publishYear);
-        }
-        if (formData.book.pageCount) {
-          bookData.pageCount = parseInt(formData.book.pageCount);
-        }
-        if (formData.book.language && formData.book.language.trim()) {
-          bookData.language = formData.book.language.trim();
-        }
-        
-        // Only add book object if it has at least one field
-        if (Object.keys(bookData).length > 0) {
-          productData.book = bookData;
-        }
+      // Add book data (always include since we removed product type selection)
+      const bookData = {};
+      
+      // Only include non-empty book fields
+      if (formData.book.isbn && formData.book.isbn.trim()) {
+        bookData.isbn = formData.book.isbn.trim();
+      }
+      if (formData.book.description && formData.book.description.trim()) {
+        bookData.description = formData.book.description.trim();
+      }
+      if (formData.book.publishYear) {
+        bookData.publishYear = parseInt(formData.book.publishYear);
+      }
+      if (formData.book.pageCount) {
+        bookData.pageCount = parseInt(formData.book.pageCount);
+      }
+      if (formData.book.language && formData.book.language.trim()) {
+        bookData.language = formData.book.language.trim();
+      }
+      
+      // Only add book object if it has at least one field
+      if (Object.keys(bookData).length > 0) {
+        productData.book = bookData;
       }
 
       // Create product (with book data if applicable)
@@ -394,12 +439,12 @@ export const useProductForm = () => {
     });
 
     setFormData(INITIAL_FORM_DATA);
-    setCurrentStep(FORM_STEPS.BASIC_INFO);
+    setCurrentStep(FORM_STEPS.PRODUCT_INFO);
     setErrors({});
   }, [formData.images]);
 
   // Computed values
-  const isFirstStep = currentStep === FORM_STEPS.BASIC_INFO;
+  const isFirstStep = currentStep === FORM_STEPS.PRODUCT_INFO;
   const isLastStep = currentStep === FORM_STEPS.REVIEW;
   const canProceed = validateCurrentStep().isValid;
   const totalSteps = Object.keys(FORM_STEPS).length;

@@ -1,0 +1,94 @@
+.quantitySelector {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.quantitySelector.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.decreaseButton,
+.increaseButton {
+  border: none;
+  background-color: #f9fafb;
+  color: #374151;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.decreaseButton:hover:not(:disabled),
+.increaseButton:hover:not(:disabled) {
+  background-color: #e5e7eb;
+}
+
+.decreaseButton:disabled,
+.increaseButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantityInput {
+  border: none;
+  text-align: center;
+  font-weight: 600;
+  background-color: white;
+  color: #1f2937;
+}
+
+.quantityInput:focus {
+  outline: none;
+}
+
+.quantityInput:disabled {
+  background-color: #f9fafb;
+  cursor: not-allowed;
+}
+
+/* Size variants */
+.small .decreaseButton,
+.small .increaseButton {
+  width: 32px;
+  height: 32px;
+  font-size: 0.875rem;
+}
+
+.small .quantityInput {
+  width: 48px;
+  height: 32px;
+  font-size: 0.875rem;
+}
+
+.medium .decreaseButton,
+.medium .increaseButton {
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+}
+
+.medium .quantityInput {
+  width: 60px;
+  height: 40px;
+  font-size: 1rem;
+}
+
+.large .decreaseButton,
+.large .increaseButton {
+  width: 48px;
+  height: 48px;
+  font-size: 1.125rem;
+}
+
+.large .quantityInput {
+  width: 72px;
+  height: 48px;
+  font-size: 1.125rem;
+}

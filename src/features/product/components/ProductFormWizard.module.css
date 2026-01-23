@@ -1,47 +1,20 @@
 .wizard {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ==================== HEADER ==================== */
-.wizardHeader {
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.wizardHeader h3 {
-  margin: 0 0 4px 0;
-  font-size: 18px;
-  font-weight: 600;
-  color: #1a202c;
-}
-
-.wizardHeader p {
-  margin: 0;
-  font-size: 14px;
-  color: #64748b;
 }
 
 /* ==================== STEPS LIST ==================== */
 .stepsList {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-}
-
-.stepContainer {
-  position: relative;
+  gap: 4px;
 }
 
 .stepItem {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
-  padding: 16px;
-  border-radius: 8px;
+  padding: 12px;
+  border-radius: 6px;
   transition: all 0.2s ease;
   cursor: pointer;
   border: 1px solid transparent;
@@ -49,23 +22,19 @@
 
 .stepItem.accessible:hover {
   background: #f1f5f9;
-  border-color: #cbd5e1;
 }
 
 .stepItem.current {
   background: #eff6ff;
   border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .stepItem.completed {
   background: #f0fdf4;
-  border-color: #22c55e;
 }
 
 .stepItem.hasErrors {
   background: #fef2f2;
-  border-color: #ef4444;
 }
 
 .stepItem.disabled {
@@ -73,26 +42,17 @@
   cursor: not-allowed;
 }
 
-.stepItem.disabled:hover {
-  background: transparent;
-  border-color: transparent;
-}
-
 /* ==================== STEP INDICATOR ==================== */
 .stepIndicator {
   flex-shrink: 0;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 14px;
-  transition: all 0.2s ease;
-}
-
-.stepItem .stepIndicator {
+  font-size: 12px;
   background: #e2e8f0;
   color: #64748b;
 }
@@ -114,13 +74,7 @@
 
 .checkIcon,
 .errorIcon {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.stepNumber {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 12px;
 }
 
 /* ==================== STEP CONTENT ==================== */
@@ -129,188 +83,47 @@
   min-width: 0;
 }
 
-.stepHeader {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
-}
-
-.stepIcon {
-  font-size: 16px;
-}
-
 .stepTitle {
-  margin: 0;
+  margin: 0 0 2px 0;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   color: #1a202c;
 }
 
 .stepDescription {
-  margin: 0 0 8px 0;
-  font-size: 12px;
-  color: #64748b;
-  line-height: 1.4;
-}
-
-/* ==================== STEP STATUS ==================== */
-.stepStatus {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.statusCompleted,
-.statusCurrent,
-.statusError {
-  font-size: 11px;
-  font-weight: 500;
-  padding: 2px 6px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.statusCompleted {
-  background: #dcfce7;
-  color: #166534;
-}
-
-.statusCurrent {
-  background: #dbeafe;
-  color: #1d4ed8;
-}
-
-.statusError {
-  background: #fee2e2;
-  color: #dc2626;
-}
-
-/* ==================== STEP CONNECTOR ==================== */
-.stepConnector {
-  position: absolute;
-  left: 31px;
-  top: 48px;
-  width: 2px;
-  height: 24px;
-  background: #e2e8f0;
-  transition: background-color 0.2s ease;
-}
-
-.stepConnector.connectorCompleted {
-  background: #22c55e;
-}
-
-/* ==================== PROGRESS SUMMARY ==================== */
-.progressSummary {
-  margin-top: 24px;
-  padding: 16px;
-  background: #f8fafc;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
-}
-
-.summaryItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.summaryItem:last-child {
-  margin-bottom: 0;
-}
-
-.summaryLabel {
-  font-size: 12px;
-  color: #64748b;
-  font-weight: 500;
-}
-
-.summaryValue {
-  font-size: 12px;
-  font-weight: 600;
-  color: #1a202c;
-}
-
-/* ==================== QUICK ACTIONS ==================== */
-.quickActions {
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid #e2e8f0;
-}
-
-.actionHint {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 12px;
-  background: #fffbeb;
-  border: 1px solid #fed7aa;
-  border-radius: 6px;
-}
-
-.hintIcon {
-  font-size: 14px;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-.actionHint p {
   margin: 0;
-  font-size: 11px;
-  color: #92400e;
-  line-height: 1.4;
+  font-size: 12px;
+  color: #64748b;
 }
 
 /* ==================== RESPONSIVE ==================== */
-@media (max-width: 1024px) {
-  .wizard {
-    padding: 0;
-  }
-  
+@media (max-width: 768px) {
   .stepsList {
     flex-direction: row;
     overflow-x: auto;
-    gap: 12px;
+    gap: 8px;
     padding-bottom: 8px;
   }
   
-  .stepContainer {
-    flex-shrink: 0;
-    min-width: 200px;
-  }
-  
-  .stepConnector {
-    display: none;
-  }
-  
-  .progressSummary {
-    display: none;
-  }
-  
-  .quickActions {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
   .stepItem {
-    padding: 12px;
+    flex-shrink: 0;
+    min-width: 120px;
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
   }
   
   .stepIndicator {
-    width: 28px;
-    height: 28px;
-    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
   }
   
   .stepTitle {
-    font-size: 13px;
+    font-size: 12px;
   }
   
   .stepDescription {
-    font-size: 11px;
+    font-size: 10px;
   }
 }

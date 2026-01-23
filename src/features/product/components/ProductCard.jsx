@@ -1,9 +1,11 @@
 import { useAuth } from '../../../shared/hooks/useAuth.js';
+import { useNavigate } from 'react-router-dom';
 import productService from '../services/productService.js';
 import styles from './ProductCard.module.css';
 
 function ProductCard({ product, onProductUpdated }) {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const isAdmin = user?.role === 'admin';
 
   const formatPrice = (price) => {
@@ -46,12 +48,17 @@ function ProductCard({ product, onProductUpdated }) {
     return url;
   };
 
-  const primaryImage = product.images?.find(img => img.isPrimary) || product.images?.[0] ||
-                       product.productImages?.find(img => img.isPrimary) || product.productImages?.[0] ||
-                       product.imageList?.find(img => img.isPrimary) || product.imageList?.[0];
+  // Get the first image (should be primary if available due to sorting)
+  const primaryImage = product.images?.[0] || 
+                       product.productImages?.[0] || 
+                       product.imageList?.[0];
+
+  const handleCardClick = () => {
+    navigate(`/products/${product.productId}`);
+  };
 
   return (
-    <div className={styles.productCard}>
+    <div className={styles.productCard} onClick={handleCardClick}>
       {/* Product Image */}
       <div className={styles.imageContainer}>
         {primaryImage ? (
@@ -91,7 +98,7 @@ function ProductCard({ product, onProductUpdated }) {
 
         {/* Sales Count */}
         <div className={styles.salesCount}>
-          Đã bán: {product.soldCount || 0}
+          Sold: {product.soldCount || 0}
         </div>
       </div>
     </div>
