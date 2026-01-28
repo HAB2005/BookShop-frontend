@@ -17,14 +17,16 @@ export const getProductsApi = async (params = {}) => {
     name,
     minPrice,
     maxPrice,
-    categoryIds
+    categoryIds,
+    includeAllStatuses = false
   } = params;
 
   const queryParams = new URLSearchParams({
     page: page.toString(),
     size: size.toString(),
     sortBy,
-    sortDir
+    sortDir,
+    includeAllStatuses: includeAllStatuses.toString()
   });
 
   if (name) queryParams.append('name', name);

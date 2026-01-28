@@ -1,0 +1,190 @@
+.cartItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    transition: box-shadow 0.2s ease;
+}
+
+.cartItem:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.productInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.productName {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+}
+
+.unitPrice {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.quantityControls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    padding: 0.25rem;
+}
+
+.quantityBtn {
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background: #ffffff;
+    color: #374151;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.quantityBtn:hover:not(:disabled) {
+    background: #e5e7eb;
+}
+
+.quantityBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.quantityInput {
+    width: 3rem;
+    height: 2rem;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-weight: 600;
+    color: #1f2937;
+    outline: none;
+}
+
+.quantityInput::-webkit-outer-spin-button,
+.quantityInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantityInput[type=number] {
+    -moz-appearance: textfield;
+}
+
+.subtotal {
+    min-width: 120px;
+    text-align: right;
+}
+
+.subtotalAmount {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #dc2626;
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.removeBtn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    background: #fee2e2;
+    color: #dc2626;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+}
+
+.removeBtn:hover:not(:disabled) {
+    background: #fecaca;
+    transform: scale(1.05);
+}
+
+.removeBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.loadingOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+}
+
+.spinner {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid #e5e7eb;
+    border-top: 2px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .cartItem {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .productInfo {
+        text-align: center;
+    }
+
+    .quantityControls {
+        align-self: center;
+    }
+
+    .subtotal {
+        text-align: center;
+        min-width: auto;
+    }
+
+    .actions {
+        align-self: center;
+    }
+}

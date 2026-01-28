@@ -1,0 +1,179 @@
+.addToCartContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.quantitySelector {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.quantityLabel {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.quantityControls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    padding: 0.25rem;
+    width: fit-content;
+}
+
+.quantityBtn {
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background: #ffffff;
+    color: #374151;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.quantityBtn:hover:not(:disabled) {
+    background: #e5e7eb;
+}
+
+.quantityBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.quantityInput {
+    width: 3rem;
+    height: 2rem;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-weight: 600;
+    color: #1f2937;
+    outline: none;
+}
+
+.quantityInput::-webkit-outer-spin-button,
+.quantityInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantityInput[type=number] {
+    -moz-appearance: textfield;
+}
+
+.addToCartButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.addToCartButton:hover:not(:disabled) {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.addToCartButton:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.addToCartButton.disabled,
+.addToCartButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.addToCartButton.loading {
+    cursor: not-allowed;
+}
+
+/* Size variations */
+.addToCartButton.small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.addToCartButton.medium {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.addToCartButton.large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+}
+
+.icon {
+    font-size: 1.1em;
+}
+
+.spinner {
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .addToCartContainer {
+        gap: 0.75rem;
+    }
+
+    .quantityControls {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .addToCartButton {
+        width: 100%;
+    }
+
+    .addToCartButton.small {
+        padding: 0.625rem 1rem;
+    }
+
+    .addToCartButton.medium {
+        padding: 0.875rem 1.5rem;
+    }
+
+    .addToCartButton.large {
+        padding: 1.125rem 2rem;
+    }
+}

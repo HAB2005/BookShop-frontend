@@ -50,6 +50,13 @@ function Sidebar({ userRole = 'admin', isMobile = false, isOpen = false, onClose
       active: location.pathname.startsWith('/categories')
     },
     {
+      id: 'stock',
+      label: 'Stock Management',
+      icon: '📦',
+      path: '/stock',
+      active: location.pathname.startsWith('/stock')
+    },
+    {
       id: 'orders',
       label: 'Orders',
       icon: '🛒',

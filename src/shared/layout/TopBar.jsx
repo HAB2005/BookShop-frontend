@@ -55,6 +55,17 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
     { label: 'Shopping Cart', icon: '🛍️', path: '/cart' }
   ];
 
+  // Navigation items for admin
+  const adminNavItems = [
+    { label: 'Dashboard', icon: '📊', path: '/dashboard' },
+    { label: 'User Management', icon: '👥', path: '/user' },
+    { label: 'Products', icon: '📦', path: '/products' },
+    { label: 'Categories', icon: '📂', path: '/categories' },
+    { label: 'Stock Management', icon: '📦', path: '/stock' },
+    { label: 'Orders', icon: '🛒', path: '/orders' },
+    { label: 'Analytics', icon: '📈', path: '/analytics' }
+  ];
+
   const handleLogout = () => {
     logout();
     navigate('/login');
@@ -135,12 +146,49 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
           </div>
         )}
 
+        {/* Admin Navigation Dropdown */}
+        {isAdmin && (
+          <div className={styles.navigationWrapper} ref={navigationDropdownRef}>
+            <button
+              className={styles.navigationButton}
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowNavigationDropdown(!showNavigationDropdown);
+              }}
+            >
+              <span className={styles.navigationIcon}>☰</span>
+              <span className={styles.navigationText}>Admin Menu</span>
+              <span className={`${styles.dropdownArrow} ${showNavigationDropdown ? styles.rotated : ''}`}>▼</span>
+            </button>
+
+            {showNavigationDropdown && (
+              <div className={styles.navigationDropdown} onClick={(e) => e.stopPropagation()}>
+                <div className={styles.navigationHeader}>
+                  <h4>Admin Navigation</h4>
+                </div>
+                <div className={styles.navigationList}>
+                  {adminNavItems.map((item, index) => (
+                    <button
+                      key={index}
+                      className={styles.navigationItem}
+                      onClick={() => handleNavigationClick(item.path)}
+                    >
+                      <span className={styles.navItemIcon}>{item.icon}</span>
+                      <span className={styles.navItemLabel}>{item.label}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
         {/* Breadcrumbs or Title */}
         {breadcrumbs.length > 0 ? (
           <nav className={styles.breadcrumb}>
             {breadcrumbs.map((crumb, index) => (
               <span key={index} className={styles.breadcrumbItem}>
-                {crumb}
+                {typeof crumb === 'string' ? crumb : crumb.label}
                 {index < breadcrumbs.length - 1 && (
                   <span className={styles.breadcrumbSeparator}>/</span>
                 )}
@@ -161,8 +209,7 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
               onClick={() => navigate('/cart')}
               title="Shopping Cart"
             >
-              <span className={styles.quickActionIcon}>🛍️</span>
-              <span className={styles.cartBadge}>3</span>
+              <span className={styles.quickActionIcon}>🛒</span>
             </button>
             <button
               className={styles.quickActionButton}
@@ -170,6 +217,26 @@ function TopBar({ title = "Dashboard", breadcrumbs = [], onMenuClick, isMobile =
               title="Favorites"
             >
               <span className={styles.quickActionIcon}>❤️</span>
+            </button>
+          </div>
+        )}
+
+        {/* Quick Actions for Admin */}
+        {isAdmin && (
+          <div className={styles.quickActions}>
+            <button
+              className={styles.quickActionButton}
+              onClick={() => navigate('/stock')}
+              title="Stock Management"
+            >
+              <span className={styles.quickActionIcon}>📦</span>
+            </button>
+            <button
+              className={styles.quickActionButton}
+              onClick={() => navigate('/dashboard')}
+              title="Dashboard"
+            >
+              <span className={styles.quickActionIcon}>📊</span>
             </button>
           </div>
         )}

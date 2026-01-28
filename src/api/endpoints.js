@@ -65,10 +65,29 @@ const PRODUCT_IMAGE = {
   DELETE_ALL: "/product-images",
 };
 
+const CART = {
+  GET: "/cart",
+  ADD_ITEM: "/cart/items",
+  UPDATE_ITEM: (id) => `/cart/items/${id}`,
+  REMOVE_ITEM: (id) => `/cart/items/${id}`,
+  CLEAR: "/cart",
+};
+
 const FILE = {
   SERVE: (productId, filename) => `/files/products/${productId}/${filename}`,
   DOWNLOAD: (productId, filename) => `/files/products/${productId}/${filename}/download`,
   INFO: (productId, filename) => `/files/products/${productId}/${filename}/info`,
 };
 
-export { AUTH, USER, PRODUCT, CATEGORY, PRODUCT_IMAGE, FILE };
+const STOCK = {
+  GET_BY_PRODUCT: (productId) => `/admin/stock/product/${productId}`,
+  GET_BY_PRODUCTS: "/admin/stock/products",
+  CREATE: (productId) => `/admin/stock/product/${productId}`,
+  CREATE_FROM_REQUEST: "/admin/stock",
+  ADD: (productId) => `/admin/stock/product/${productId}/add`,
+  SET: (productId) => `/admin/stock/product/${productId}`,
+  LOW_STOCK: "/admin/stock/low-stock",
+  STATISTICS: "/admin/stock/statistics",
+};
+
+export { AUTH, USER, PRODUCT, CATEGORY, PRODUCT_IMAGE, CART, FILE, STOCK };

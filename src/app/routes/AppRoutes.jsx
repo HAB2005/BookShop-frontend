@@ -8,6 +8,7 @@ import NotFoundPage from "../../pages/error/NotFoundPage";
 import { DashboardPage } from "../../features/dashboard";
 import { OrdersPage } from "../../features/order";
 import { CartPage } from "../../features/cart";
+import CheckoutPage from "../../features/cart/pages/CheckoutPage";
 import { FavoritesPage } from "../../features/favorites";
 import ProtectedLayout from "../../shared/layout/ProtectedLayout";
 import ProtectedRoute from "./ProtectedRoute";
@@ -26,6 +27,9 @@ import EditProductListPage from "../../features/products/pages/EditProductListPa
 
 // Import CategoryManagementPage
 import { CategoryManagementPage } from "../../features/category";
+
+// Import StockManagementPage
+import { StockManagementPage } from "../../features/stock";
 
 export default function AppRoutes() {
   return (
@@ -127,6 +131,15 @@ export default function AppRoutes() {
           </ProtectedRoute>
         } />
 
+        {/* Admin-only stock management route */}
+        <Route path="/stock" element={
+          <ProtectedRoute requiredRole="admin">
+            <ProtectedLayout>
+              <StockManagementPage />
+            </ProtectedLayout>
+          </ProtectedRoute>
+        } />
+
         <Route path="/orders" element={
           <ProtectedRoute allowedRoles={['admin', 'customer']}>
             <ProtectedLayout>
@@ -139,6 +152,14 @@ export default function AppRoutes() {
           <ProtectedRoute requiredRole="customer">
             <ProtectedLayout>
               <CartPage />
+            </ProtectedLayout>
+          </ProtectedRoute>
+        } />
+
+        <Route path="/checkout" element={
+          <ProtectedRoute requiredRole="customer">
+            <ProtectedLayout>
+              <CheckoutPage />
             </ProtectedLayout>
           </ProtectedRoute>
         } />

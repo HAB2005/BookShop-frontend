@@ -9,7 +9,7 @@ import styles from './CustomerProductListPage.module.css';
 function CustomerProductListPage() {
   const { user } = useAuth();
   const isAdmin = user?.role === 'admin';
-  
+
   const {
     products,
     loading,
@@ -57,7 +57,7 @@ function CustomerProductListPage() {
             <div className={styles.errorIcon}>⚠️</div>
             <h3>Failed to load products</h3>
             <p>{error}</p>
-            <button 
+            <button
               className={styles.retryButton}
               onClick={refreshProducts}
             >
@@ -98,11 +98,11 @@ function CustomerProductListPage() {
                 >
                   Previous
                 </button>
-                
+
                 <span className={styles.pageInfo}>
                   Page {pagination.page + 1} of {pagination.totalPages}
                 </span>
-                
+
                 <button
                   className={styles.pageButton}
                   onClick={() => handlePageChange(pagination.page + 1)}

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../shared/hooks/useAuth';
 import { usePageLayout } from '../../../shared/hooks/usePageLayout';
+import { AddToCartButton } from '../../cart';
 import productService from '../services/productService.js';
 import LoadingSpinner from '../../../shared/ui/LoadingSpinner.jsx';
 import ErrorBoundary from '../../../shared/components/ErrorBoundary.jsx';
@@ -19,8 +20,6 @@ function ProductDetailPage() {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [quantity, setQuantity] = useState(1);
-  const [addingToCart, setAddingToCart] = useState(false);
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
 
   const isCustomer = user?.role === 'customer';
@@ -89,24 +88,6 @@ function ProductDetailPage() {
     const newQuantity = quantity + change;
     if (newQuantity >= 1 && newQuantity <= 99) {
       setQuantity(newQuantity);
-    }
-  };
-
-  const handleAddToCart = async () => {
-    if (!isCustomer) {
-      toast.error('Please login as customer to add items to cart');
-      return;
-    }
-
-    setAddingToCart(true);
-    try {
-      // TODO: Implement add to cart API call
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
-      toast.success(`Added ${quantity} ${product.name} to cart`);
-    } catch (error) {
-      toast.error('Failed to add item to cart');
-    } finally {
-      setAddingToCart(false);
     }
   };
 
@@ -386,59 +367,17 @@ function ProductDetailPage() {
             {/* Purchase Section - Only for customers */}
             {isCustomer && product.status === 'ACTIVE' && (
               <div className={styles.purchaseSection}>
-                {/* Quantity Selector */}
-                <div className={styles.quantitySection}>
-                  <span className={styles.quantityLabel}>Quantity:</span>
-                  <div className={styles.quantityControls}>
-                    <button
-                      className={styles.quantityButton}
-                      onClick={() => handleQuantityChange(-1)}
-                      disabled={quantity <= 1}
-                    >
-                      -
-                    </button>
-                    <input
-                      type="number"
-                      value={quantity}
-                      onChange={(e) => {
-                        const value = parseInt(e.target.value);
-                        if (value >= 1 && value <= 99) {
-                          setQuantity(value);
-                        }
-                      }}
-                      className={styles.quantityInput}
-                      min="1"
-                      max="99"
-                    />
-                    <button
-                      className={styles.quantityButton}
-                      onClick={() => handleQuantityChange(1)}
-                      disabled={quantity >= 99}
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
+                {/* Add to Cart Component */}
+                <AddToCartButton
+                  productId={product.productId}
+                  productName={product.name}
+                  size="large"
+                  showQuantitySelector={true}
+                  defaultQuantity={1}
+                />
 
-                {/* Action Buttons */}
-                <div className={styles.actionButtons}>
-                  <button
-                    className={styles.addToCartButton}
-                    onClick={handleAddToCart}
-                    disabled={addingToCart}
-                  >
-                    {addingToCart ? (
-                      <>
-                        <LoadingSpinner size="small" />
-                        Adding...
-                      </>
-                    ) : (
-                      <>
-                        🛒 Add to Cart
-                      </>
-                    )}
-                  </button>
-                  
+                {/* Additional Action Buttons */}
+                <div className={styles.additionalActions}>
                   <button
                     className={styles.buyNowButton}
                     onClick={handleBuyNow}
@@ -453,12 +392,6 @@ function ProductDetailPage() {
                   >
                     ❤️
                   </button>
-                </div>
-
-                {/* Total Price */}
-                <div className={styles.totalPrice}>
-                  <span className={styles.totalLabel}>Total:</span>
-                  <span className={styles.totalValue}>{formatPrice(product.price * quantity)}</span>
                 </div>
               </div>
             )}
