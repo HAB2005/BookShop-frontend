@@ -208,9 +208,10 @@ export const useLowStock = () => {
         }
     }, [toast]);
 
+    // Load data only once on mount, not on every loadLowStockItems change
     useEffect(() => {
         loadLowStockItems();
-    }, [loadLowStockItems]);
+    }, []); // Remove loadLowStockItems dependency to prevent infinite loop
 
     return {
         lowStockItems,
@@ -253,9 +254,10 @@ export const useStockStatistics = () => {
         }
     }, [toast]);
 
+    // Load data only once on mount, not on every loadStatistics change
     useEffect(() => {
         loadStatistics();
-    }, [loadStatistics]);
+    }, []); // Remove loadStatistics dependency to prevent infinite loop
 
     return {
         statistics,

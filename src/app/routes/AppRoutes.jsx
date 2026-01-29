@@ -6,9 +6,11 @@ import { ProfilePage } from "../../features/profile";
 import UnauthorizedPage from "../../pages/error/UnauthorizedPage";
 import NotFoundPage from "../../pages/error/NotFoundPage";
 import { DashboardPage } from "../../features/dashboard";
-import { OrdersPage } from "../../features/order";
+import { OrderListPage, OrderDetailPage } from "../../features/order";
+import AdminOrderListPage from "../../features/order/pages/AdminOrderListPage.jsx";
+import OrderTestPage from "../../features/order/pages/OrderTestPage.jsx";
 import { CartPage } from "../../features/cart";
-import CheckoutPage from "../../features/cart/pages/CheckoutPage";
+import CheckoutPage from "../../features/cart/pages/CheckoutPage.jsx";
 import { FavoritesPage } from "../../features/favorites";
 import ProtectedLayout from "../../shared/layout/ProtectedLayout";
 import ProtectedRoute from "./ProtectedRoute";
@@ -143,7 +145,33 @@ export default function AppRoutes() {
         <Route path="/orders" element={
           <ProtectedRoute allowedRoles={['admin', 'customer']}>
             <ProtectedLayout>
-              <OrdersPage />
+              <OrderListPage />
+            </ProtectedLayout>
+          </ProtectedRoute>
+        } />
+
+        <Route path="/orders/:orderId" element={
+          <ProtectedRoute allowedRoles={['admin', 'customer']}>
+            <ProtectedLayout>
+              <OrderDetailPage />
+            </ProtectedLayout>
+          </ProtectedRoute>
+        } />
+
+        {/* Admin order management */}
+        <Route path="/admin/orders" element={
+          <ProtectedRoute requiredRole="admin">
+            <ProtectedLayout>
+              <AdminOrderListPage />
+            </ProtectedLayout>
+          </ProtectedRoute>
+        } />
+
+        {/* Test page for development */}
+        <Route path="/test/orders" element={
+          <ProtectedRoute allowedRoles={['admin', 'customer']}>
+            <ProtectedLayout>
+              <OrderTestPage />
             </ProtectedLayout>
           </ProtectedRoute>
         } />

@@ -17,8 +17,8 @@ class CartService {
             const response = await getCartApi();
             return {
                 success: true,
-                data: response.data,
-                message: 'Cart loaded successfully'
+                data: response.data.data, // Extract the actual cart data from SuccessResponse wrapper
+                message: response.data.message || 'Cart loaded successfully'
             };
         } catch (error) {
             return {
@@ -46,8 +46,8 @@ class CartService {
             const response = await addToCartApi(productId, quantity);
             return {
                 success: true,
-                data: response.data,
-                message: 'Item added to cart successfully'
+                data: response.data.data, // Extract actual data from SuccessResponse
+                message: response.data.message || 'Item added to cart successfully'
             };
         } catch (error) {
             return {
@@ -75,8 +75,8 @@ class CartService {
             const response = await updateCartItemApi(cartItemId, quantity);
             return {
                 success: true,
-                data: response.data,
-                message: 'Cart item updated successfully'
+                data: response.data.data, // Extract actual data from SuccessResponse
+                message: response.data.message || 'Cart item updated successfully'
             };
         } catch (error) {
             return {
@@ -102,8 +102,8 @@ class CartService {
             const response = await removeFromCartApi(cartItemId);
             return {
                 success: true,
-                data: response.data,
-                message: 'Item removed from cart successfully'
+                data: response.data.data, // Extract actual data from SuccessResponse
+                message: response.data.message || 'Item removed from cart successfully'
             };
         } catch (error) {
             return {
@@ -122,8 +122,8 @@ class CartService {
             const response = await clearCartApi();
             return {
                 success: true,
-                data: response.data,
-                message: 'Cart cleared successfully'
+                data: response.data.data, // Extract actual data from SuccessResponse
+                message: response.data.message || 'Cart cleared successfully'
             };
         } catch (error) {
             return {

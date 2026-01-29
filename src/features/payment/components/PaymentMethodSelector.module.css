@@ -1,0 +1,175 @@
+.container {
+  width: 100%;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 1.5rem 0;
+}
+
+.methodsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.methodCard {
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.methodCard:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.methodCard.selected {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.methodHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.methodIcon {
+  font-size: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  border-radius: 50%;
+}
+
+.methodCard.selected .methodIcon {
+  background: #dbeafe;
+}
+
+.methodInfo {
+  flex: 1;
+}
+
+.methodLabel {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111827;
+  margin: 0 0 0.25rem 0;
+}
+
+.methodDescription {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.radioButton {
+  display: flex;
+  align-items: center;
+}
+
+.radioButton input[type="radio"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+
+.paymentFields {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.fieldLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.fieldInput {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  transition: border-color 0.2s ease;
+}
+
+.fieldInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.fieldInput::placeholder {
+  color: #9ca3af;
+}
+
+.fakePaymentInfo,
+.codInfo {
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.fakePaymentInfo p,
+.codInfo p {
+  font-size: 0.875rem;
+  color: #92400e;
+  margin: 0 0 0.5rem 0;
+}
+
+.fakePaymentInfo p:last-child,
+.codInfo p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .methodHeader {
+    gap: 0.75rem;
+  }
+  
+  .methodIcon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.25rem;
+  }
+  
+  .fieldRow {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .paymentFields {
+    padding: 1rem;
+  }
+}

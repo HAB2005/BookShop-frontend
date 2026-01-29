@@ -1,44 +1,23 @@
 import styles from './PriceDisplay.module.css';
 
-function PriceDisplay({ 
-  price, 
-  originalPrice, 
-  currency = 'VND', 
-  locale = 'vi-VN',
-  size = 'medium',
-  showDiscount = true 
-}) {
+function PriceDisplay({ price, className = '', currency = 'VND', locale = 'vi-VN' }) {
   const formatPrice = (amount) => {
+    if (typeof amount !== 'number' || isNaN(amount)) {
+      return '0';
+    }
+    
     return new Intl.NumberFormat(locale, {
       style: 'currency',
-      currency: currency
+      currency: currency,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
     }).format(amount);
   };
 
-  const hasDiscount = originalPrice && originalPrice > price;
-  const discountPercentage = hasDiscount 
-    ? Math.round((1 - price / originalPrice) * 100) 
-    : 0;
-
   return (
-    <div className={`${styles.priceDisplay} ${styles[size]}`}>
-      <span className={styles.currentPrice}>
-        {formatPrice(price)}
-      </span>
-      
-      {hasDiscount && (
-        <>
-          <span className={styles.originalPrice}>
-            {formatPrice(originalPrice)}
-          </span>
-          {showDiscount && (
-            <span className={styles.discount}>
-              -{discountPercentage}%
-            </span>
-          )}
-        </>
-      )}
-    </div>
+    <span className={`${styles.priceDisplay} ${className}`}>
+      {formatPrice(price)}
+    </span>
   );
 }
 

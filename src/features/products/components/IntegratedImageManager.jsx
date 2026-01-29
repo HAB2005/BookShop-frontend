@@ -113,7 +113,7 @@ function IntegratedImageManager({ productId, onImagesChange, showTitle = true })
   };
 
   const getImageUrl = (image) => {
-    if (!image) return null;
+    if (!image || !productId) return null;
 
     const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api';
     let filename = image.imageUrl || image.filename || image.url;

@@ -1,187 +1,27 @@
-.confirmationContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.content {
   padding: 1rem 0;
 }
 
-.iconContainer {
-  margin-bottom: 1.5rem;
-}
-
-.icon {
-  font-size: 3rem;
-  display: inline-block;
-  padding: 1rem;
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-
-.icon.warning {
-  background: linear-gradient(135deg, #fef3c7, #fde68a);
-  border: 2px solid #f59e0b;
-}
-
-.icon.danger {
-  background: linear-gradient(135deg, #fee2e2, #fecaca);
-  border: 2px solid #ef4444;
-}
-
-.icon.info {
-  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-  border: 2px solid #3b82f6;
-}
-
-.icon.default {
-  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-  border: 2px solid #64748b;
-}
-
-@keyframes pulse {
-
-  0%,
-  100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-.messageContainer {
-  margin-bottom: 2rem;
-  max-width: 300px;
-}
-
 .message {
-  margin: 0;
   font-size: 1rem;
   color: #374151;
-  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
 }
 
-.buttonContainer {
+.actions {
   display: flex;
   gap: 0.75rem;
-  width: 100%;
-  max-width: 280px;
+  justify-content: flex-end;
 }
 
-.cancelButton {
-  flex: 1;
-  padding: 0.75rem 1.5rem;
-  background: white;
-  color: #64748b;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.cancelButton:hover {
-  background: #f9fafb;
-  border-color: #9ca3af;
-  color: #374151;
-}
-
-.cancelButton:active {
-  background: #f3f4f6;
-}
-
-.confirmButton {
-  flex: 1;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  color: white;
-}
-
-.warningButton {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
-}
-
-.warningButton:hover {
-  background: linear-gradient(135deg, #d97706, #b45309);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(245, 158, 11, 0.3);
-}
-
-.dangerButton {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
-}
-
-.dangerButton:hover {
-  background: linear-gradient(135deg, #dc2626, #b91c1c);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
-}
-
-.infoButton {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
-}
-
-.infoButton:hover {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
-}
-
-.defaultButton {
-  background: linear-gradient(135deg, #64748b, #475569);
-  box-shadow: 0 2px 4px rgba(100, 116, 139, 0.2);
-}
-
-.defaultButton:hover {
-  background: linear-gradient(135deg, #475569, #334155);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(100, 116, 139, 0.3);
-}
-
-.confirmButton:active {
-  transform: translateY(0);
-}
-
-/* Responsive Design */
-@media (max-width: 480px) {
-  .confirmationContent {
-    padding: 0.5rem 0;
+@media (max-width: 640px) {
+  .actions {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
   }
-
-  .icon {
-    font-size: 2.5rem;
-    padding: 0.75rem;
-  }
-
-  .iconContainer {
-    margin-bottom: 1rem;
-  }
-
-  .messageContainer {
-    margin-bottom: 1.5rem;
-  }
-
-  .message {
-    font-size: 0.875rem;
-  }
-
-  .buttonContainer {
-    flex-direction: column;
-    max-width: 100%;
-  }
-
-  .cancelButton,
-  .confirmButton {
+  
+  .actions button {
     width: 100%;
   }
 }

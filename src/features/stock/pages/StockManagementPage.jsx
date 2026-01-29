@@ -32,7 +32,7 @@ const StockManagementPage = () => {
             const productIds = products.map(p => p.productId);
             getStocks(productIds);
         }
-    }, [products, getStocks]);
+    }, [products]); // Remove getStocks dependency to prevent infinite loop
 
     const loadProducts = async () => {
         try {

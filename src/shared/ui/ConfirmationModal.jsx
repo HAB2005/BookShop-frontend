@@ -1,79 +1,43 @@
-import Modal from './Modal';
+import { Button } from './button.jsx';
+import Modal from './Modal.jsx';
 import styles from './ConfirmationModal.module.css';
 
 function ConfirmationModal({
   isOpen,
   onClose,
   onConfirm,
-  title = "Confirm Action",
+  title,
   message,
-  confirmText = "Confirm",
-  cancelText = "Cancel",
-  type = "warning" // warning, danger, info
+  confirmText = 'Confirm',
+  cancelText = 'Cancel',
+  confirmVariant = 'primary',
+  loading = false
 }) {
   const handleConfirm = () => {
     onConfirm();
-    onClose();
-  };
-
-  const getIconByType = () => {
-    switch (type) {
-      case 'danger':
-        return '⚠️';
-      case 'warning':
-        return '🔄';
-      case 'info':
-        return 'ℹ️';
-      default:
-        return '❓';
-    }
-  };
-
-  const getButtonClass = () => {
-    switch (type) {
-      case 'danger':
-        return styles.dangerButton;
-      case 'warning':
-        return styles.warningButton;
-      case 'info':
-        return styles.infoButton;
-      default:
-        return styles.defaultButton;
-    }
   };
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={onClose}
-      title={title}
-      size="small"
-      showCloseButton={false}
-    >
-      <div className={styles.confirmationContent}>
-        <div className={styles.iconContainer}>
-          <span className={`${styles.icon} ${styles[type]}`}>
-            {getIconByType()}
-          </span>
-        </div>
-
-        <div className={styles.messageContainer}>
-          <p className={styles.message}>{message}</p>
-        </div>
-
-        <div className={styles.buttonContainer}>
-          <button
-            className={styles.cancelButton}
+    <Modal isOpen={isOpen} onClose={onClose} title={title}>
+      <div className={styles.content}>
+        <p className={styles.message}>{message}</p>
+        
+        <div className={styles.actions}>
+          <Button
+            variant="outline"
             onClick={onClose}
+            disabled={loading}
           >
             {cancelText}
-          </button>
-          <button
-            className={`${styles.confirmButton} ${getButtonClass()}`}
+          </Button>
+          
+          <Button
+            variant={confirmVariant}
             onClick={handleConfirm}
+            loading={loading}
           >
             {confirmText}
-          </button>
+          </Button>
         </div>
       </div>
     </Modal>
